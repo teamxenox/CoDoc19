@@ -4,14 +4,14 @@ import com.teamxenox.scholar.models.Answer
 import com.teamxenox.scholar.subjects.Subject
 import com.teamxenox.scholar.data.api.faqqa.AnswersRequest
 import retrofit2.Retrofit
-import retrofit2.converter.jackson.JacksonConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 object Corona : Subject {
 
     private const val BASE_URL = "https://covid-backend.deepset.ai/"
     private val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(JacksonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(DeepSetApi::class.java)
 

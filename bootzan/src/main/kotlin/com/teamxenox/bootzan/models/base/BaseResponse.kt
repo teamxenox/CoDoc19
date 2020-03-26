@@ -1,14 +1,15 @@
 package com.teamxenox.bootzan.models.base
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
+
 
 open class BaseResponse<T>(
-        @field:JsonProperty("data")
+        @SerializedName("data")
         val `data`: T?,
-        @field:JsonProperty("error")
+        @SerializedName("error")
         val error: Boolean, // false
-        @field:JsonProperty("error_code")
+        @SerializedName("error_code")
         val errorCode: Int, // 123
-        @field:JsonProperty("message")
+        @SerializedName("message")
         val message: String // Generated
 )

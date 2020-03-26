@@ -15,7 +15,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-    implementation 'com.squareup.retrofit2:converter-jackson:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation "com.winterbe:expekt:0.5.0"
 

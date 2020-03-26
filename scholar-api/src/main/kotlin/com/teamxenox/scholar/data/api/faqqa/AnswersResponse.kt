@@ -1,64 +1,64 @@
 package com.teamxenox.scholar.data.api.faqqa
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
 
 class AnswersResponse(
-        @JsonProperty("results")
+        @SerializedName("results")
         val results: List<Result>
 )
 
 data class Result(
-        @JsonProperty("answers")
+        @SerializedName("answers")
         val answers: List<Answer>,
-        @JsonProperty("question")
+        @SerializedName("question")
         val question: String // How does corona spread?
 ) {
     data class Answer(
-            @JsonProperty("answer")
+            @SerializedName("answer")
             val answer: String,
-            @JsonProperty("context")
+            @SerializedName("context")
             val context: String,
-            @JsonProperty("meta")
+            @SerializedName("meta")
             val meta: Meta,
-            @JsonProperty("offset_end")
+            @SerializedName("offset_end")
             val offsetEnd: Int, // 642
-            @JsonProperty("offset_start")
+            @SerializedName("offset_start")
             val offsetStart: Int, // 0
-            @JsonProperty("probability")
+            @SerializedName("probability")
             val probability: Double, // 0.54761047
-            @JsonProperty("question")
+            @SerializedName("question")
             val question: String, // How long does the virus survive on surfaces?
-            @JsonProperty("score")
+            @SerializedName("score")
             val score: Double // 5.4761047
     ) {
         data class Meta(
-                @JsonProperty("answer_html")
+                @SerializedName("answer_html")
                 val answerHtml: String,
-                @JsonProperty("category")
+                @SerializedName("category")
                 val category: String,
-                @JsonProperty("city")
+                @SerializedName("city")
                 val city: String,
-                @JsonProperty("country")
+                @SerializedName("country")
                 val country: String,
-                @JsonProperty("document_id")
+                @SerializedName("document_id")
                 val documentId: String, // 131
-                @JsonProperty("document_name")
+                @SerializedName("document_name")
                 val documentName: String, // Q&A on coronaviruses (COVID-19)
-                @JsonProperty("lang")
+                @SerializedName("lang")
                 val lang: String, // en
-                @JsonProperty("last_update")
+                @SerializedName("last_update")
                 val lastUpdate: String, // 2020/03/17
-                @JsonProperty("link")
+                @SerializedName("link")
                 val link: String, // https://www.who.int/news-room/q-a-detail/q-a-coronaviruses
-                @JsonProperty("paragraph_id")
+                @SerializedName("paragraph_id")
                 val paragraphId: String, // zv7x7XABvTaZvFwu2OJO
-                @JsonProperty("question")
+                @SerializedName("question")
                 val question: String, // How long does the virus survive on surfaces?
-                @JsonProperty("region")
+                @SerializedName("region")
                 val region: String,
-                @JsonProperty("score")
+                @SerializedName("score")
                 val score: String, // 5.4761047
-                @JsonProperty("source")
+                @SerializedName("source")
                 val source: String // World Health Organization (WHO)
         )
     }
