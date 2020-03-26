@@ -12,6 +12,7 @@ object BotsManager {
     // Registered bot agents
     private val agentMap = mapOf<String, BotAgent>(
             AGENT_TELEGRAM to TelegramBotAgent()
+            // TODO: Add more bots here. Future plan!
     )
 
     fun getAgentOrThrow(agentKey: String): BotAgent {

@@ -32,6 +32,7 @@ object Corona : Subject {
                     ans.meta.documentId,
                     ans.question,
                     ans.answer,
+                    ans.meta.source,
                     (ans.probability * 100).toFloat()
             )
         }
