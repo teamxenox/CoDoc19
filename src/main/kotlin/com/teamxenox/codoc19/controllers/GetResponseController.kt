@@ -16,6 +16,6 @@ class GetResponseController {
     @PostMapping("/get_response/{botType}")
     @ResponseStatus(HttpStatus.OK)
     fun getResponse(@PathVariable botType: String) {
-        println("Type is $botType")
+        println("Hit! $botType")
     }
 }
