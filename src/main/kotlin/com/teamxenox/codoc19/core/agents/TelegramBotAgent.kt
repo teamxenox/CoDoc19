@@ -1,7 +1,7 @@
 package com.teamxenox.codoc19.core.agents
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.teamxenox.bootzan.JacksonUtils
+import com.google.gson.Gson
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.telegramapi.Telegram
@@ -18,7 +18,9 @@ class TelegramBotAgent : BotAgent {
     }
 
     override fun handle(data: Any) {
-        val update = JacksonUtils.cast(data, Update::class.java)
+        val gson = Gson().newBuilder().create()
+        val toJson = gson.toJson(data)
+        val update = gson.fromJson(toJson, Update::class.java)
         val message = update.message!!.text
         println("Message is `$message`")
         if (message == HELP_COMMAND || START_COMMAND == HELP_COMMAND) {

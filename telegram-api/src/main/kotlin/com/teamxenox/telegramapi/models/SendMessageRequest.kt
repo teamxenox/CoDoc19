@@ -1,31 +1,31 @@
 package com.teamxenox.telegramapi.models
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
 
 
 data class SendMessageRequest(
-        @field:JsonProperty("chat_id")
+        @SerializedName("chat_id")
         val chatId: Int, // to
-        @JsonProperty("text")
+        @SerializedName("text")
         val text: String, // This is some message
-        @JsonProperty("disable_web_page_preview")
+        @SerializedName("disable_web_page_preview")
         val isDisableWebPagePreview: Boolean?,
-        @JsonProperty("parse_mode")
+        @SerializedName("parse_mode")
         val parseMode: String?,
-        @JsonProperty("reply_to_message_id")
+        @SerializedName("reply_to_message_id")
         val replyMsgId: Long?,
-        @JsonProperty("reply_markup")
+        @SerializedName("reply_markup")
         val replyMarkup: ReplyMarkup?
 ) {
     data class ReplyMarkup(
-            @JsonProperty("inline_keyboard")
+            @SerializedName("inline_keyboard")
             val inlineKeyboard: List<List<InlineButton>>
     )
 
     data class InlineButton(
-            @JsonProperty("text")
+            @SerializedName("text")
             val text: String, // ✅ Relevant
-            @JsonProperty("callback_data")
+            @SerializedName("callback_data")
             val callbackData: String // r123
     ) {
         class ByteOverflowException(message: String?) : Throwable(message)
