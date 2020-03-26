@@ -1,3 +1,6 @@
 # scholar-api
 
-To get answers to COVID-19 related questions
+Scholar knows about everything. You ask him the question, he'll give you an answer if he's aware about the subject.
+Currently, scholar knows about below subjects.
+
+- COVID-19
