@@ -33,6 +33,7 @@ object Corona : Subject {
                     ans.question,
                     ans.answer,
                     ans.meta.source,
+                    ans.meta.link,
                     (ans.probability * 100).toFloat()
             )
         }

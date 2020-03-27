@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class SendMessageRequest(
         @SerializedName("chat_id")
-        val chatId: Int, // to
+        val chatId: Long, // to
         @SerializedName("text")
         val text: String, // This is some message
         @SerializedName("disable_web_page_preview")
         val isDisableWebPagePreview: Boolean?,
         @SerializedName("parse_mode")
-        val parseMode: String?,
+        val parseMode: String? = "HTML",
         @SerializedName("reply_to_message_id")
         val replyMsgId: Long?,
         @SerializedName("reply_markup")

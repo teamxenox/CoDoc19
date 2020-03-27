@@ -5,5 +5,6 @@ data class Answer(
         val question: String,
         val answer: String,
         val source : String,
+        val sourceLink : String,
         val confidence: Float
 )

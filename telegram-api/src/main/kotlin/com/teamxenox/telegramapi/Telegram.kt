@@ -2,6 +2,7 @@ package com.teamxenox.telegramapi
 
 import com.teamxenox.telegramapi.models.SendMessageRequest
 import com.teamxenox.telegramapi.models.SendMessageResponse
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -20,12 +21,11 @@ class Telegram(
     }
 
 
-    fun sendMessage(sendMessageRequest: SendMessageRequest): SendMessageResponse? {
-        val response = api.sendMessage(
+    fun sendMessage(sendMessageRequest: SendMessageRequest): Response<SendMessageResponse> {
+        return api.sendMessage(
                 accessToken,
                 sendMessageRequest
         ).execute()
-        return response.body()
     }
 }
 
