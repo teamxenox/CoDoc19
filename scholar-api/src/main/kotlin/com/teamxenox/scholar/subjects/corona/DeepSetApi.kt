@@ -13,5 +13,5 @@ interface DeepSetApi {
     fun getAnswers(@Body answersRequest: AnswersRequest): Call<AnswersResponse>
 
     @POST("models/1/feedback")
-    fun addFeedback(@Body addFeedbackRequest: AddFeedbackRequest): Call<Any>
+    fun addFeedback(@Body addFeedbackRequest: AddFeedbackRequest) : Call<Any>
 }

@@ -13,6 +13,7 @@ import com.teamxenox.telegramapi.models.*
 
 class TelegramBotAgent : BotAgent {
 
+    private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
     private val telegramApi = Telegram(SecretConstants.TELEGRAM_ACTIVE_BOT_TOKEN)
 
@@ -47,15 +48,24 @@ class TelegramBotAgent : BotAgent {
     }
 
     override fun runQuiz() {
-        TODO("Not yet implemented")
+        sendToBeDone()
+    }
+
+    private fun sendToBeDone() {
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = update!!.message.chat.id,
+                        text = "TO BE DONE! 👷"
+                )
+        )
     }
 
     override fun runTest() {
-        TODO("Not yet implemented")
+        sendToBeDone()
     }
 
     override fun sendUpdate() {
-        TODO("Not yet implemented")
+        sendToBeDone()
     }
 
     private fun handleFeedback() {
@@ -98,16 +108,19 @@ class TelegramBotAgent : BotAgent {
     }
 
     private fun handleQuestion(jsonString: String?) {
-        val update = gson.fromJson(jsonString, Update::class.java)
-        val message = update.message.text
+
+        this.update = gson.fromJson(jsonString, Update::class.java)
+        val message = update!!.message.text
 
         // From information
-        val chatId = update.message.chat.id
-        val replyId = update.message.messageId
+        val chatId = update!!.message.chat.id
+        val replyId = update!!.message.messageId
 
         sendTyping(chatId)
 
-        if (message == CMD_HELP || CMD_START == CMD_HELP) {
+        println("Message is `$message`")
+
+        if (message == CMD_HELP || message == CMD_START) {
             sendHelp(chatId, replyId)
         } else if (message == CMD_TEST) {
             runTest()
