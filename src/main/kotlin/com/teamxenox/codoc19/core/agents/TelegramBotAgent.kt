@@ -43,16 +43,18 @@ class TelegramBotAgent : BotAgent {
 
         private val TEST_ANSWER_YES_NO_DATA_REGEX = "(?<questionId>\\d+)(?<answer>[yn])".toRegex()
 
-        private const val Q1_ID = 1
-        private const val Q2_ID = 2
-        private const val Q3_ID = 3
-        private const val Q4_ID = 4
+        private const val ID_FEAR = 1
+        private const val ID_FEVER = 2
+        private const val ID_COUGH = 3
+        private const val ID_SOB = 4
+        private const val ID_AGE_ABOVE_50 = 5
 
         private val questions = mapOf(
-                Q1_ID to "Do you fear that you might have COVID-19 ? 🤔",
-                Q2_ID to "Do you have fever?",
-                Q3_ID to "Do you have cough?",
-                Q4_ID to "Do you feel shortness of breath?"
+                ID_FEAR to "Do you fear that you might have COVID-19 ? 🤔",
+                ID_FEVER to "Do you have fever?",
+                ID_COUGH to "Do you have cough?",
+                ID_SOB to "Do you feel shortness of breath?",
+                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?"
         )
     }
 
@@ -115,11 +117,11 @@ class TelegramBotAgent : BotAgent {
         println("Question $questionId answered `$answer`")
         val data = "$questionId$answer"
         when (questionId) {
-            Q1_ID -> {
+            ID_FEAR -> {
 
                 if (answer == "y") {
                     // Asking if got fever
-                    ask(Q2_ID, null)
+                    ask(ID_FEVER, null)
                 } else {
                     telegramApi.sendMessage(
                             SendMessageRequest(
@@ -131,26 +133,41 @@ class TelegramBotAgent : BotAgent {
             }
 
             // fever
-            Q2_ID -> {
-                ask(Q3_ID, data)
+            ID_FEVER -> {
+                ask(ID_COUGH, data)
             }
 
             // cough
-            Q3_ID -> {
-                ask(Q4_ID, data)
+            ID_COUGH -> {
+                ask(ID_SOB, buttonData)
             }
 
             // shortness of breath
-            Q4_ID -> {
+            ID_SOB -> {
                 // here, we'll have answer for fever, cough and sb
-                val sbAnswer = answer
+                val sb = answer
                 val answers = buttonData.split("-")
-                val feverAnswer = answers.find { it.contains("$Q2_ID") }!!
-                        .replace("$Q2_ID", "")
-                val coughAnswer = answers.find { it.contains("$Q3_ID") }!!
-                        .replace("$Q3_ID", "")
+                println(answer)
+                val fever = answers.find { it.contains("$ID_FEVER") }!!
+                        .replace("$ID_FEVER", "")
+                val cough = answers.find { it.contains("$ID_COUGH") }!!
+                        .replace("$ID_COUGH", "")
 
+                if (sb == "y" && fever == "y" && cough == "y") {
+                    ask(ID_AGE_ABOVE_50, null)
+                }
+            }
 
+            // age
+            ID_AGE_ABOVE_50 -> {
+                if (answer == "y") {
+                    /**
+                     * - Tell them Isolate themselves
+                    - Give them Local authority number
+                     */
+                } else {
+
+                }
             }
         }
     }
@@ -195,8 +212,8 @@ class TelegramBotAgent : BotAgent {
     override fun startTest() {
         println("Starting test...")
 
-        val buttons = getYesNoButtons(Q1_ID, null)
-        val question = "Okay, Let's start the test 😊 \n\n${questions[Q1_ID]}"
+        val buttons = getYesNoButtons(ID_FEAR, null)
+        val question = "Okay, Let's start the test 😊 \n\n${questions[ID_FEAR]}"
 
         telegramApi.sendMessage(
                 SendMessageRequest(
