@@ -29,8 +29,11 @@ class TelegramBotAgent : BotAgent {
         private const val FEEDBACK_IRRELEVANT_KEY = 'i'
         private const val FEEDBACK_OUTDATED_KEY = 'o'
 
-        private const val HELP_COMMAND = "/help"
-        private const val START_COMMAND = "/start"
+        private const val CMD_HELP = "/help"
+        private const val CMD_START = "/start"
+        private const val CMD_TEST = "/test"
+        private const val CMD_QUIZ = "/quiz"
+        private const val CMD_UPDATE = "/update"
     }
 
     override fun handle(data: Any) {
@@ -41,6 +44,18 @@ class TelegramBotAgent : BotAgent {
         } else {
             handleQuestion(jsonString)
         }
+    }
+
+    override fun runQuiz() {
+        TODO("Not yet implemented")
+    }
+
+    override fun runTest() {
+        TODO("Not yet implemented")
+    }
+
+    override fun sendUpdate() {
+        TODO("Not yet implemented")
     }
 
     private fun handleFeedback() {
@@ -92,8 +107,14 @@ class TelegramBotAgent : BotAgent {
 
         sendTyping(chatId)
 
-        if (message == HELP_COMMAND || START_COMMAND == HELP_COMMAND) {
+        if (message == CMD_HELP || CMD_START == CMD_HELP) {
             sendHelp(chatId, replyId)
+        } else if (message == CMD_TEST) {
+            runTest()
+        } else if (message == CMD_QUIZ) {
+            runQuiz()
+        } else if (message == CMD_UPDATE) {
+            sendUpdate()
         } else {
             val answer = Scholar.getAnswer(Corona, message)
             if (answer != null) {
@@ -210,8 +231,15 @@ class TelegramBotAgent : BotAgent {
         val resp = telegramApi.sendMessage(
                 SendMessageRequest(
                         chatId = chatId,
-                        text = "Hey, Welcome :)",
-                        replyMsgId = replyMsgId
+                        text = """
+                            Hey, My name is CoDoc 👨‍⚕️. I am here to help you with COVID-19.
+                            
+                            🤖 Don't know much about COVID-19? Ask me your question
+                            🥼  $CMD_TEST To check the likelihood of having COVID-19
+                            🤔 $CMD_QUIZ Are you taking the correct protective measures against COVID-19 ? Find out
+                            📈 $CMD_UPDATE To get global COVID-19 statistics
+                            
+                        """.trimIndent()
                 )
         )
         if (resp.code() != 200) {
