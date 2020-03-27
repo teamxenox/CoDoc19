@@ -2,7 +2,7 @@ package com.teamxenox.codoc19.core.agents
 
 import com.teamxenox.bootzan.GsonUtils
 import com.teamxenox.bootzan.GsonUtils.gson
-import com.teamxenox.codoc19.core.FeedbackParser
+import com.teamxenox.codoc19.core.features.qa.FeedbackParser
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.scholar.Scholar
@@ -16,6 +16,8 @@ class TelegramBotAgent : BotAgent {
     private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
     private val telegramApi = Telegram(SecretConstants.TELEGRAM_ACTIVE_BOT_TOKEN)
+    private var chatId: Long = -1
+    private var messageId: Long = -1
 
     companion object {
 
@@ -35,50 +37,37 @@ class TelegramBotAgent : BotAgent {
         private const val CMD_TEST = "/test"
         private const val CMD_QUIZ = "/quiz"
         private const val CMD_UPDATE = "/update"
+
+        private const val BUTTON_YES = "✅ YES"
+        private const val BUTTON_NO = "❌ NO"
+
+        private val TEST_ANSWER_YES_NO_DATA_REGEX = "(?<questionId>\\d+)(?<answer>[yn])".toRegex()
+
+        private const val Q1_ID = 1
+        private const val Q2_ID = 2
+        private const val Q3_ID = 3
+        private const val Q4_ID = 4
+
+        private val questions = mapOf(
+                Q1_ID to "Do you fear that you might have COVID-19 ? 🤔",
+                Q2_ID to "Do you have fever?",
+                Q3_ID to "Do you have cough?",
+                Q4_ID to "Do you feel shortness of breath?"
+        )
     }
 
     override fun handle(data: Any) {
+
         val jsonString = gson.toJson(data)
 
-        if (isFeedback(jsonString)) {
-            handleFeedback()
+        if (isButtonClick(jsonString)) {
+            handleButtonClick()
         } else {
             handleQuestion(jsonString)
         }
     }
 
-    override fun runQuiz() {
-        sendToBeDone()
-    }
-
-    private fun sendToBeDone() {
-        telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = update!!.message.chat.id,
-                        text = "TO BE DONE! 👷"
-                )
-        )
-    }
-
-    override fun runTest() {
-        sendToBeDone()
-    }
-
-    override fun sendUpdate() {
-        sendToBeDone()
-    }
-
-    private fun handleFeedback() {
-
-        val feedbackData = feedbackQuery!!.callbackQuery.data
-
-        // Sending typing
-        sendTyping(feedbackQuery!!.callbackQuery.from.id)
-
-        val feedback = FeedbackParser.parse(feedbackData)
-
-        Scholar.addFeedback(Corona, feedback)
-
+    private fun handleButtonClick() {
         Thread {
 
             // Sending feedback to cancel progress animation
@@ -96,13 +85,174 @@ class TelegramBotAgent : BotAgent {
 
         }.start()
 
+        val query = feedbackQuery!!.callbackQuery
+        val buttonData = query.data
+
+        println("Button click data is `$buttonData`")
+
+        chatId = query.message.chat.id
+        messageId = query.message.messageId
+
+        if (isTestButtonClick(buttonData)) {
+
+            println("It's test button click")
+
+            val matcher = TEST_ANSWER_YES_NO_DATA_REGEX.find(buttonData)!!
+            val questionId = matcher.groups["questionId"]!!.value.toInt()
+            val answer = matcher.groups["answer"]!!.value
+
+            onAnswer(questionId, answer, buttonData)
+
+        } else {
+            println("It's feedback for scholar API")
+            // question feedback for scholar API
+            handleFeedback()
+        }
+    }
+
+    private fun onAnswer(questionId: Int, answer: String, buttonData: String) {
+
+        println("Question $questionId answered `$answer`")
+        val data = "$questionId$answer"
+        when (questionId) {
+            Q1_ID -> {
+
+                if (answer == "y") {
+                    // Asking if got fever
+                    ask(Q2_ID, null)
+                } else {
+                    telegramApi.sendMessage(
+                            SendMessageRequest(
+                                    chatId = chatId,
+                                    text = "You're lucky 😇"
+                            )
+                    )
+                }
+            }
+
+            // fever
+            Q2_ID -> {
+                ask(Q3_ID, data)
+            }
+
+            // cough
+            Q3_ID -> {
+                ask(Q4_ID, data)
+            }
+
+            // shortness of breath
+            Q4_ID -> {
+                // here, we'll have answer for fever, cough and sb
+                val sbAnswer = answer
+                val answers = buttonData.split("-")
+                val feverAnswer = answers.find { it.contains("$Q2_ID") }!!
+                        .replace("$Q2_ID", "")
+                val coughAnswer = answers.find { it.contains("$Q3_ID") }!!
+                        .replace("$Q3_ID", "")
+
+
+            }
+        }
+    }
+
+    private fun ask(questionId: Int, data: String?) {
+
+        val buttons = getYesNoButtons(questionId, data)
+        val question = "${questions[questionId]}"
+
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = chatId,
+                        text = question,
+                        replyMarkup = buttons
+                )
+        )
+    }
+
+
+    private fun isTestButtonClick(buttonData: String): Boolean {
+        val answers = buttonData.split("-")
+        var isAllMatch = true
+        answers.forEach { answer ->
+            isAllMatch = answer.matches(TEST_ANSWER_YES_NO_DATA_REGEX) && isAllMatch
+        }
+        return isAllMatch
+    }
+
+    override fun runQuiz() {
+        sendToBeDone()
+    }
+
+    private fun sendToBeDone() {
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = chatId,
+                        text = "TO BE DONE! 👷"
+                )
+        )
+    }
+
+    override fun startTest() {
+        println("Starting test...")
+
+        val buttons = getYesNoButtons(Q1_ID, null)
+        val question = "Okay, Let's start the test 😊 \n\n${questions[Q1_ID]}"
+
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = chatId,
+                        text = question,
+                        replyMsgId = messageId,
+                        replyMarkup = buttons
+                )
+        )
+    }
+
+    private fun getYesNoButtons(questionId: Int, data: String?): SendMessageRequest.ReplyMarkup? {
+        val prevData = if (data != null) {
+            "-$data"
+        } else {
+            ""
+        }
+        return SendMessageRequest.ReplyMarkup(
+                listOf(
+                        listOf(
+                                SendMessageRequest.InlineButton(
+                                        BUTTON_YES,
+                                        "${questionId}y$prevData"
+                                ),
+                                SendMessageRequest.InlineButton(
+                                        BUTTON_NO,
+                                        "${questionId}n$prevData"
+                                )
+                        )
+                )
+        )
+    }
+
+    override fun sendUpdate() {
+        sendToBeDone()
+    }
+
+
+    private fun handleFeedback() {
+
+        val query = feedbackQuery!!.callbackQuery
+        val feedbackData = query.data
+
+        // Sending typing
+        sendTyping(feedbackQuery!!.callbackQuery.from.id)
+
+        val feedback = FeedbackParser.parse(feedbackData)
+        Scholar.addFeedback(Corona, feedback)
+
 
         // Sending thanks
         telegramApi.sendMessage(
                 SendMessageRequest(
-                        chatId = feedbackQuery!!.callbackQuery.message.chat.id,
+                        chatId = chatId,
                         text = "Thank you for your feedback 🤗",
-                        replyMsgId = feedbackQuery!!.callbackQuery.message.messageId
+                        replyMsgId = messageId
                 )
         )
     }
@@ -113,17 +263,17 @@ class TelegramBotAgent : BotAgent {
         val message = update!!.message.text
 
         // From information
-        val chatId = update!!.message.chat.id
-        val replyId = update!!.message.messageId
+        chatId = update!!.message.chat.id
+        messageId = update!!.message.messageId
 
         sendTyping(chatId)
 
         println("Message is `$message`")
 
         if (message == CMD_HELP || message == CMD_START) {
-            sendHelp(chatId, replyId)
+            sendHelp(chatId, messageId)
         } else if (message == CMD_TEST) {
-            runTest()
+            startTest()
         } else if (message == CMD_QUIZ) {
             runQuiz()
         } else if (message == CMD_UPDATE) {
@@ -131,9 +281,9 @@ class TelegramBotAgent : BotAgent {
         } else {
             val answer = Scholar.getAnswer(Corona, message)
             if (answer != null) {
-                sendAnswer(chatId, replyId, answer)
+                sendAnswer(chatId, messageId, answer)
             } else {
-                sendDontKnow(chatId, replyId)
+                sendDontKnow(chatId, messageId)
             }
         }
     }
@@ -260,7 +410,7 @@ class TelegramBotAgent : BotAgent {
         }
     }
 
-    private fun isFeedback(jsonString: String): Boolean {
+    private fun isButtonClick(jsonString: String): Boolean {
         this.feedbackQuery = GsonUtils.gson.fromJson(jsonString, CallbackQueryResponse::class.java)
         return this.feedbackQuery?.callbackQuery != null
     }

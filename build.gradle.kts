@@ -30,6 +30,8 @@ dependencies {
     implementation(project(":scholar-api"))
 
     runtimeOnly("mysql:mysql-connector-java")
+    testImplementation("junit:junit:4.12")
+    testImplementation("com.winterbe:expekt:0.5.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }

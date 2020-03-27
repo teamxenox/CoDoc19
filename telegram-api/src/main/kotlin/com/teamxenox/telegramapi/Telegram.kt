@@ -1,6 +1,8 @@
 package com.teamxenox.telegramapi
 
 import com.teamxenox.telegramapi.models.*
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -16,8 +18,15 @@ class Telegram(
         // Chat actions
         const val CHAT_ACTION_TYPING = "typing"
 
+
         private val api = Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .client(OkHttpClient.Builder().apply {
+                    val logging = HttpLoggingInterceptor()
+                    logging.level = HttpLoggingInterceptor.Level.BODY
+
+                    //addInterceptor(logging)
+                }.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(TelegramApi::class.java)

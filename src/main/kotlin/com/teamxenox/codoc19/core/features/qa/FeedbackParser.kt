@@ -1,4 +1,4 @@
-package com.teamxenox.codoc19.core
+package com.teamxenox.codoc19.core.features.qa
 
 import com.teamxenox.scholar.models.Feedback
 
