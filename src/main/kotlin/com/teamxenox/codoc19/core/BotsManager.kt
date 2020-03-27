@@ -9,14 +9,12 @@ object BotsManager {
     // Agent Keys
     private const val AGENT_TELEGRAM = "telegram"
 
-    // Registered bot agents
-    private val agentMap = mapOf<String, BotAgent>(
-            AGENT_TELEGRAM to TelegramBotAgent()
-            // TODO: Add more bots here. Future plan!
-    )
 
     fun getAgentOrThrow(agentKey: String): BotAgent {
-        return agentMap[agentKey] ?: throw IllegalArgumentException("Invalid agent key  : `$agentKey`")
+        return when (agentKey) {
+            AGENT_TELEGRAM -> TelegramBotAgent()
+            else -> throw IllegalArgumentException("Undefined agent : `$agentKey`")
+        }
     }
 
 }

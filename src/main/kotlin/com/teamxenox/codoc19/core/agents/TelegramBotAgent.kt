@@ -1,19 +1,19 @@
 package com.teamxenox.codoc19.core.agents
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.teamxenox.bootzan.GsonUtils
+import com.teamxenox.bootzan.GsonUtils.gson
+import com.teamxenox.codoc19.core.FeedbackParser
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.scholar.Scholar
 import com.teamxenox.scholar.models.Answer
 import com.teamxenox.scholar.subjects.corona.Corona
 import com.teamxenox.telegramapi.Telegram
-import com.teamxenox.telegramapi.models.SendMessageRequest
-import com.teamxenox.telegramapi.models.Update
-import java.lang.StringBuilder
+import com.teamxenox.telegramapi.models.*
 
 class TelegramBotAgent : BotAgent {
 
+    private var feedbackQuery: CallbackQueryResponse? = null
     private val telegramApi = Telegram(SecretConstants.TELEGRAM_ACTIVE_BOT_TOKEN)
 
     companion object {
@@ -34,13 +34,63 @@ class TelegramBotAgent : BotAgent {
     }
 
     override fun handle(data: Any) {
-        val gson = GsonUtils.gson
-        val update = gson.fromJson(gson.toJson(data), Update::class.java)
+        val jsonString = gson.toJson(data)
+
+        if (isFeedback(jsonString)) {
+            handleFeedback()
+        } else {
+            handleQuestion(jsonString)
+        }
+    }
+
+    private fun handleFeedback() {
+
+        val feedbackData = feedbackQuery!!.callbackQuery.data
+
+        // Sending typing
+        sendTyping(feedbackQuery!!.callbackQuery.from.id)
+
+        val feedback = FeedbackParser.parse(feedbackData)
+
+        Scholar.addFeedback(Corona, feedback)
+
+        Thread {
+
+            // Sending feedback to cancel progress animation
+            val resp = telegramApi.answerCallbackQuery(
+                    AnswerCallbackRequest(
+                            feedbackQuery!!.callbackQuery.id
+                    )
+            )
+
+            if (resp.code() == 200) {
+                println("answerCallback success")
+            } else {
+                println("answerCallback failed")
+            }
+
+        }.start()
+
+
+        // Sending thanks
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = feedbackQuery!!.callbackQuery.message.chat.id,
+                        text = "Thank you for your feedback 🤗",
+                        replyMsgId = feedbackQuery!!.callbackQuery.message.messageId
+                )
+        )
+    }
+
+    private fun handleQuestion(jsonString: String?) {
+        val update = gson.fromJson(jsonString, Update::class.java)
         val message = update.message.text
 
         // From information
         val chatId = update.message.chat.id
         val replyId = update.message.messageId
+
+        sendTyping(chatId)
 
         if (message == HELP_COMMAND || START_COMMAND == HELP_COMMAND) {
             sendHelp(chatId, replyId)
@@ -55,27 +105,43 @@ class TelegramBotAgent : BotAgent {
     }
 
 
+    private fun sendTyping(chatId: Long) {
+        val response = telegramApi.sendChatAction(
+                SendChatActionRequest(Telegram.CHAT_ACTION_TYPING, chatId)
+        )
 
+        if (response.code() == 200) {
+            println("Typing sent...")
+        } else {
+            println("Failed to send typing...")
+        }
+    }
+
+    /**
+     * To send answer
+     */
     private fun sendAnswer(chatId: Long, replyId: Long, answer: Answer) {
         val answerBody = prepareAnswerBody(answer)
         telegramApi.sendMessage(
                 SendMessageRequest(
-                        chatId,
-                        answerBody,
-                        true,
-                        "HTML",
-                        replyId,
-                        getFeedbackButtons(answer)
+                        chatId = chatId,
+                        text = answerBody,
+                        replyMsgId = replyId,
+                        replyMarkup = getFeedbackButtons(answer)
                 )
         )
     }
 
+
+    /**
+     * To get feedback buttons for the given answer
+     */
     private fun getFeedbackButtons(
             answer: Answer
     ): SendMessageRequest.ReplyMarkup? {
         return try {
 
-            val modelAndQuestion = answer.documentId + answer.question
+            val modelAndQuestion = answer.documentId + answer.askedQuestion
 
             SendMessageRequest.ReplyMarkup(
                     listOf(
@@ -116,7 +182,7 @@ class TelegramBotAgent : BotAgent {
         }
 
         return """
-                        Q: ${answer.question}
+                        Q: ${answer.matchedQuestion}
                         A: ${answer.answer}
                         
                         💪 Answer Confidence : ${answer.confidence}% $emoji
@@ -127,12 +193,9 @@ class TelegramBotAgent : BotAgent {
     private fun sendDontKnow(chatId: Long, replyId: Long) {
         val resp = telegramApi.sendMessage(
                 SendMessageRequest(
-                        chatId,
-                        "Sorry, I don't know about that 🤷",
-                        true,
-                        "HTML",
-                        replyId,
-                        null
+                        chatId = chatId,
+                        text = "Sorry, I don't know about that 🤷",
+                        replyMsgId = replyId
                 )
         )
         if (resp.code() != 200) {
@@ -141,22 +204,24 @@ class TelegramBotAgent : BotAgent {
     }
 
     /**
-     * To
+     * To send help text
      */
     private fun sendHelp(chatId: Long, replyMsgId: Long) {
         val resp = telegramApi.sendMessage(
                 SendMessageRequest(
-                        chatId,
-                        "Hey, Welcome :)",
-                        true,
-                        "HTML",
-                        replyMsgId,
-                        null
+                        chatId = chatId,
+                        text = "Hey, Welcome :)",
+                        replyMsgId = replyMsgId
                 )
         )
         if (resp.code() != 200) {
             println("Failed to send help")
         }
+    }
+
+    private fun isFeedback(jsonString: String): Boolean {
+        this.feedbackQuery = GsonUtils.gson.fromJson(jsonString, CallbackQueryResponse::class.java)
+        return this.feedbackQuery?.callbackQuery != null
     }
 
 

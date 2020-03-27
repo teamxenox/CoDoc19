@@ -1,8 +1,11 @@
 package com.teamxenox.scholar.subjects.corona
 
+import com.google.gson.Gson
 import com.teamxenox.scholar.models.Answer
 import com.teamxenox.scholar.subjects.Subject
 import com.teamxenox.scholar.data.api.faqqa.AnswersRequest
+import com.teamxenox.scholar.data.feedback.AddFeedbackRequest
+import com.teamxenox.scholar.models.Feedback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -30,6 +33,7 @@ object Corona : Subject {
             val ans = answersResponse.results.first().answers.first()
             return Answer(
                     ans.meta.documentId,
+                    question,
                     ans.question,
                     ans.answer,
                     ans.meta.source,
@@ -39,6 +43,24 @@ object Corona : Subject {
         }
 
         return null
+    }
+
+    override fun addFeedback(feedback: Feedback): Boolean {
+        val response = api.addFeedback(
+                AddFeedbackRequest(
+                        feedback.feedback,
+                        feedback.question,
+                        feedback.documentId
+                )
+        ).execute()
+
+        val isSuccess = response.code() == 200
+        if (isSuccess) {
+            println("Feedback sent")
+        } else {
+            println("Failed to send feedback : ${Gson().toJson(response.body())}")
+        }
+        return isSuccess
     }
 
 }
