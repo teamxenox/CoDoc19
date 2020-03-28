@@ -3,7 +3,9 @@ package com.teamxenox.codoc19.core.features.qa
 import com.teamxenox.scholar.models.Feedback
 
 object FeedbackParser {
+
     private val feedbackRegEx = "(?<feedback>\\w)(?<documentId>\\d+)(?<question>.+)".toRegex()
+
     fun parse(data: String): Feedback {
         val match = feedbackRegEx.find(data)
         val groups = match!!.groups
