@@ -7,7 +7,7 @@ import com.teamxenox.codoc19.utils.JarUtils
 import java.io.File
 
 object ContactManager {
-    private val contactFile = File("${JarUtils.getJarDir()}india_helpline.json")
+    private val contactFile = File("${JarUtils.getJarDir()}assets/india_helpline.json")
     private val type = object : TypeToken<List<Contact>>() {}.type
     val contacts: List<Contact> = GsonUtils.gson.fromJson<List<Contact>>(contactFile.readText(), type)
     val WHO_HELPLINE = Contact("01166564800", "WHO GLOBAL")

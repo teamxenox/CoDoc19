@@ -1,0 +1,2738 @@
+{
+  "version": 18,
+  "styling": {
+    "bg": {
+      "color": "rgba(181,181,181,1)",
+      "desktop": {
+        "fixed": true,
+        "imgPath": "uploads\\\/assets\\\/e0e34cc9dac7746dc25775b2f85f21b7a9856329.png",
+        "align": "bottom right",
+        "size": "cover",
+        "overlay": 0
+      },
+      "mobile": {
+        "fixed": true,
+        "sameAsDesktop": true,
+        "imgPath": "uploads\\\/assets\\\/e0e34cc9dac7746dc25775b2f85f21b7a9856329.png",
+        "align": "bottom right",
+        "size": "cover",
+        "overlay": 0
+      }
+    },
+    "contentBg": {
+      "color": "#E3E8EA",
+      "opacity": 0,
+      "valign": "middle"
+    },
+    "alignment": "left-left",
+    "elements": {
+      "outline": false,
+      "textColor": "rgba(255,255,255,1)",
+      "elementColor": "#FFFFFF",
+      "highlightColor": "rgba(255,46,72,1)",
+      "headlineFont": "Inter",
+      "textFont": "Inter",
+      "fontSize": "medium",
+      "borderRadius": 6
+    }
+  },
+  "pages": [
+    {
+      "pageID": "jjlbpgp",
+      "isEditable": 1,
+      "sharing": {
+        "title": "",
+        "active": false,
+        "description": "",
+        "imgPath": ""
+      },
+      "number": 1,
+      "sameAsProject": true,
+      "styling": {
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "fixed": true,
+            "imgPath": "",
+            "align": "center center",
+            "size": "cover",
+            "overlay": 0
+          },
+          "mobile": {
+            "fixed": true,
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        },
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "rkjr2hh",
+          "type": 5,
+          "group": 3,
+          "text": "At least how long should you wash your hands for?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don't have access to washing your hands with soap and water.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "2 minutes",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "g6n3ddc",
+              "outcomeID": -1,
+              "responseID": 3629012
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "1 minute",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "7i7mlhv",
+              "outcomeID": -1,
+              "responseID": 3629013
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "20 seconds",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "uc1eljb",
+              "outcomeID": -1,
+              "responseID": 3629014
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "10 seconds",
+              "logicJumpPageID": "",
+              "answerID": "46a9vd3",
+              "responseID": 3629015,
+              "active": false
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090348
+        },
+        {
+          "componentID": "rptbxnn",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ],
+      "title": "20 seconds",
+      "redirect_url": ""
+    },
+    {
+      "pageID": "i2h2tn3",
+      "outcomeID": "",
+      "title": "when to wash",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 2,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "s1dw0cv",
+          "type": 5,
+          "group": 3,
+          "text": "When is it absolutely necessary to wash your hands?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "It's always a good idea to wash your hands when you come from outside, interact with people or food. To protect others, wash your hands after blowing your nose, sneezing or coughing.\\n\\nDo not cough or sneeze into your hands! Use a tissue or your elbow. ",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "When you come home",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "2f1khma",
+              "responseID": 3629086,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "When you come to work",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "qy4vjqa",
+              "responseID": 3629087,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Before handling food",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "7vmw5w2",
+              "responseID": 3629088,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Blow your nose, sneeze or cough",
+              "logicJumpPageID": "",
+              "answerID": "444hrx6",
+              "active": false,
+              "responseID": 3629089,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "After shaking someone's hand",
+              "logicJumpPageID": "",
+              "answerID": "enk5wli",
+              "responseID": 3629090,
+              "active": false
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "All of the above",
+              "logicJumpPageID": "",
+              "answerID": "o7uh9p6",
+              "responseID": 3629095,
+              "active": false
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090370
+        },
+        {
+          "componentID": "owwhuj4",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "i7vfw2o",
+      "outcomeID": "",
+      "title": "sanitizer",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 3,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "lcl24s5",
+          "type": 5,
+          "group": 3,
+          "text": "You don't need to wash your hands when you're using a sanitizing gel.",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don't have access to washing your hands with soap and water.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "f861uqj",
+              "responseID": 3629091,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "gvgu04a",
+              "responseID": 3629092,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090371
+        },
+        {
+          "componentID": "jlmng17",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "nsvrspj",
+      "isEditable": 1,
+      "sharing": {
+        "title": "",
+        "active": false,
+        "description": "",
+        "imgPath": ""
+      },
+      "number": 4,
+      "sameAsProject": true,
+      "styling": {
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "fixed": true,
+            "imgPath": "",
+            "align": "center center",
+            "size": "cover",
+            "overlay": 0
+          },
+          "mobile": {
+            "fixed": true,
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        },
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "bdihmjv",
+          "type": 5,
+          "group": 3,
+          "text": "How long can COVID-19 survive on surfaces?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "COVID-19 can survive for up to 3 days on some surfaces. Hard surfaces like glass, metal or plastic can carry the virus for longer than soft surfaces like clothing.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "8 hours",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "b22wpxx",
+              "responseID": 3629166,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "24 hours",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "ck6vvwk",
+              "responseID": 3629167,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "2 days",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "hjrqu59",
+              "responseID": 3629168,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "3 days",
+              "logicJumpPageID": "",
+              "answerID": "s2qjhnf",
+              "active": false,
+              "responseID": 3629169,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090423
+        },
+        {
+          "componentID": "wqn76xm",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ],
+      "title": "surfaces",
+      "redirect_url": ""
+    },
+    {
+      "pageID": "3ifsowu",
+      "title": "clean",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 5,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "usfp2cu",
+          "type": 5,
+          "group": 3,
+          "text": "Which of these have you cleaned with disinfectant?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "All frequently touched surfaces should be cleaned daily with disinfectant.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Door knobs",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "kvcvho0",
+              "responseID": 3629198,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Light switches",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "nk8k708",
+              "responseID": 3629199,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Keyboards",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "ll7x0pl",
+              "responseID": 3629200,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Phone",
+              "logicJumpPageID": "",
+              "answerID": "a1jlan0",
+              "active": false,
+              "responseID": 3629201,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Handrails",
+              "logicJumpPageID": "",
+              "answerID": "v1vyda8",
+              "active": false,
+              "responseID": 3629202,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "All of the above",
+              "logicJumpPageID": "",
+              "answerID": "6mayxni",
+              "active": false,
+              "responseID": 3629203,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090432
+        },
+        {
+          "componentID": "6fhqnuv",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "h1bcm8v",
+      "title": "mask",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 6,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "fmt9m46",
+          "type": 5,
+          "group": 3,
+          "text": "Does wearing a face mask protect you from COVID-19?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Wearing a surgical mask can prevent you from spreading the virus if you're sick. The only mask that can protect you from COVID-19 is a N-95 respirator that medical professionals are trained to put on properly and check after each use.\\n\\nSocial distancing, handwashing and not touching your face work best.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "Yes",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "0vjnoiw",
+              "outcomeID": -1,
+              "responseID": 3629224
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "No",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "bjhq028",
+              "outcomeID": -1,
+              "responseID": 3629225
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "Only N-95 masks help",
+              "logicJumpPageID": "",
+              "answerID": "tofsau8",
+              "responseID": 3629242,
+              "active": false
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090440
+        },
+        {
+          "componentID": "ktu0fgh",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "lhs1xka",
+      "title": "distancing",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 7,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "v3ie27j",
+          "type": 5,
+          "group": 3,
+          "text": " Social distancing is only for the elderly and those with high-risk conditions.",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Social distancing protects part of the population with chronic conditions, immunosuppressed and the elderly. Even if you're not one of them, you can still get infected and transmit it onto the most vulnerable.\\n\\nIf you can, stay home.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "v785mfr",
+              "responseID": 3629283,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "75mr0kh",
+              "responseID": 3629284,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090459
+        },
+        {
+          "componentID": "p9nob75",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "h2dcf4q",
+      "title": "testing",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 8,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "ca4ik27",
+          "type": 5,
+          "group": 3,
+          "text": "Only people who have tested positive for COVID-19 need to stay home and isolate themselves.",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Any infected person, with or without symptoms, could spread the virus by touching a surface or being within 6 feet from someone",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "k8cp0gr",
+              "responseID": 3629285,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "jg5q2gn",
+              "responseID": 3629286,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090460
+        },
+        {
+          "componentID": "jiivyyw",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "hyajkc4",
+      "title": "symptoms",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 9,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "ytv4wdb",
+          "type": 5,
+          "group": 3,
+          "text": "How long can it take to show symptoms?",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Symptoms of COVID-19 appear within two to 14 days after exposure and include fever, cough and difficulty breathing.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "2 days",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "tmhl4c5",
+              "responseID": 3629287,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "4 days",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "pl121cg",
+              "responseID": 3629288,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "7 days",
+              "logicJumpPageID": "",
+              "answerID": "k22oj90",
+              "responseID": 3629289,
+              "active": false
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeID": -1,
+              "outcomeWeight": 1,
+              "text": "14 days",
+              "logicJumpPageID": "",
+              "answerID": "q66k281",
+              "responseID": 3629290,
+              "active": false
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090461
+        },
+        {
+          "componentID": "4u5920e",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "0ddv9o3",
+      "title": "flu",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 10,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "waqiunc",
+          "type": 5,
+          "group": 3,
+          "text": "You are less likely to get COVID-19 than the flu",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "COVID-19 is almost 2x as infectious as the flu. The average person with the flu infects 1.3 people. The average person with COVID-19 can infect 2.2 people.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "ijy37bo",
+              "responseID": 3629257,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "4vloqdw",
+              "responseID": 3629258,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090449
+        },
+        {
+          "componentID": "mwiealo",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "oxe1037",
+      "title": "kids",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 11,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "tm29c2l",
+          "type": 5,
+          "group": 3,
+          "text": "Kids can't catch COVID-19",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Kids can become infected. Children under age of 18 have tested positive for COVID-19, but they experience very mild symptoms. Parents and grandparents can catch COVID-19 from the kids and have a harder time recovering.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "vtabw06",
+              "responseID": 3629274,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "83aronp",
+              "responseID": 3629275,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090454
+        },
+        {
+          "componentID": "lpt8hcc",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "skex6en",
+      "title": "vit C",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 12,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "ejc71xe",
+          "type": 5,
+          "group": 3,
+          "text": "Vitamin C supplements will stop you from catching COVID-19",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Vitamin C should absolutely be included in your daily diet if you want to maintain a healthy immune system. But megadosing on supplements is unlikely to lower your risk of catching COVID-19, and may at most give you a modest advantage against the virus.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "6k2gbjr",
+              "responseID": 3629276,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "vy9wxd8",
+              "responseID": 3629277,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090455
+        },
+        {
+          "componentID": "4aqi4c9",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "423y012",
+      "title": "package",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 13,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "atkrf1x",
+          "type": 5,
+          "group": 3,
+          "text": "It's safe to receive a package from China",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "Currently, there is no evidence to support transmission of COVID-19 associated with imported goods, and there have not been any cases of COVID-19 in the United States associated with imported goods.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "khu9qmw",
+              "responseID": 3629278,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "s8s9rav",
+              "responseID": 3629279,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090457
+        },
+        {
+          "componentID": "dbgm593",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "gcyohwl",
+      "title": "food",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 14,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "039075d",
+          "type": 5,
+          "group": 3,
+          "text": "You can get the coronavirus if you eat at Chinese restaurants in the US",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "When it comes to catching COVID-19, Chinese restaurants are no different from other restaurants.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": false,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "hkgxfah",
+              "responseID": 3629281,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "5osn6at",
+              "responseID": 3629282,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090458
+        },
+        {
+          "componentID": "cw2j1t5",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    },
+    {
+      "pageID": "y42qhpx",
+      "outcomeID": "",
+      "title": "doctor",
+      "redirect_url": "",
+      "isEditable": 1,
+      "number": 15,
+      "sameAsProject": true,
+      "sharing": {
+        "active": false,
+        "title": "",
+        "description": "",
+        "imgPath": ""
+      },
+      "styling": {
+        "alignment": "center-left",
+        "elements": {
+          "outline": false,
+          "textColor": "#000000",
+          "elementColor": "#FFFFFF",
+          "highlightColor": "#000000",
+          "headlineFont": "Work Sans",
+          "textFont": "Work Sans",
+          "fontSize": "medium",
+          "borderRadius": 6
+        },
+        "bg": {
+          "color": "#FFFFFF",
+          "desktop": {
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          },
+          "mobile": {
+            "sameAsDesktop": true,
+            "imgPath": "",
+            "align": "center center",
+            "fixed": true,
+            "size": "auto",
+            "overlay": 0
+          }
+        },
+        "contentBg": {
+          "color": "#E3E8EA",
+          "opacity": 1,
+          "valign": "middle"
+        }
+      },
+      "contentComponents": [
+        {
+          "componentID": "6u0gwsi",
+          "type": 5,
+          "group": 3,
+          "text": "When you experience COVID-19 symptoms, you should go to your doctor immediately.",
+          "html": "",
+          "subtext": "",
+          "feedbackText": "If you have COVID-19 and go to the hospital, you will infect others. If you don't, you can get infected. Call your doctor instead.",
+          "settings": {
+            "required": true,
+            "maxLetters": 20,
+            "selectMultiple": false,
+            "singleClick": false,
+            "instantFeedback": true,
+            "enableValues": true,
+            "logicJump": false
+          },
+          "styling": {
+            "font": {
+              "align": "left",
+              "family": "Inter",
+              "size": 30,
+              "color": "rgba(255,255,255,1)",
+              "bold": true
+            },
+            "subfont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(255,255,255,0.8)"
+            },
+            "afont": {
+              "family": "Inter",
+              "size": 14,
+              "color": "rgba(0,0,0,0.8)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "#FFFFFF",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "#FFFFFF",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "answers": [
+            {
+              "isImage": false,
+              "correct": false,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "True",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "78d9tir",
+              "responseID": 3629291,
+              "outcomeID": -1
+            },
+            {
+              "isImage": false,
+              "correct": true,
+              "value": 0,
+              "outcomeWeight": 1,
+              "text": "False",
+              "logicJumpPageID": "",
+              "active": false,
+              "answerID": "9dhex94",
+              "responseID": 3629292,
+              "outcomeID": -1
+            }
+          ],
+          "customStyle": false,
+          "questionID": 1090463
+        },
+        {
+          "componentID": "88adka3",
+          "type": 8,
+          "group": 1,
+          "text": "Next",
+          "styling": {
+            "font": {
+              "family": "Inter",
+              "size": 18,
+              "color": "rgba(255,255,255,1)",
+              "align": "left",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,255,255,1)"
+            },
+            "bg": {
+              "color": "rgba(255,46,72,1)",
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            },
+            "border": {
+              "size": 1,
+              "color": "rgba(255,46,72,1)",
+              "radius": 6,
+              "highlightActive": true,
+              "highlightColor": "rgba(255,46,72,1)"
+            }
+          },
+          "settings": {
+            "action": "next",
+            "href": "",
+            "email": "",
+            "logicJumpPageID": ""
+          },
+          "customStyle": false
+        }
+      ]
+    }
+  ],
+  "template": "",
+  "settings": {
+    "progressBar": true,
+    "pageNavigation": false
+  },
+  "hiddenFields": [],
+  "filteredFonts": [
+    "Inter"
+  ]
+}
