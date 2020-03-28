@@ -4,6 +4,7 @@ import com.teamxenox.bootzan.GsonUtils.gson
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.core.features.qa.ScholarProxy
+import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.test.Doctor
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
@@ -16,6 +17,7 @@ open class TelegramBotAgent : BotAgent {
     private var chatId: Long = -1
     private var messageId: Long = -1
     private var doctor: Doctor? = null
+    private var quizBoss: QuizBoss? = null
 
     companion object {
         private const val CMD_HELP = "/help"
@@ -63,25 +65,33 @@ open class TelegramBotAgent : BotAgent {
         messageId = query.message.messageId
 
         doctor = Doctor(telegramApi, chatId, messageId)
+        quizBoss = QuizBoss(telegramApi, chatId, messageId)
 
-        if (doctor!!.isTestButtonClick(buttonData)) {
+        when {
+            doctor!!.isTestButtonClick(buttonData) -> {
 
-            println("It's test button click")
+                println("It's test button click")
+                doctor!!.handle(buttonData)
 
-            doctor!!.handle(buttonData)
+            }
+            quizBoss!!.isQuizClickData(buttonData) -> {
+                println("It's a quiz click")
+                quizBoss!!.handle(buttonData)
+            }
 
-
-        } else {
-            println("It's feedback for scholar API")
-            // question feedback for scholar API
-            val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
-            scholarProxy.handleFeedback(feedbackQuery!!)
+            else -> {
+                println("It's feedback for scholar API")
+                // question feedback for scholar API
+                val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
+                scholarProxy.handleFeedback(feedbackQuery!!)
+            }
         }
     }
 
 
-    override fun runQuiz() {
-        sendToBeDone()
+    override fun startQuiz() {
+        val quizBoss = QuizBoss(telegramApi, chatId, messageId)
+        quizBoss.sendIntro()
     }
 
     private fun sendToBeDone() {
@@ -122,7 +132,7 @@ open class TelegramBotAgent : BotAgent {
         } else if (message == CMD_TEST) {
             startTest()
         } else if (message == CMD_QUIZ) {
-            runQuiz()
+            startQuiz()
         } else if (message == CMD_UPDATE) {
             sendUpdate()
         } else {

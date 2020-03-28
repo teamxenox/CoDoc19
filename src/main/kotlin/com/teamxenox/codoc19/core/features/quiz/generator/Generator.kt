@@ -12,7 +12,7 @@ fun main() {
     val gson = Gson()
     val quizSrc = gson.fromJson(quizSourceFile.readText(), QuizSource::class.java)
     val questions = mutableListOf<QuizQuestion>()
-    for (page in quizSrc.pages) {
+    for ((id, page) in quizSrc.pages.withIndex()) {
 
         val question = page.contentComponents[0].text
         val options = page.contentComponents[0].answers.map {
@@ -24,6 +24,7 @@ fun main() {
 
         questions.add(
                 QuizQuestion(
+                        id + 1,
                         question,
                         options,
                         answerIndex,
@@ -31,7 +32,7 @@ fun main() {
                 )
         )
 
-        File("assets/quiz.json").writeText(gson.toJson(questions))
+        File("assets/quiz_new.json").writeText(gson.toJson(questions))
 
     }
 }

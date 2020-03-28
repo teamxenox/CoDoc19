@@ -2,7 +2,7 @@ package com.teamxenox.codoc19.core.base
 
 interface BotAgent {
     fun handle(data: Any)
-    fun runQuiz()
+    fun startQuiz()
     fun startTest()
     fun sendUpdate()
 }

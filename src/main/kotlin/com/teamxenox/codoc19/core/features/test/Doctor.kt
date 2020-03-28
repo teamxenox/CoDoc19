@@ -16,7 +16,8 @@ class Doctor(
         private const val BUTTON_NO = "❌ NO"
 
         private val TEST_ANSWER_YES_NO_DATA_REGEX = "(?<questionId>\\d+)(?<answer>[yn])".toRegex()
-        private val TEST_ANSWER_LOCATION = "s(?<state>.+)".toRegex()
+        private const val STATE_PREFIX = "s-"
+        private val TEST_ANSWER_LOCATION = "$STATE_PREFIX(?<state>.+)".toRegex()
 
         private const val ID_FEAR = 1
         private const val ID_FEVER = 2
@@ -265,12 +266,12 @@ class Doctor(
 
             if (state.size == 2) {
                 buttons.add(listOf(
-                        SendMessageRequest.InlineButton(state[0], "s${state[0]}"),
-                        SendMessageRequest.InlineButton(state[1], "s${state[1]}")
+                        SendMessageRequest.InlineButton(state[0], "${STATE_PREFIX}${state[0]}"),
+                        SendMessageRequest.InlineButton(state[1], "${STATE_PREFIX}${state[1]}")
                 ))
             } else {
                 buttons.add(listOf(
-                        SendMessageRequest.InlineButton(state[0], "s${state[0]}")
+                        SendMessageRequest.InlineButton(state[0], "${STATE_PREFIX}${state[0]}")
                 ))
             }
         }

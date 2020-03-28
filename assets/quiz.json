@@ -1,6 +1,7 @@
 [
   {
-    "question": "At least how long should you wash your hands for?",
+    "id": 1,
+    "question": "At least how long should you wash your hands for? ⏱️",
     "options": [
       "2 minutes",
       "1 minute",
@@ -11,11 +12,12 @@
     "reason": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don\u0027t have access to washing your hands with soap and water."
   },
   {
-    "question": "When is it absolutely necessary to wash your hands?",
+    "id": 2,
+    "question": "When is it absolutely necessary to wash your hands? \uD83E\uDDFC",
     "options": [
-      "When you come home",
-      "When you come to work",
-      "Before handling food",
+      "When you come home \uD83C\uDFD8",
+      "When you come to work \uD83D\uDCBC",
+      "Before handling food 🍔",
       "Blow your nose, sneeze or cough",
       "After shaking someone\u0027s hand",
       "All of the above"
@@ -24,6 +26,7 @@
     "reason": "It\u0027s always a good idea to wash your hands when you come from outside, interact with people or food. To protect others, wash your hands after blowing your nose, sneezing or coughing.\\n\\nDo not cough or sneeze into your hands! Use a tissue or your elbow. "
   },
   {
+    "id": 3,
     "question": "You don\u0027t need to wash your hands when you\u0027re using a sanitizing gel.",
     "options": [
       "True",
@@ -33,6 +36,7 @@
     "reason": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don\u0027t have access to washing your hands with soap and water."
   },
   {
+    "id": 4,
     "question": "How long can COVID-19 survive on surfaces?",
     "options": [
       "8 hours",
@@ -44,6 +48,7 @@
     "reason": "COVID-19 can survive for up to 3 days on some surfaces. Hard surfaces like glass, metal or plastic can carry the virus for longer than soft surfaces like clothing."
   },
   {
+    "id": 5,
     "question": "Which of these have you cleaned with disinfectant?",
     "options": [
       "Door knobs",
@@ -57,6 +62,7 @@
     "reason": "All frequently touched surfaces should be cleaned daily with disinfectant."
   },
   {
+    "id": 6,
     "question": "Does wearing a face mask protect you from COVID-19?",
     "options": [
       "Yes",
@@ -67,6 +73,7 @@
     "reason": "Wearing a surgical mask can prevent you from spreading the virus if you\u0027re sick. The only mask that can protect you from COVID-19 is a N-95 respirator that medical professionals are trained to put on properly and check after each use.\\n\\nSocial distancing, handwashing and not touching your face work best."
   },
   {
+    "id": 7,
     "question": " Social distancing is only for the elderly and those with high-risk conditions.",
     "options": [
       "True",
@@ -76,6 +83,7 @@
     "reason": "Social distancing protects part of the population with chronic conditions, immunosuppressed and the elderly. Even if you\u0027re not one of them, you can still get infected and transmit it onto the most vulnerable.\\n\\nIf you can, stay home."
   },
   {
+    "id": 8,
     "question": "Only people who have tested positive for COVID-19 need to stay home and isolate themselves.",
     "options": [
       "True",
@@ -85,6 +93,7 @@
     "reason": "Any infected person, with or without symptoms, could spread the virus by touching a surface or being within 6 feet from someone"
   },
   {
+    "id": 9,
     "question": "How long can it take to show symptoms?",
     "options": [
       "2 days",
@@ -96,6 +105,7 @@
     "reason": "Symptoms of COVID-19 appear within two to 14 days after exposure and include fever, cough and difficulty breathing."
   },
   {
+    "id": 10,
     "question": "You are less likely to get COVID-19 than the flu",
     "options": [
       "True",
@@ -105,6 +115,7 @@
     "reason": "COVID-19 is almost 2x as infectious as the flu. The average person with the flu infects 1.3 people. The average person with COVID-19 can infect 2.2 people."
   },
   {
+    "id": 11,
     "question": "Kids can\u0027t catch COVID-19",
     "options": [
       "True",
@@ -114,6 +125,7 @@
     "reason": "Kids can become infected. Children under age of 18 have tested positive for COVID-19, but they experience very mild symptoms. Parents and grandparents can catch COVID-19 from the kids and have a harder time recovering."
   },
   {
+    "id": 12,
     "question": "Vitamin C supplements will stop you from catching COVID-19",
     "options": [
       "True",
@@ -123,6 +135,7 @@
     "reason": "Vitamin C should absolutely be included in your daily diet if you want to maintain a healthy immune system. But megadosing on supplements is unlikely to lower your risk of catching COVID-19, and may at most give you a modest advantage against the virus."
   },
   {
+    "id": 13,
     "question": "It\u0027s safe to receive a package from China",
     "options": [
       "True",
@@ -132,6 +145,7 @@
     "reason": "Currently, there is no evidence to support transmission of COVID-19 associated with imported goods, and there have not been any cases of COVID-19 in the United States associated with imported goods."
   },
   {
+    "id": 14,
     "question": "You can get the coronavirus if you eat at Chinese restaurants in the US",
     "options": [
       "True",
@@ -141,6 +155,7 @@
     "reason": "When it comes to catching COVID-19, Chinese restaurants are no different from other restaurants."
   },
   {
+    "id": 15,
     "question": "When you experience COVID-19 symptoms, you should go to your doctor immediately.",
     "options": [
       "True",
