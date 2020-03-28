@@ -1,7 +1,7 @@
 package com.teamxenox.codoc19.core.agents
 
-import com.teamxenox.bootzan.GsonUtils
 import com.teamxenox.bootzan.GsonUtils.gson
+import com.teamxenox.codoc19.core.ContactManager
 import com.teamxenox.codoc19.core.features.qa.FeedbackParser
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
@@ -42,19 +42,22 @@ class TelegramBotAgent : BotAgent {
         private const val BUTTON_NO = "❌ NO"
 
         private val TEST_ANSWER_YES_NO_DATA_REGEX = "(?<questionId>\\d+)(?<answer>[yn])".toRegex()
+        private val TEST_ANSWER_LOCATION = "s(?<state>.+)".toRegex()
 
         private const val ID_FEAR = 1
         private const val ID_FEVER = 2
         private const val ID_COUGH = 3
         private const val ID_SOB = 4
         private const val ID_AGE_ABOVE_50 = 5
+        private const val ID_LOCATION_ABOVE_50 = 6
 
         private val questions = mapOf(
                 ID_FEAR to "Do you fear that you might have COVID-19 ? 🤔",
                 ID_FEVER to "Do you have fever?",
                 ID_COUGH to "Do you have cough?",
                 ID_SOB to "Do you feel shortness of breath?",
-                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?"
+                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?",
+                ID_LOCATION_ABOVE_50 to "Where do you live? 🌎"
         )
     }
 
@@ -99,11 +102,20 @@ class TelegramBotAgent : BotAgent {
 
             println("It's test button click")
 
-            val matcher = TEST_ANSWER_YES_NO_DATA_REGEX.find(buttonData)!!
-            val questionId = matcher.groups["questionId"]!!.value.toInt()
-            val answer = matcher.groups["answer"]!!.value
+            val yesOrNo = TEST_ANSWER_YES_NO_DATA_REGEX.find(buttonData)
+            if (yesOrNo == null) {
+                // it's location data, so parse it
+                val locationResult = TEST_ANSWER_LOCATION.find(buttonData)!!
+                val stateName = locationResult.groups["state"]!!.value
+                onAnswer(ID_LOCATION_ABOVE_50, stateName, buttonData)
 
-            onAnswer(questionId, answer, buttonData)
+            } else {
+                val questionId = yesOrNo.groups["questionId"]!!.value.toInt()
+                val answer = yesOrNo.groups["answer"]!!.value
+
+                onAnswer(questionId, answer, buttonData)
+            }
+
 
         } else {
             println("It's feedback for scholar API")
@@ -161,39 +173,96 @@ class TelegramBotAgent : BotAgent {
             // age
             ID_AGE_ABOVE_50 -> {
                 if (answer == "y") {
-                    /**
-                     * - Tell them Isolate themselves
-                    - Give them Local authority number
-                     */
+                    ask(ID_LOCATION_ABOVE_50, null)
                 } else {
 
                 }
+            }
+
+            // location
+            ID_LOCATION_ABOVE_50 -> {
+
+                val phoneNumber = ContactManager.contacts.find { it.state == answer } ?: ContactManager.WHO_HELPLINE
+
+                val message = """
+                    Please isolate yourself. Here's authority's number
+                    📞 ${phoneNumber.state} : ${phoneNumber.number}
+                """.trimIndent()
+
+                telegramApi.sendMessage(
+                        SendMessageRequest(
+                                chatId = chatId,
+                                text = message
+                        )
+                )
             }
         }
     }
 
     private fun ask(questionId: Int, data: String?) {
 
-        val buttons = getYesNoButtons(questionId, data)
-        val question = "${questions[questionId]}"
+        if (questionId == ID_LOCATION_ABOVE_50) {
+            // asking users location
+            val locationButtons = getLocationButtons()
+            telegramApi.sendMessage(
+                    SendMessageRequest(
+                            chatId = chatId,
+                            text = "Select your state 📌",
+                            replyMarkup = locationButtons
+                    )
+            )
 
-        telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = chatId,
-                        text = question,
-                        replyMarkup = buttons
+        } else {
+            // yes or no question
+            val buttons = getYesNoButtons(questionId, data)
+            val question = "${questions[questionId]}"
+
+            telegramApi.sendMessage(
+                    SendMessageRequest(
+                            chatId = chatId,
+                            text = question,
+                            replyMarkup = buttons
+                    )
+            )
+        }
+
+
+    }
+
+    private fun getLocationButtons(): SendMessageRequest.ReplyMarkup {
+
+        val buttons = mutableListOf<List<SendMessageRequest.InlineButton>>()
+        for (state in ContactManager.getStates()) {
+            buttons.add(listOf(
+                    SendMessageRequest.InlineButton(state, "s$state")
+            ))
+        }
+
+        buttons.add(listOf(
+                SendMessageRequest.InlineButton(
+                        "🗺️ Other",
+                        "sOther"
                 )
+        ))
+
+        return SendMessageRequest.ReplyMarkup(
+                buttons
         )
     }
 
 
     private fun isTestButtonClick(buttonData: String): Boolean {
-        val answers = buttonData.split("-")
-        var isAllMatch = true
-        answers.forEach { answer ->
-            isAllMatch = answer.matches(TEST_ANSWER_YES_NO_DATA_REGEX) && isAllMatch
+        // Checking if it's location data
+        return if (TEST_ANSWER_LOCATION.matches(buttonData)) {
+            true
+        } else {
+            val answers = buttonData.split("-")
+            var isAllMatch = true
+            answers.forEach { answer ->
+                isAllMatch = answer.matches(TEST_ANSWER_YES_NO_DATA_REGEX) && isAllMatch
+            }
+            isAllMatch
         }
-        return isAllMatch
     }
 
     override fun runQuiz() {
@@ -428,7 +497,7 @@ class TelegramBotAgent : BotAgent {
     }
 
     private fun isButtonClick(jsonString: String): Boolean {
-        this.feedbackQuery = GsonUtils.gson.fromJson(jsonString, CallbackQueryResponse::class.java)
+        this.feedbackQuery = gson.fromJson(jsonString, CallbackQueryResponse::class.java)
         return this.feedbackQuery?.callbackQuery != null
     }
 
