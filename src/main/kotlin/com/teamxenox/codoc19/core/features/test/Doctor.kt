@@ -9,7 +9,8 @@ class Doctor(
         private val telegramApi: Telegram,
         private val chatId: Long,
         private val messageId: Long
-) : FeatureProxy {
+) : FeatureProxy(telegramApi, chatId, messageId) {
+
     companion object {
         private const val BUTTON_YES = "✅ YES"
         private const val BUTTON_NO = "❌ NO"
@@ -24,20 +25,24 @@ class Doctor(
         private const val ID_AGE_ABOVE_50 = 5
         private const val ID_LOCATION = 6
         private const val ID_CONDITION = 7
-
         private const val ID_RUNNY_NOSE = 8
         private const val ID_MUSCLE_ACHES = 9
         private const val ID_FATIGUE = 10
 
         private val questions = mapOf(
+
                 ID_FEAR to "Do you fear that you might have COVID-19 ? 🤔",
+
+                // sequential questions for covid-19
                 ID_FEVER to "Do you have fever?",
                 ID_COUGH to "Do you have cough?",
                 ID_SOB to "Do you feel shortness of breath?",
+
                 ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?",
                 ID_LOCATION to "Where do you live? 🌎",
                 ID_CONDITION to "Is your condition is really bad? 😷",
 
+                // sequential questions for common flu
                 ID_RUNNY_NOSE to "Do you have runny nose? 👃",
                 ID_MUSCLE_ACHES to "Do you have muscle aches?",
                 ID_FATIGUE to "Do you feel fatigue?"

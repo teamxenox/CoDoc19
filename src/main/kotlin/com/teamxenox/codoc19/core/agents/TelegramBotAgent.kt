@@ -1,18 +1,14 @@
 package com.teamxenox.codoc19.core.agents
 
 import com.teamxenox.bootzan.GsonUtils.gson
-import com.teamxenox.codoc19.core.ContactManager
-import com.teamxenox.codoc19.core.features.qa.FeedbackParser
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
+import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.test.Doctor
-import com.teamxenox.scholar.Scholar
-import com.teamxenox.scholar.models.Answer
-import com.teamxenox.scholar.subjects.corona.Corona
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
 
-class TelegramBotAgent : BotAgent {
+open class TelegramBotAgent : BotAgent {
 
     private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
@@ -22,18 +18,6 @@ class TelegramBotAgent : BotAgent {
     private var doctor: Doctor? = null
 
     companion object {
-
-        // Feedback buttons
-        private const val FEEDBACK_RELEVANT_TEXT = "✅ Relevant"
-        private const val FEEDBACK_FAKE_TEXT = "😤 Fake!"
-        private const val FEEDBACK_IRRELEVANT_TEXT = "😒 Irrelevant"
-        private const val FEEDBACK_OUTDATED_TEXT = "📆 Outdated"
-
-        private const val FEEDBACK_RELEVANT_KEY = 'r'
-        private const val FEEDBACK_FAKE_KEY = 'f'
-        private const val FEEDBACK_IRRELEVANT_KEY = 'i'
-        private const val FEEDBACK_OUTDATED_KEY = 'o'
-
         private const val CMD_HELP = "/help"
         private const val CMD_START = "/start"
         private const val CMD_TEST = "/test"
@@ -90,7 +74,8 @@ class TelegramBotAgent : BotAgent {
         } else {
             println("It's feedback for scholar API")
             // question feedback for scholar API
-            handleFeedback()
+            val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
+            scholarProxy.handleFeedback(feedbackQuery!!)
         }
     }
 
@@ -119,29 +104,7 @@ class TelegramBotAgent : BotAgent {
     }
 
 
-    private fun handleFeedback() {
-
-        val query = feedbackQuery!!.callbackQuery
-        val feedbackData = query.data
-
-        // Sending typing
-        sendTyping(feedbackQuery!!.callbackQuery.from.id)
-
-        val feedback = FeedbackParser.parse(feedbackData)
-        Scholar.addFeedback(Corona, feedback)
-
-
-        // Sending thanks
-        telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = chatId,
-                        text = "Thank you for your feedback 🤗",
-                        replyMsgId = messageId
-                )
-        )
-    }
-
-    private fun handleQuestion(jsonString: String?) {
+    private fun handleQuestion(jsonString: String) {
 
         this.update = gson.fromJson(jsonString, Update::class.java)
         val message = update!!.message.text
@@ -150,7 +113,7 @@ class TelegramBotAgent : BotAgent {
         chatId = update!!.message.chat.id
         messageId = update!!.message.messageId
 
-        sendTyping(chatId)
+        sendTyping()
 
         println("Message is `$message`")
 
@@ -163,21 +126,19 @@ class TelegramBotAgent : BotAgent {
         } else if (message == CMD_UPDATE) {
             sendUpdate()
         } else {
-            val answer = Scholar.getAnswer(Corona, message)
-            if (answer != null) {
-                sendAnswer(chatId, messageId, answer)
-            } else {
-                sendDontKnow(chatId, messageId)
-            }
+            val scholarProxy = ScholarProxy(
+                    telegramApi,
+                    chatId,
+                    messageId
+            )
+            scholarProxy.handle(jsonString)
         }
     }
 
-
-    private fun sendTyping(chatId: Long) {
+    private fun sendTyping() {
         val response = telegramApi.sendChatAction(
                 SendChatActionRequest(Telegram.CHAT_ACTION_TYPING, chatId)
         )
-
         if (response.code() == 200) {
             println("Typing sent...")
         } else {
@@ -185,91 +146,6 @@ class TelegramBotAgent : BotAgent {
         }
     }
 
-    /**
-     * To send answer
-     */
-    private fun sendAnswer(chatId: Long, replyId: Long, answer: Answer) {
-        val answerBody = prepareAnswerBody(answer)
-        telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = chatId,
-                        text = answerBody,
-                        replyMsgId = replyId,
-                        replyMarkup = getFeedbackButtons(answer)
-                )
-        )
-    }
-
-
-    /**
-     * To get feedback buttons for the given answer
-     */
-    private fun getFeedbackButtons(
-            answer: Answer
-    ): SendMessageRequest.ReplyMarkup? {
-        return try {
-
-            val modelAndQuestion = answer.documentId + answer.askedQuestion
-
-            SendMessageRequest.ReplyMarkup(
-                    listOf(
-                            listOf(
-                                    SendMessageRequest.InlineButton(
-                                            FEEDBACK_RELEVANT_TEXT,
-                                            FEEDBACK_RELEVANT_KEY + modelAndQuestion
-                                    ),
-
-                                    SendMessageRequest.InlineButton(
-                                            FEEDBACK_FAKE_TEXT,
-                                            FEEDBACK_FAKE_KEY + modelAndQuestion
-                                    )
-                            ),
-                            listOf(
-                                    SendMessageRequest.InlineButton(
-                                            FEEDBACK_IRRELEVANT_TEXT,
-                                            FEEDBACK_IRRELEVANT_KEY + modelAndQuestion
-                                    ),
-                                    SendMessageRequest.InlineButton(
-                                            FEEDBACK_OUTDATED_TEXT,
-                                            FEEDBACK_OUTDATED_KEY + modelAndQuestion
-                                    )
-                            )
-                    )
-            )
-        } catch (e: SendMessageRequest.InlineButton.ByteOverflowException) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    private fun prepareAnswerBody(answer: Answer): String {
-        val emoji = when (answer.confidence.toInt()) {
-            in 0..30 -> "❤️" // red = average
-            in 31..70 -> "🧡️" // orange = ok
-            else -> "💚" // green = best
-        }
-
-        return """
-                        Q: ${answer.matchedQuestion}
-                        A: ${answer.answer}
-                        
-                        💪 Answer Confidence : ${answer.confidence}% $emoji
-                        🌍 Source : <a href="${answer.sourceLink}">${answer.source}</a>
-                    """.trimIndent()
-    }
-
-    private fun sendDontKnow(chatId: Long, replyId: Long) {
-        val resp = telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = chatId,
-                        text = "Sorry, I don't know about that 🤷",
-                        replyMsgId = replyId
-                )
-        )
-        if (resp.code() != 200) {
-            println("Failed to send help")
-        }
-    }
 
     /**
      * To send help text
