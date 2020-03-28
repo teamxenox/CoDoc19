@@ -1,6 +1,7 @@
 package com.teamxenox.codoc19.core.features.test
 
 import com.teamxenox.codoc19.core.ContactManager
+import com.teamxenox.codoc19.core.base.FeatureProxy
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendMessageRequest
 
@@ -8,7 +9,7 @@ class Doctor(
         private val telegramApi: Telegram,
         private val chatId: Long,
         private val messageId: Long
-) {
+) : FeatureProxy {
     companion object {
         private const val BUTTON_YES = "✅ YES"
         private const val BUTTON_NO = "❌ NO"
@@ -47,7 +48,7 @@ class Doctor(
     /**
      * To data button click
      */
-    fun handle(buttonData: String) {
+    override fun handle(@Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE") buttonData: String) {
 
         val yesOrNo = TEST_ANSWER_YES_NO_DATA_REGEX.find(buttonData)
 
