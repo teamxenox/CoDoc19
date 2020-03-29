@@ -28,4 +28,11 @@ class CovidStatsAPITest {
         val spain = CovidStatsAPI.getStats("spain")
         spain!!.totalDeaths.should.above(6000)
     }
+
+    @Test
+    fun testTimeSeriesDeathDataIndiaSuccess() {
+        val deathData = CovidStatsAPI.getDeathData("Canada")!!
+        deathData.countryName.should.equal("Canada")
+        deathData.deathSeries.size.should.above(60)
+    }
 }

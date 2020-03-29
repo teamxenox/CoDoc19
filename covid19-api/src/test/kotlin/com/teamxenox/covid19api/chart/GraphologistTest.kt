@@ -18,6 +18,11 @@ class GraphologistTest {
     }
 
     @Test
+    fun testIfCanGraphologistCanDrawSuccess(){
+        val graphologist = Graphologist()
+    }
+
+    @Test
     fun testDeathChartSuccess() {
 
         val deaths = doubleArrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 5.0, 4.0, 7.0, 10.0, 10.0, 12.0, 20.0, 20.0, 24.0)
