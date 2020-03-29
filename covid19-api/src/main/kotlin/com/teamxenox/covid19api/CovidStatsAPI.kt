@@ -1,5 +1,7 @@
 package com.teamxenox.covid19api
 
+import com.teamxenox.covid19api.apis.GlobalApi
+import com.teamxenox.covid19api.apis.IndianApi
 import com.teamxenox.covid19api.models.Statistics
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

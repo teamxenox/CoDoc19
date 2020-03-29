@@ -1,4 +1,4 @@
-package com.teamxenox.covid19api
+package com.teamxenox.covid19api.apis
 
 import com.teamxenox.covid19api.models.GlobalAllResponse
 import com.teamxenox.covid19api.models.GlobalCountryResponse

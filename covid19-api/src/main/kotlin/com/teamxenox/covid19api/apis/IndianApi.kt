@@ -1,4 +1,4 @@
-package com.teamxenox.covid19api
+package com.teamxenox.covid19api.apis
 
 import com.teamxenox.covid19api.models.IndianApiResponse
 import retrofit2.Call
