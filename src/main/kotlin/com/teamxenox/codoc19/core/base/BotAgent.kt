@@ -4,5 +4,5 @@ interface BotAgent {
     fun handle(data: Any)
     fun startQuiz()
     fun startTest()
-    fun sendUpdate()
+    fun sendStats()
 }

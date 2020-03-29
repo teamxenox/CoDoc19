@@ -24,7 +24,7 @@ open class TelegramBotAgent : BotAgent {
         private const val CMD_START = "/start"
         private const val CMD_TEST = "/test"
         private const val CMD_QUIZ = "/quiz"
-        private const val CMD_UPDATE = "/update"
+        private const val CMD_STATS = "/stats"
     }
 
     override fun handle(data: Any) {
@@ -109,7 +109,7 @@ open class TelegramBotAgent : BotAgent {
     }
 
 
-    override fun sendUpdate() {
+    override fun sendStats() {
         sendToBeDone()
     }
 
@@ -133,8 +133,8 @@ open class TelegramBotAgent : BotAgent {
             startTest()
         } else if (message == CMD_QUIZ) {
             startQuiz()
-        } else if (message == CMD_UPDATE) {
-            sendUpdate()
+        } else if (message == CMD_STATS) {
+            sendStats()
         } else {
             val scholarProxy = ScholarProxy(
                     telegramApi,
@@ -170,7 +170,7 @@ open class TelegramBotAgent : BotAgent {
                             🤖 Don't know much about COVID-19? Ask me your question
                             🥼  $CMD_TEST To check the likelihood of having COVID-19
                             🤔 $CMD_QUIZ Are you taking the correct protective measures against COVID-19 ? Find out
-                            📈 $CMD_UPDATE To get global COVID-19 statistics
+                            📈 $CMD_STATS To get global COVID-19 statistics
                             
                         """.trimIndent()
                 )
