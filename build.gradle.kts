@@ -28,6 +28,7 @@ dependencies {
     implementation(project(":telegram-api"))
     implementation(project(":bootzan"))
     implementation(project(":scholar-api"))
+    implementation(project(":covid19-api"))
 
     runtimeOnly("mysql:mysql-connector-java")
     testImplementation("junit:junit:4.12")

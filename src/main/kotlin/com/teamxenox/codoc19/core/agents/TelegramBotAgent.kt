@@ -5,6 +5,7 @@ import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
+import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
@@ -25,6 +26,7 @@ open class TelegramBotAgent : BotAgent {
         private const val CMD_TEST = "/test"
         private const val CMD_QUIZ = "/quiz"
         private const val CMD_STATS = "/stats"
+        private val CMD_STATS_COUNTRY_REGEX = "/stats (?<country>.+)".toRegex()
     }
 
     override fun handle(data: Any) {
@@ -94,28 +96,21 @@ open class TelegramBotAgent : BotAgent {
         quizBoss.sendIntro()
     }
 
-    private fun sendToBeDone() {
-        telegramApi.sendMessage(
-                SendMessageRequest(
-                        chatId = chatId,
-                        text = "TO BE DONE! 👷"
-                )
-        )
-    }
-
     override fun startTest() {
         doctor = Doctor(telegramApi, chatId, messageId)
         doctor!!.startTest()
     }
 
 
-    override fun sendStats() {
-        sendToBeDone()
+    override fun sendGlobalStats() {
+        val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
+        covidAnalyst.sendGlobalStats()
     }
 
 
     private fun handleQuestion(jsonString: String) {
 
+        println("JSON is $jsonString")
         this.update = gson.fromJson(jsonString, Update::class.java)
         val message = update!!.message.text
 
@@ -134,7 +129,10 @@ open class TelegramBotAgent : BotAgent {
         } else if (message == CMD_QUIZ) {
             startQuiz()
         } else if (message == CMD_STATS) {
-            sendStats()
+            sendGlobalStats()
+        } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
+            val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
+            sendCountryStats(countryName)
         } else {
             val scholarProxy = ScholarProxy(
                     telegramApi,
@@ -154,6 +152,11 @@ open class TelegramBotAgent : BotAgent {
         } else {
             println("Failed to send typing...")
         }
+    }
+
+    override fun sendCountryStats(country: String) {
+        val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
+        covidAnalyst.sendCountryStats(country)
     }
 
 

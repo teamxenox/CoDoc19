@@ -7,7 +7,7 @@ data class Update(
         @SerializedName("message")
         val message: Message,
         @SerializedName("update_id")
-        val updateId: Int // 27416780
+        val updateId: String // 27416780
 ) {
     data class Message(
             @SerializedName("chat")

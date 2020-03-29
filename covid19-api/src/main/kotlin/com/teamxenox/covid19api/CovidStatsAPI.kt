@@ -22,8 +22,10 @@ object CovidStatsAPI {
                 .create(GlobalApi::class.java)
     }
 
-    fun getStats(_country: String): Statistics {
+    fun getStats(_country: String): Statistics? {
+
         val country = _country.toLowerCase()
+
         if (country == "ind" || country == "india") {
 
             val indianApiResponse = indianApi.getData().execute().body()!!
@@ -39,16 +41,48 @@ object CovidStatsAPI {
             )
 
         } else {
-            val countryData = globalApi.getCountryData(country).execute().body()!!
+
+            val resp = globalApi.getCountryData(country).execute()
+            if (resp.code() == 200) {
+                val countryData = resp.body()!!
+                return Statistics(
+                        countryData.cases,
+                        countryData.deaths,
+                        countryData.recovered,
+                        countryData.active,
+                        countryData.todayCases,
+                        countryData.todayDeaths
+                )
+            }
+        }
+
+        return null
+    }
+
+    fun getGlobalStats(): Statistics? {
+        val globalAll = globalApi.getAll().execute().body()!!
+        val resp = globalApi.getAllCountries().execute()
+        if (resp.code() == 200) {
+            val countriesAll = resp.body()!!
+            var todayCases = 0
+            var todayDeaths = 0
+
+            for (country in countriesAll) {
+                todayCases += country.todayCases
+                todayDeaths += country.todayDeaths
+            }
+
             return Statistics(
-                    countryData.cases,
-                    countryData.deaths,
-                    countryData.recovered,
-                    countryData.active,
-                    countryData.todayCases,
-                    countryData.todayDeaths
+                    globalAll.cases,
+                    globalAll.deaths,
+                    globalAll.recovered,
+                    globalAll.active,
+                    todayCases,
+                    todayDeaths
             )
         }
+
+        return null
     }
 
 }

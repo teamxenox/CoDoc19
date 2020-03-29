@@ -73,7 +73,7 @@ class QuizBoss(
 
             } else {
                 // wrong answer
-                sendResult("❌ Wrong : $actualAnswer. Correct answer is $expectedAnswer", askedQuestion, nextQuestion, score)
+                sendResult("❌ Wrong : $actualAnswer \n✅ Correct answer : $expectedAnswer", askedQuestion, nextQuestion, score)
             }
 
         } else {
@@ -87,12 +87,7 @@ class QuizBoss(
             nextQuestion: QuizQuestion?,
             score: Int
     ) {
-        val msg = """
-                    $header
-                    
-                    ${askedQuestion.answerReason}
-                    """.trimIndent()
-
+        val msg = "$header\n\n${askedQuestion.answerReason}"
         val nextButton = if (nextQuestion != null) {
             SendMessageRequest.ReplyMarkup(
                     listOf(listOf(

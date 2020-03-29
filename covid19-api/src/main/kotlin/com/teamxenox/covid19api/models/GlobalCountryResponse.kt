@@ -3,13 +3,13 @@ package com.teamxenox.covid19api.models
 import com.google.gson.annotations.SerializedName
 
 
-data class GlobalApiResponse(
+data class GlobalCountryResponse(
         @SerializedName("active")
         val active: Int, // 117986
         @SerializedName("cases")
         val cases: Int, // 123428
         @SerializedName("casesPerOneMillion")
-        val casesPerOneMillion: Int, // 373
+        val casesPerOneMillion: Float, // 373
         @SerializedName("country")
         val country: String, // USA
         @SerializedName("countryInfo")
@@ -19,7 +19,7 @@ data class GlobalApiResponse(
         @SerializedName("deaths")
         val deaths: Int, // 2211
         @SerializedName("deathsPerOneMillion")
-        val deathsPerOneMillion: Int, // 7
+        val deathsPerOneMillion: Float, // 7
         @SerializedName("recovered")
         val recovered: Int, // 3231
         @SerializedName("todayCases")
@@ -39,8 +39,8 @@ data class GlobalApiResponse(
             @SerializedName("iso3")
             val iso3: String, // USA
             @SerializedName("lat")
-            val lat: Int, // 38
+            val lat: Double, // 38
             @SerializedName("long")
-            val long: Int // -97
+            val long: Double // -97
     )
 }

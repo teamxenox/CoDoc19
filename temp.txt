@@ -1,0 +1,4 @@
+test - To check the likelihood of having COVID 19 📋
+quiz - To check whether you are taking correct measures against COVID 19 🤔
+stats - To get current statistics of death, cases, recoveries etc. 📈
+
