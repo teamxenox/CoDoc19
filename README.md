@@ -1,15 +1,16 @@
 # CoDoc19 :robot:
 
-An open source bot which helps to diagnose symptoms of Covid 19 virus staying at home!
+An open source bot which helps to diagnose symptoms of COVID-19 virus staying at home!
 
 <img src="https://user-images.githubusercontent.com/15226353/77837846-5e04ff00-718b-11ea-89b7-a3f0cefa25c8.jpg" data-canonical-src="https://user-images.githubusercontent.com/15226353/77837846-5e04ff00-718b-11ea-89b7-a3f0cefa25c8.jpg" width="250" height="500"  />
 
 ## Usage
-Currently we have telegram support.Bot's telegram handler is @CoDoc19Bot. So just go to telegram app and start interacting with it :man_technologist:
+
+Currently we have telegram support. Bot's telegram handler is [@CoDoc19Bot](https://t.me/CoDoc19Bot). So just go to telegram app and start interacting with it :man_technologist:
 
 ### Main Commands
 
-1. To start interacting with the bot :beginner: :
+1. To start interacting with the bot :beginner:
 ```
 /start
 ```
@@ -36,8 +37,8 @@ Several questions with options. You have to choose the right answer to ensure yo
 ```
 
 ## TODO
-- [ ] stats Command in progress
-- [ ] Support for other networking sites like twitter,facebook etc.
+- [ ] Stats command in progress
+- [ ] Add facebook support
 
 
 ## Contributing
