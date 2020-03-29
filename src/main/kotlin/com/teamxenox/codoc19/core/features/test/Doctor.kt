@@ -39,7 +39,7 @@ class Doctor(
                 ID_COUGH to "Do you have cough?",
                 ID_SOB to "Do you feel shortness of breath?",
 
-                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?",
+                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ? ",
                 ID_LOCATION to "Where do you live? 🌎",
                 ID_CONDITION to "Is your condition is really bad? 😷",
 
