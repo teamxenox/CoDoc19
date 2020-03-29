@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Update(
         @SerializedName("message")
-        val message: Message,
+        val message: Message?,
         @SerializedName("update_id")
         val updateId: String // 27416780
 ) {

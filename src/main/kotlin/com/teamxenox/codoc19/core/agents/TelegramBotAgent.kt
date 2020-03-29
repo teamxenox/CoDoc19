@@ -112,34 +112,39 @@ open class TelegramBotAgent : BotAgent {
 
         println("JSON is $jsonString")
         this.update = gson.fromJson(jsonString, Update::class.java)
-        val message = update!!.message.text
+        val updateMessage = this.update!!.message
+        if (updateMessage != null) {
+            val message = updateMessage.text
 
-        // From information
-        chatId = update!!.message.chat.id
-        messageId = update!!.message.messageId
+            // From information
+            chatId = updateMessage.chat.id
+            messageId = updateMessage.messageId
 
-        sendTyping()
+            sendTyping()
 
-        println("Message is `$message`")
+            println("Message is `$message`")
 
-        if (message == CMD_HELP || message == CMD_START) {
-            sendHelp(chatId, messageId)
-        } else if (message == CMD_TEST) {
-            startTest()
-        } else if (message == CMD_QUIZ) {
-            startQuiz()
-        } else if (message == CMD_STATS) {
-            sendGlobalStats()
-        } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
-            val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
-            sendCountryStats(countryName)
+            if (message == CMD_HELP || message == CMD_START) {
+                sendHelp(chatId, messageId)
+            } else if (message == CMD_TEST) {
+                startTest()
+            } else if (message == CMD_QUIZ) {
+                startQuiz()
+            } else if (message == CMD_STATS) {
+                sendGlobalStats()
+            } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
+                val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
+                sendCountryStats(countryName)
+            } else {
+                val scholarProxy = ScholarProxy(
+                        telegramApi,
+                        chatId,
+                        messageId
+                )
+                scholarProxy.handle(jsonString)
+            }
         } else {
-            val scholarProxy = ScholarProxy(
-                    telegramApi,
-                    chatId,
-                    messageId
-            )
-            scholarProxy.handle(jsonString)
+            println("Junk!!")
         }
     }
 

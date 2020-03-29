@@ -37,7 +37,7 @@ class ScholarProxy(
     override fun handle(jsonString: String) {
 
         this.update = GsonUtils.gson.fromJson(jsonString, Update::class.java)
-        val message = update!!.message.text
+        val message = update!!.message!!.text
 
         val answer = Scholar.getAnswer(Corona, message)
         if (answer != null) {

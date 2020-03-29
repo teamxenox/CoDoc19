@@ -17,7 +17,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
     fun sendGlobalStats() {
         val globalStats = CovidStatsAPI.getGlobalStats()
         if (globalStats != null) {
-            send(globalStats, "🗺 World")
+            send(globalStats, "🗺 <b>World</b>", true)
         } else {
             telegramApi.sendMessage(
                     SendMessageRequest(
@@ -29,9 +29,9 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         }
     }
 
-    private fun send(stats: Statistics, header: String) {
+    private fun send(stats: Statistics, header: String, isGlobal: Boolean) {
 
-        val txt = toText(header, stats)
+        val txt = toText(header, stats, isGlobal)
 
         telegramApi.sendMessage(
                 SendMessageRequest(
@@ -42,9 +42,16 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         )
     }
 
-    private fun toText(header: String, globalStats: Statistics): String {
+    private fun toText(header: String, globalStats: Statistics, isGlobal: Boolean): String {
+
+        val globalText = if (isGlobal) {
+            "🌐 Global statistics are based on GMT +00:00"
+        } else {
+            ""
+        }
+
         return """
-            👉 $header
+            $header
 
             😷 ${globalStats.totalCases.get("Case", "Cases")} : <b>${addComma(globalStats.totalCases)}</b>
             😥 ${globalStats.totalDeaths.get("Death", "Deaths")} : <b>${addComma(globalStats.totalDeaths)}</b>
@@ -54,7 +61,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
             😷 Today ${globalStats.todayCases.get("Case", "Cases")} : <b>${addComma(globalStats.todayCases)}</b>
             😥 Today ${globalStats.todayDeaths.get("Death", "Deaths")} : <b>${addComma(globalStats.todayDeaths)}</b>
             
-            
+            $globalText
         """.trimIndent()
     }
 
@@ -62,7 +69,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         val countryStats = CovidStatsAPI.getStats(country)
 
         if (countryStats != null) {
-            send(countryStats, "📍 $country")
+            send(countryStats, "📍 <b>$country</b>", false)
         } else {
             telegramApi.sendMessage(
                     SendMessageRequest(
