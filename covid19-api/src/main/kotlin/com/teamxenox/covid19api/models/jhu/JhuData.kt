@@ -1,6 +1,6 @@
 package com.teamxenox.covid19api.models.jhu
 
-class DeathData(
+data class JhuData(
         val countryName: String,
-        val deathSeries: Array<Int>
+        val daySeries: List<Int>
 )

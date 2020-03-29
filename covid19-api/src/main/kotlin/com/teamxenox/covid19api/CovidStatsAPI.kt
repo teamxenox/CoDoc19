@@ -4,7 +4,7 @@ import com.teamxenox.covid19api.apis.GlobalApi
 import com.teamxenox.covid19api.apis.IndianApi
 import com.teamxenox.covid19api.core.JHUCSVParser
 import com.teamxenox.covid19api.models.Statistics
-import com.teamxenox.covid19api.models.jhu.DeathData
+import com.teamxenox.covid19api.models.jhu.JhuData
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object CovidStatsAPI {
 
     private const val DEATH_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
+    private const val CASE_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
 
     private val indianApi by lazy {
         return@lazy Retrofit.Builder()
@@ -99,7 +100,18 @@ object CovidStatsAPI {
         return null
     }
 
-    fun getDeathData(countryName: String): DeathData? {
+    fun getDeathData(countryName: String?): JhuData? {
+        return getJHUData(countryName, DEATH_DATA_URL)
+    }
+
+
+    fun getCaseData(countryName: String?): JhuData? {
+        return getJHUData(countryName, CASE_DATA_URL)
+    }
+
+
+    private fun getJHUData(countryName: String?, deathDataUrl: String): JhuData? {
+
         val client = OkHttpClient.Builder()
                 .build()
 
@@ -110,8 +122,8 @@ object CovidStatsAPI {
         val response = client.newCall(request).execute().body()
         if (response != null) {
             val csvData = response.string()
-            return DeathData(
-                    countryName,
+            return JhuData(
+                    countryName ?: "Global",
                     JHUCSVParser.parseData(countryName, csvData)
             )
         }

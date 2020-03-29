@@ -5,7 +5,7 @@ object ArrayUtils {
     /**
      * To find sum of each column in a matrix
      */
-    fun mergeColumn(matrix: List<List<Int>>): Array<Int> {
+    fun mergeColumn(matrix: List<List<Int>>): List<Int> {
         val result = mutableListOf<Int>()
         val numOfCols = matrix.first().size
         var sumCol: Int
@@ -16,6 +16,6 @@ object ArrayUtils {
             }
             result.add(sumCol)
         }
-        return result.toTypedArray()
+        return result
     }
 }

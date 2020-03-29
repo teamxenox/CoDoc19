@@ -31,8 +31,16 @@ class CovidStatsAPITest {
 
     @Test
     fun testTimeSeriesDeathDataIndiaSuccess() {
-        val deathData = CovidStatsAPI.getDeathData("Canada")!!
-        deathData.countryName.should.equal("Canada")
-        deathData.deathSeries.size.should.above(60)
+        val deathData = CovidStatsAPI.getDeathData("India")!!
+        deathData.countryName.should.equal("India")
+        deathData.daySeries.size.should.above(0)
+    }
+
+    @Test
+    fun testTimeSeriesCaseDataIndiaSuccess() {
+        val deathData = CovidStatsAPI.getCaseData("India")!!
+        println(deathData)
+        deathData.countryName.should.equal("India")
+        deathData.daySeries.size.should.above(0)
     }
 }
