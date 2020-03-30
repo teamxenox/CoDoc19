@@ -1,8 +1,8 @@
 package com.teamxenox.codoc19.controllers
 
-import com.teamxenox.bootzan.models.base.BaseResponse
 import com.teamxenox.codoc19.core.BotsManager
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
+import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -19,13 +19,16 @@ class GetResponseController {
     @Autowired
     lateinit var analyticsRepo: AnalyticsRepo
 
+    @Autowired
+    lateinit var chartRepo: ChartRepo
+
     @PostMapping("/get_response/{agentKey}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     fun getResponse(@PathVariable agentKey: String, @RequestBody update: Any): String {
         println("---------------------------")
         println("Hit!!")
-        val bm = BotsManager(userRepo, analyticsRepo)
+        val bm = BotsManager(userRepo, analyticsRepo, chartRepo)
         val agent = bm.getAgentOrThrow(agentKey)
         agent.handle(update)
         return "ok"

@@ -8,15 +8,18 @@ import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
+import com.teamxenox.codoc19.data.entities.Chart
 import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
+import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
 
 open class TelegramBotAgent(
         private val userRepo: UserRepo,
-        private val analyticsRepo: AnalyticsRepo
+        private val analyticsRepo: AnalyticsRepo,
+        private val chartRepo: ChartRepo
 ) : BotAgent(userRepo, analyticsRepo) {
 
     private var update: Update? = null
@@ -88,6 +91,7 @@ open class TelegramBotAgent(
 
             covidAnalyst!!.isChartRequest(buttonData) -> {
                 println("It's a chart request! $buttonData")
+                covidAnalyst!!.sendChart(buttonData)
             }
 
             quizBoss!!.isQuizClickData(buttonData) -> {

@@ -4,9 +4,11 @@ import com.teamxenox.codoc19.core.base.FeatureProxy
 import com.teamxenox.codoc19.utils.StringUtils.addComma
 import com.teamxenox.codoc19.utils.get
 import com.teamxenox.covid19api.CovidStatsAPI
+import com.teamxenox.covid19api.chart.Graphologist
 import com.teamxenox.covid19api.models.Statistics
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendMessageRequest
+import java.lang.IllegalArgumentException
 
 class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, private val messageId: Long) : FeatureProxy(telegramApi, chatId, messageId) {
 
@@ -48,10 +50,10 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                         replyMarkup = SendMessageRequest.ReplyMarkup(
                                 listOf(
                                         listOf(
-                                                SendMessageRequest.InlineButton("SHOW DEATHS CHART 📈", "scDC$countryName")
+                                                SendMessageRequest.InlineButton("SHOW DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName")
                                         ),
                                         listOf(
-                                                SendMessageRequest.InlineButton("SHOW CASES CHART 📈", "scCC$countryName")
+                                                SendMessageRequest.InlineButton("SHOW CASES CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
                                         )
                                 )
                         )
@@ -99,6 +101,30 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
     }
 
     fun isChartRequest(buttonData: String): Boolean {
+        println("Pattern : `${CHART_REQUEST_REGEX.pattern}`")
+        println("Data : `$buttonData`")
         return buttonData.matches(CHART_REQUEST_REGEX)
+    }
+
+    fun sendChart(buttonData: String) {
+        val match = CHART_REQUEST_REGEX.find(buttonData)!!
+        val chartType = match.groups["chartType"]!!.value
+        val countryName = match.groups["countryName"]!!.value
+
+        when (chartType) {
+
+            CHART_DEATH -> {
+                // checking if the chart available
+
+            }
+
+            CHART_CASE -> {
+
+            }
+
+            else -> {
+                throw IllegalArgumentException("Undefined chart type `$chartType`")
+            }
+        }
     }
 }
