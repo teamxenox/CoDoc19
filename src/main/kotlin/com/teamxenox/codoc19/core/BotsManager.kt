@@ -2,11 +2,13 @@ package com.teamxenox.codoc19.core
 
 import com.teamxenox.codoc19.core.agents.TelegramBotAgent
 import com.teamxenox.codoc19.core.base.BotAgent
+import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
 import java.lang.IllegalArgumentException
 
 class BotsManager(
-        private val userRepo: UserRepo
+        private val userRepo: UserRepo,
+        private val analyticsRepo: AnalyticsRepo
 ) {
 
     companion object {
@@ -16,7 +18,7 @@ class BotsManager(
 
     fun getAgentOrThrow(agentKey: String): BotAgent {
         return when (agentKey) {
-            AGENT_TELEGRAM -> TelegramBotAgent(userRepo)
+            AGENT_TELEGRAM -> TelegramBotAgent(userRepo, analyticsRepo)
             else -> throw IllegalArgumentException("Undefined agent : `$agentKey`")
         }
     }

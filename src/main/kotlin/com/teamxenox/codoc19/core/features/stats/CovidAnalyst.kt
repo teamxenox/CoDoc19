@@ -32,12 +32,22 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
     private fun send(stats: Statistics, header: String, isGlobal: Boolean) {
 
         val txt = toText(header, stats, isGlobal)
-
+        val countryName = stats.countryName
         telegramApi.sendMessage(
                 SendMessageRequest(
                         chatId = chatId,
                         replyMsgId = messageId,
-                        text = txt
+                        text = txt,
+                        replyMarkup = SendMessageRequest.ReplyMarkup(
+                                listOf(
+                                        listOf(
+                                                SendMessageRequest.InlineButton("SHOW DEATHS CHART 📈", "scDC$countryName")
+                                        ),
+                                        listOf(
+                                                SendMessageRequest.InlineButton("SHOW CASES CHART 📈", "scCC$countryName")
+                                        )
+                                )
+                        )
                 )
         )
     }

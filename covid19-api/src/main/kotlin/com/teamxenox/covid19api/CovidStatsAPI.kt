@@ -44,6 +44,7 @@ object CovidStatsAPI {
             val india = indianApiResponse.statewise.find { it.state == "Total" }!!
 
             return Statistics(
+                    "India",
                     india.confirmed.toInt(),
                     india.deaths.toInt(),
                     india.recovered.toInt(),
@@ -58,6 +59,7 @@ object CovidStatsAPI {
             if (resp.code() == 200) {
                 val countryData = resp.body()!!
                 return Statistics(
+                        countryData.country,
                         countryData.cases,
                         countryData.deaths,
                         countryData.recovered,
@@ -88,6 +90,7 @@ object CovidStatsAPI {
             }
 
             return Statistics(
+                    "Global",
                     globalAll.cases,
                     globalAll.deaths,
                     globalAll.recovered,
