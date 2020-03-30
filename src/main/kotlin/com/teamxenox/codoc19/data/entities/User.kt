@@ -1,9 +1,6 @@
 package com.teamxenox.codoc19.data.entities
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * CREATE TABLE `users`(
@@ -21,7 +18,14 @@ class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    var tgFirstName: String? = null
-    var tgUsername: String? = null
-    var tgUserId: Int? = null
+    var firstName: String? = null
+    var username: String? = null
+    var userId: Int? = null
+
+    @Enumerated(EnumType.STRING)
+    lateinit var platform: Platform
+
+    enum class Platform {
+        TELEGRAM, FACEBOOK
+    }
 }

@@ -121,7 +121,7 @@ open class TelegramBotAgent(
 
             // Checking if the user exist if not add him/her to db
             val currentUser = getUser()
-            println("User is ${currentUser.tgUsername}")
+            println("User is ${currentUser.username}")
 
             val message = updateMessage.text
 
@@ -161,17 +161,18 @@ open class TelegramBotAgent(
 
     private fun getUser(): User {
         val updateMsg = update!!.message!!
-        var exUser = userRepo.findByTgUserId(updateMsg.from.id)
+        var exUser = userRepo.findByUserId(updateMsg.from.id)
         return if (exUser != null) {
-            println("exUser found : ${exUser.tgUsername}")
+            println("exUser found : ${exUser.username}")
             exUser
         } else {
             val newUser = User().apply {
-                tgUserId = updateMsg.from.id
-                tgUsername = updateMsg.from.username
-                tgFirstName = updateMsg.from.firstName
+                userId = updateMsg.from.id
+                username = updateMsg.from.username
+                firstName = updateMsg.from.firstName
+                platform = User.Platform.TELEGRAM
             }
-            println("Creating new user : ${newUser.tgUsername}")
+            println("Creating new user : ${newUser.username}")
             userRepo.save(newUser)
         }
     }
