@@ -12,7 +12,6 @@ import com.teamxenox.covid19api.models.Statistics
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendMessageRequest
 import com.teamxenox.telegramapi.models.SendPhotoRequest
-import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -56,9 +55,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                         replyMarkup = SendMessageRequest.ReplyMarkup(
                                 listOf(
                                         listOf(
-                                                SendMessageRequest.InlineButton("DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName")
-                                        ),
-                                        listOf(
+                                                SendMessageRequest.InlineButton("DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName"),
                                                 SendMessageRequest.InlineButton("CASES CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
                                         )
                                 )
@@ -159,6 +156,14 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         val chartDate = Date()
         val dateString = dateFormat.format(chartDate)
         val exChart = chartRepo.getChartCountryDateType(countryName, dateString, chartType)
+
+        val caption = if (chartType == Chart.Type.DEATH) {
+            "Deaths as of $dateString"
+        } else {
+            "Confirmed case of $dateString"
+        } + " - $countryName"
+
+
         if (exChart == null) {
             println("Chat doesn't exist creating new one")
             val jhuData = if (chartType == Chart.Type.DEATH) {
@@ -170,7 +175,8 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                 val chartFile = Graphologist().prepareChart(gChartType, dateString, jhuData)
                 val sendFileResp = telegramApi.sendPhotoFile(
                         chatId,
-                        chartFile
+                        chartFile,
+                        caption
                 )
 
                 if (sendFileResp.code() == 200) {
@@ -201,9 +207,13 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         } else {
             // chart already exist, just sent it
             println("Chart exist. reusing...")
+
+
+
             telegramApi.sendPhoto(SendPhotoRequest(
                     chatId = chatId,
-                    photo = exChart.tgFileId
+                    photo = exChart.tgFileId,
+                    caption = caption
             ))
 
             println("Chart send")

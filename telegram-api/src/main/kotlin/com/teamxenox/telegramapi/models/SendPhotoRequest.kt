@@ -7,5 +7,7 @@ data class SendPhotoRequest(
         @SerializedName("chat_id")
         val chatId: Long, // 24234234234
         @SerializedName("photo")
-        val photo: String // 23423423423423
+        val photo: String, // 23423423423423
+        @SerializedName("caption")
+        val caption: String?
 )

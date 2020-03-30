@@ -57,14 +57,16 @@ class Telegram(
         ).execute()
     }
 
-    fun sendPhotoFile(chatId: Long, file: File): Response<SendPhotoResponse> {
+    fun sendPhotoFile(chatId: Long, file: File, caption: String): Response<SendPhotoResponse> {
         val mediaType = MediaType.parse("multipart/form-data")
         val requestFile = RequestBody.create(mediaType, file)
         val photoPart = MultipartBody.Part.createFormData("photo", file.name, requestFile)
         val chatIdPart = RequestBody.create(mediaType, chatId.toString())
+        val captionPart = RequestBody.create(mediaType, caption)
         return api.sendPhotoFile(
                 accessToken,
                 chatIdPart,
+                captionPart,
                 photoPart
         ).execute()
     }
