@@ -1,974 +1,3006 @@
 [
   {
-    "name": "Afghanistan",
-    "code": "AF"
-  },
-  {
-    "name": "Åland Islands",
-    "code": "AX"
-  },
-  {
-    "name": "Albania",
-    "code": "AL"
-  },
-  {
-    "name": "Algeria",
-    "code": "DZ"
-  },
-  {
-    "name": "American Samoa",
-    "code": "AS"
-  },
-  {
-    "name": "AndorrA",
-    "code": "AD"
-  },
-  {
-    "name": "Angola",
-    "code": "AO"
-  },
-  {
-    "name": "Anguilla",
-    "code": "AI"
-  },
-  {
-    "name": "Antarctica",
-    "code": "AQ"
-  },
-  {
-    "name": "Antigua and Barbuda",
-    "code": "AG"
-  },
-  {
-    "name": "Argentina",
-    "code": "AR"
-  },
-  {
-    "name": "Armenia",
-    "code": "AM"
-  },
-  {
+    "code": "AW",
     "name": "Aruba",
-    "code": "AW"
-  },
-  {
-    "name": "Australia",
-    "code": "AU"
-  },
-  {
-    "name": "Austria",
-    "code": "AT"
-  },
-  {
-    "name": "Azerbaijan",
-    "code": "AZ"
-  },
-  {
-    "name": "Bahamas",
-    "code": "BS"
-  },
-  {
-    "name": "Bahrain",
-    "code": "BH"
-  },
-  {
-    "name": "Bangladesh",
-    "code": "BD"
-  },
-  {
-    "name": "Barbados",
-    "code": "BB"
-  },
-  {
-    "name": "Belarus",
-    "code": "BY"
-  },
-  {
-    "name": "Belgium",
-    "code": "BE"
-  },
-  {
-    "name": "Belize",
-    "code": "BZ"
-  },
-  {
-    "name": "Benin",
-    "code": "BJ"
-  },
-  {
-    "name": "Bermuda",
-    "code": "BM"
-  },
-  {
-    "name": "Bhutan",
-    "code": "BT"
-  },
-  {
-    "name": "Bolivia",
-    "code": "BO"
-  },
-  {
-    "name": "Bosnia and Herzegovina",
-    "code": "BA"
-  },
-  {
-    "name": "Botswana",
-    "code": "BW"
-  },
-  {
-    "name": "Bouvet Island",
-    "code": "BV"
-  },
-  {
-    "name": "Brazil",
-    "code": "BR"
-  },
-  {
-    "name": "British Indian Ocean Territory",
-    "code": "IO"
-  },
-  {
-    "name": "Brunei Darussalam",
-    "code": "BN"
-  },
-  {
-    "name": "Bulgaria",
-    "code": "BG"
-  },
-  {
-    "name": "Burkina Faso",
-    "code": "BF"
-  },
-  {
-    "name": "Burundi",
-    "code": "BI"
-  },
-  {
-    "name": "Cambodia",
-    "code": "KH"
-  },
-  {
-    "name": "Cameroon",
-    "code": "CM"
-  },
-  {
-    "name": "Canada",
-    "code": "CA"
-  },
-  {
-    "name": "Cape Verde",
-    "code": "CV"
-  },
-  {
-    "name": "Cayman Islands",
-    "code": "KY"
-  },
-  {
-    "name": "Central African Republic",
-    "code": "CF"
-  },
-  {
-    "name": "Chad",
-    "code": "TD"
-  },
-  {
-    "name": "Chile",
-    "code": "CL"
-  },
-  {
-    "name": "China",
-    "code": "CN"
-  },
-  {
-    "name": "Christmas Island",
-    "code": "CX"
-  },
-  {
-    "name": "Cocos (Keeling) Islands",
-    "code": "CC"
-  },
-  {
-    "name": "Colombia",
-    "code": "CO"
-  },
-  {
-    "name": "Comoros",
-    "code": "KM"
-  },
-  {
-    "name": "Congo",
-    "code": "CG"
-  },
-  {
-    "name": "Congo, The Democratic Republic of the",
-    "code": "CD"
-  },
-  {
-    "name": "Cook Islands",
-    "code": "CK"
-  },
-  {
-    "name": "Costa Rica",
-    "code": "CR"
-  },
-  {
-    "name": "Cote D\"Ivoire",
-    "code": "CI"
-  },
-  {
-    "name": "Croatia",
-    "code": "HR"
-  },
-  {
-    "name": "Cuba",
-    "code": "CU"
-  },
-  {
-    "name": "Cyprus",
-    "code": "CY"
-  },
-  {
-    "name": "Czech Republic",
-    "code": "CZ"
-  },
-  {
-    "name": "Denmark",
-    "code": "DK"
-  },
-  {
-    "name": "Djibouti",
-    "code": "DJ"
-  },
-  {
-    "name": "Dominica",
-    "code": "DM"
-  },
-  {
-    "name": "Dominican Republic",
-    "code": "DO"
-  },
-  {
-    "name": "Ecuador",
-    "code": "EC"
-  },
-  {
-    "name": "Egypt",
-    "code": "EG"
-  },
-  {
-    "name": "El Salvador",
-    "code": "SV"
-  },
-  {
-    "name": "Equatorial Guinea",
-    "code": "GQ"
-  },
-  {
-    "name": "Eritrea",
-    "code": "ER"
-  },
-  {
-    "name": "Estonia",
-    "code": "EE"
-  },
-  {
-    "name": "Ethiopia",
-    "code": "ET"
-  },
-  {
-    "name": "Falkland Islands (Malvinas)",
-    "code": "FK"
-  },
-  {
-    "name": "Faroe Islands",
-    "code": "FO"
-  },
-  {
-    "name": "Fiji",
-    "code": "FJ"
-  },
-  {
-    "name": "Finland",
-    "code": "FI"
-  },
-  {
-    "name": "France",
-    "code": "FR"
-  },
-  {
-    "name": "French Guiana",
-    "code": "GF"
-  },
-  {
-    "name": "French Polynesia",
-    "code": "PF"
-  },
-  {
-    "name": "French Southern Territories",
-    "code": "TF"
-  },
-  {
-    "name": "Gabon",
-    "code": "GA"
-  },
-  {
-    "name": "Gambia",
-    "code": "GM"
-  },
-  {
-    "name": "Georgia",
-    "code": "GE"
-  },
-  {
-    "name": "Germany",
-    "code": "DE"
-  },
-  {
-    "name": "Ghana",
-    "code": "GH"
-  },
-  {
-    "name": "Gibraltar",
-    "code": "GI"
-  },
-  {
-    "name": "Greece",
-    "code": "GR"
-  },
-  {
-    "name": "Greenland",
-    "code": "GL"
-  },
-  {
-    "name": "Grenada",
-    "code": "GD"
-  },
-  {
-    "name": "Guadeloupe",
-    "code": "GP"
-  },
-  {
-    "name": "Guam",
-    "code": "GU"
-  },
-  {
-    "name": "Guatemala",
-    "code": "GT"
-  },
-  {
-    "name": "Guernsey",
-    "code": "GG"
-  },
-  {
-    "name": "Guinea",
-    "code": "GN"
-  },
-  {
-    "name": "Guinea-Bissau",
-    "code": "GW"
-  },
-  {
-    "name": "Guyana",
-    "code": "GY"
-  },
-  {
-    "name": "Haiti",
-    "code": "HT"
-  },
-  {
-    "name": "Heard Island and Mcdonald Islands",
-    "code": "HM"
-  },
-  {
-    "name": "Holy See (Vatican City State)",
-    "code": "VA"
-  },
-  {
-    "name": "Honduras",
-    "code": "HN"
-  },
-  {
-    "name": "Hong Kong",
-    "code": "HK"
-  },
-  {
-    "name": "Hungary",
-    "code": "HU"
-  },
-  {
-    "name": "Iceland",
-    "code": "IS"
-  },
-  {
-    "name": "India",
-    "code": "IN"
-  },
-  {
-    "name": "Indonesia",
-    "code": "ID"
-  },
-  {
-    "name": "Iran, Islamic Republic Of",
-    "code": "IR"
-  },
-  {
-    "name": "Iraq",
-    "code": "IQ"
-  },
-  {
-    "name": "Ireland",
-    "code": "IE"
-  },
-  {
-    "name": "Isle of Man",
-    "code": "IM"
-  },
-  {
-    "name": "Israel",
-    "code": "IL"
-  },
-  {
-    "name": "Italy",
-    "code": "IT"
-  },
-  {
-    "name": "Jamaica",
-    "code": "JM"
-  },
-  {
-    "name": "Japan",
-    "code": "JP"
-  },
-  {
-    "name": "Jersey",
-    "code": "JE"
-  },
-  {
-    "name": "Jordan",
-    "code": "JO"
-  },
-  {
-    "name": "Kazakhstan",
-    "code": "KZ"
-  },
-  {
-    "name": "Kenya",
-    "code": "KE"
-  },
-  {
-    "name": "Kiribati",
-    "code": "KI"
-  },
-  {
-    "name": "Korea, Democratic People\"S Republic of",
-    "code": "KP"
-  },
-  {
-    "name": "Korea, Republic of",
-    "code": "KR"
-  },
-  {
-    "name": "Kuwait",
-    "code": "KW"
-  },
-  {
-    "name": "Kyrgyzstan",
-    "code": "KG"
-  },
-  {
-    "name": "Lao People\"S Democratic Republic",
-    "code": "LA"
-  },
-  {
-    "name": "Latvia",
-    "code": "LV"
-  },
-  {
-    "name": "Lebanon",
-    "code": "LB"
-  },
-  {
-    "name": "Lesotho",
-    "code": "LS"
-  },
-  {
-    "name": "Liberia",
-    "code": "LR"
-  },
-  {
-    "name": "Libyan Arab Jamahiriya",
-    "code": "LY"
-  },
-  {
-    "name": "Liechtenstein",
-    "code": "LI"
-  },
-  {
-    "name": "Lithuania",
-    "code": "LT"
-  },
-  {
-    "name": "Luxembourg",
-    "code": "LU"
-  },
-  {
-    "name": "Macao",
-    "code": "MO"
-  },
-  {
-    "name": "Macedonia, The Former Yugoslav Republic of",
-    "code": "MK"
-  },
-  {
-    "name": "Madagascar",
-    "code": "MG"
-  },
-  {
-    "name": "Malawi",
-    "code": "MW"
-  },
-  {
-    "name": "Malaysia",
-    "code": "MY"
-  },
-  {
-    "name": "Maldives",
-    "code": "MV"
-  },
-  {
-    "name": "Mali",
-    "code": "ML"
-  },
-  {
-    "name": "Malta",
-    "code": "MT"
-  },
-  {
-    "name": "Marshall Islands",
-    "code": "MH"
-  },
-  {
-    "name": "Martinique",
-    "code": "MQ"
-  },
-  {
-    "name": "Mauritania",
-    "code": "MR"
-  },
-  {
-    "name": "Mauritius",
-    "code": "MU"
-  },
-  {
-    "name": "Mayotte",
-    "code": "YT"
-  },
-  {
-    "name": "Mexico",
-    "code": "MX"
-  },
-  {
-    "name": "Micronesia, Federated States of",
-    "code": "FM"
-  },
-  {
-    "name": "Moldova, Republic of",
-    "code": "MD"
-  },
-  {
-    "name": "Monaco",
-    "code": "MC"
-  },
-  {
-    "name": "Mongolia",
-    "code": "MN"
-  },
-  {
-    "name": "Montserrat",
-    "code": "MS"
-  },
-  {
-    "name": "Morocco",
-    "code": "MA"
-  },
-  {
-    "name": "Mozambique",
-    "code": "MZ"
-  },
-  {
-    "name": "Myanmar",
-    "code": "MM"
-  },
-  {
-    "name": "Namibia",
-    "code": "NA"
-  },
-  {
-    "name": "Nauru",
-    "code": "NR"
-  },
-  {
-    "name": "Nepal",
-    "code": "NP"
-  },
-  {
-    "name": "Netherlands",
-    "code": "NL"
-  },
-  {
-    "name": "Netherlands Antilles",
-    "code": "AN"
-  },
-  {
-    "name": "New Caledonia",
-    "code": "NC"
-  },
-  {
-    "name": "New Zealand",
-    "code": "NZ"
-  },
-  {
-    "name": "Nicaragua",
-    "code": "NI"
-  },
-  {
-    "name": "Niger",
-    "code": "NE"
-  },
-  {
-    "name": "Nigeria",
-    "code": "NG"
-  },
-  {
-    "name": "Niue",
-    "code": "NU"
-  },
-  {
-    "name": "Norfolk Island",
-    "code": "NF"
-  },
-  {
-    "name": "Northern Mariana Islands",
-    "code": "MP"
-  },
-  {
-    "name": "Norway",
-    "code": "NO"
-  },
-  {
-    "name": "Oman",
-    "code": "OM"
-  },
-  {
-    "name": "Pakistan",
-    "code": "PK"
-  },
-  {
-    "name": "Palau",
-    "code": "PW"
-  },
-  {
-    "name": "Palestinian Territory, Occupied",
-    "code": "PS"
-  },
-  {
-    "name": "Panama",
-    "code": "PA"
-  },
-  {
-    "name": "Papua New Guinea",
-    "code": "PG"
-  },
-  {
-    "name": "Paraguay",
-    "code": "PY"
-  },
-  {
-    "name": "Peru",
-    "code": "PE"
-  },
-  {
-    "name": "Philippines",
-    "code": "PH"
-  },
-  {
-    "name": "Pitcairn",
-    "code": "PN"
-  },
-  {
-    "name": "Poland",
-    "code": "PL"
-  },
-  {
-    "name": "Portugal",
-    "code": "PT"
-  },
-  {
-    "name": "Puerto Rico",
-    "code": "PR"
-  },
-  {
-    "name": "Qatar",
-    "code": "QA"
-  },
-  {
-    "name": "Reunion",
-    "code": "RE"
-  },
-  {
-    "name": "Romania",
-    "code": "RO"
-  },
-  {
-    "name": "Russian Federation",
-    "code": "RU"
-  },
-  {
-    "name": "RWANDA",
-    "code": "RW"
-  },
-  {
-    "name": "Saint Helena",
-    "code": "SH"
-  },
-  {
-    "name": "Saint Kitts and Nevis",
-    "code": "KN"
-  },
-  {
-    "name": "Saint Lucia",
-    "code": "LC"
-  },
-  {
-    "name": "Saint Pierre and Miquelon",
-    "code": "PM"
-  },
-  {
-    "name": "Saint Vincent and the Grenadines",
-    "code": "VC"
-  },
-  {
-    "name": "Samoa",
-    "code": "WS"
-  },
-  {
-    "name": "San Marino",
-    "code": "SM"
-  },
-  {
-    "name": "Sao Tome and Principe",
-    "code": "ST"
-  },
-  {
-    "name": "Saudi Arabia",
-    "code": "SA"
-  },
-  {
-    "name": "Senegal",
-    "code": "SN"
-  },
-  {
-    "name": "Serbia and Montenegro",
-    "code": "CS"
-  },
-  {
-    "name": "Seychelles",
-    "code": "SC"
-  },
-  {
-    "name": "Sierra Leone",
-    "code": "SL"
-  },
-  {
-    "name": "Singapore",
-    "code": "SG"
-  },
-  {
-    "name": "Slovakia",
-    "code": "SK"
-  },
-  {
-    "name": "Slovenia",
-    "code": "SI"
-  },
-  {
-    "name": "Solomon Islands",
-    "code": "SB"
-  },
-  {
-    "name": "Somalia",
-    "code": "SO"
-  },
-  {
-    "name": "South Africa",
-    "code": "ZA"
-  },
-  {
-    "name": "South Georgia and the South Sandwich Islands",
-    "code": "GS"
-  },
-  {
-    "name": "Spain",
-    "code": "ES"
-  },
-  {
-    "name": "Sri Lanka",
-    "code": "LK"
-  },
-  {
-    "name": "Sudan",
-    "code": "SD"
-  },
-  {
-    "name": "Suriname",
-    "code": "SR"
-  },
-  {
-    "name": "Svalbard and Jan Mayen",
-    "code": "SJ"
-  },
-  {
-    "name": "Swaziland",
-    "code": "SZ"
-  },
-  {
-    "name": "Sweden",
-    "code": "SE"
-  },
-  {
-    "name": "Switzerland",
-    "code": "CH"
-  },
-  {
-    "name": "Syrian Arab Republic",
-    "code": "SY"
-  },
-  {
-    "name": "Taiwan, Province of China",
-    "code": "TW"
-  },
-  {
-    "name": "Tajikistan",
-    "code": "TJ"
-  },
-  {
-    "name": "Tanzania, United Republic of",
-    "code": "TZ"
-  },
-  {
-    "name": "Thailand",
-    "code": "TH"
-  },
-  {
-    "name": "Timor-Leste",
-    "code": "TL"
-  },
-  {
-    "name": "Togo",
-    "code": "TG"
-  },
-  {
-    "name": "Tokelau",
-    "code": "TK"
-  },
-  {
-    "name": "Tonga",
-    "code": "TO"
-  },
-  {
-    "name": "Trinidad and Tobago",
-    "code": "TT"
-  },
-  {
-    "name": "Tunisia",
-    "code": "TN"
-  },
-  {
-    "name": "Turkey",
-    "code": "TR"
-  },
-  {
-    "name": "Turkmenistan",
-    "code": "TM"
-  },
-  {
-    "name": "Turks and Caicos Islands",
-    "code": "TC"
-  },
-  {
-    "name": "Tuvalu",
-    "code": "TV"
-  },
-  {
-    "name": "Uganda",
-    "code": "UG"
-  },
-  {
-    "name": "Ukraine",
-    "code": "UA"
-  },
-  {
+    "common_names": [
+      "Aruba",
+      "533",
+      "ABW",
+      "ARU",
+      "AW"
+    ]
+  },
+  {
+    "code": "AF",
+    "name": "Afghanistan",
+    "common_names": [
+      "Islamic Republic of Afghanistan",
+      "004",
+      "AFG",
+      "AF",
+      "Afġānistān"
+    ]
+  },
+  {
+    "code": "AO",
+    "name": "Angola",
+    "common_names": [
+      "Republic of Angola",
+      "024",
+      "AGO",
+      "ANG",
+      "AO",
+      "República de Angola",
+      "ʁɛpublika de an\u0027ɡɔla"
+    ]
+  },
+  {
+    "code": "AI",
+    "name": "Anguilla",
+    "common_names": [
+      "Anguilla",
+      "660",
+      "AIA",
+      "",
+      "AI"
+    ]
+  },
+  {
+    "code": "AX",
+    "name": "Åland Islands",
+    "common_names": [
+      "Åland Islands",
+      "248",
+      "ALA",
+      "",
+      "AX",
+      "Aaland",
+      "Aland",
+      "Ahvenanmaa"
+    ]
+  },
+  {
+    "code": "AL",
+    "name": "Albania",
+    "common_names": [
+      "Republic of Albania",
+      "008",
+      "ALB",
+      "AL",
+      "Shqipëri",
+      "Shqipëria",
+      "Shqipnia"
+    ]
+  },
+  {
+    "code": "AD",
+    "name": "Andorra",
+    "common_names": [
+      "Principality of Andorra",
+      "020",
+      "AND",
+      "AD",
+      "Principat d\u0027Andorra"
+    ]
+  },
+  {
+    "code": "AE",
     "name": "United Arab Emirates",
-    "code": "AE"
+    "common_names": [
+      "United Arab Emirates",
+      "784",
+      "ARE",
+      "UAE",
+      "AE",
+      "Emirates"
+    ]
   },
   {
-    "name": "United Kingdom",
-    "code": "GB"
+    "code": "AR",
+    "name": "Argentina",
+    "common_names": [
+      "Argentine Republic",
+      "032",
+      "ARG",
+      "AR",
+      "República Argentina"
+    ]
   },
   {
-    "name": "United States",
-    "code": "US"
+    "code": "AM",
+    "name": "Armenia",
+    "common_names": [
+      "Republic of Armenia",
+      "051",
+      "ARM",
+      "AM",
+      "Hayastan",
+      "Հայաստանի Հանրապետություն"
+    ]
   },
   {
-    "name": "United States Minor Outlying Islands",
-    "code": "UM"
+    "code": "AS",
+    "name": "American Samoa",
+    "common_names": [
+      "American Samoa",
+      "016",
+      "ASM",
+      "ASA",
+      "AS",
+      "Amerika Sāmoa",
+      "Amelika Sāmoa",
+      "Sāmoa Amelika"
+    ]
   },
   {
-    "name": "Uruguay",
-    "code": "UY"
+    "code": "AQ",
+    "name": "Antarctica",
+    "common_names": [
+      "Antarctica",
+      "010",
+      "ATA",
+      "",
+      "AQ"
+    ]
   },
   {
-    "name": "Uzbekistan",
-    "code": "UZ"
+    "code": "TF",
+    "name": "French Southern and Antarctic Lands",
+    "common_names": [
+      "Territory of the French Southern and Antarctic Lands",
+      "260",
+      "ATF",
+      "",
+      "TF",
+      "French Southern Territories"
+    ]
   },
   {
-    "name": "Vanuatu",
-    "code": "VU"
+    "code": "AG",
+    "name": "Antigua and Barbuda",
+    "common_names": [
+      "Antigua and Barbuda",
+      "028",
+      "ATG",
+      "ANT",
+      "AG"
+    ]
   },
   {
-    "name": "Venezuela",
-    "code": "VE"
+    "code": "AU",
+    "name": "Australia",
+    "common_names": [
+      "Commonwealth of Australia",
+      "036",
+      "AUS",
+      "AU"
+    ]
   },
   {
-    "name": "Viet Nam",
-    "code": "VN"
+    "code": "AT",
+    "name": "Austria",
+    "common_names": [
+      "Republic of Austria",
+      "040",
+      "AUT",
+      "AT",
+      "Osterreich",
+      "Oesterreich"
+    ]
   },
   {
-    "name": "Virgin Islands, British",
-    "code": "VG"
+    "code": "AZ",
+    "name": "Azerbaijan",
+    "common_names": [
+      "Republic of Azerbaijan",
+      "031",
+      "AZE",
+      "AZ",
+      "Azərbaycan Respublikası"
+    ]
   },
   {
-    "name": "Virgin Islands, U.S.",
-    "code": "VI"
+    "code": "BI",
+    "name": "Burundi",
+    "common_names": [
+      "Republic of Burundi",
+      "108",
+      "BDI",
+      "BI",
+      "Republika y\u0027Uburundi",
+      "République du Burundi"
+    ]
   },
   {
-    "name": "Wallis and Futuna",
-    "code": "WF"
+    "code": "BE",
+    "name": "Belgium",
+    "common_names": [
+      "Kingdom of Belgium",
+      "056",
+      "BEL",
+      "BE",
+      "België",
+      "Belgie",
+      "Belgien",
+      "Belgique",
+      "Koninkrijk België",
+      "Royaume de Belgique",
+      "Königreich Belgien"
+    ]
   },
   {
+    "code": "BJ",
+    "name": "Benin",
+    "common_names": [
+      "Republic of Benin",
+      "204",
+      "BEN",
+      "BJ",
+      "République du Bénin"
+    ]
+  },
+  {
+    "code": "BF",
+    "name": "Burkina Faso",
+    "common_names": [
+      "Burkina Faso",
+      "854",
+      "BFA",
+      "BUR",
+      "BF"
+    ]
+  },
+  {
+    "code": "BD",
+    "name": "Bangladesh",
+    "common_names": [
+      "People\u0027s Republic of Bangladesh",
+      "050",
+      "BGD",
+      "BAN",
+      "BD",
+      "Gônôprôjatôntri Bangladesh"
+    ]
+  },
+  {
+    "code": "BG",
+    "name": "Bulgaria",
+    "common_names": [
+      "Republic of Bulgaria",
+      "100",
+      "BGR",
+      "BUL",
+      "BG",
+      "Република България"
+    ]
+  },
+  {
+    "code": "BH",
+    "name": "Bahrain",
+    "common_names": [
+      "Kingdom of Bahrain",
+      "048",
+      "BHR",
+      "BRN",
+      "BH",
+      "Mamlakat al-Baḥrayn"
+    ]
+  },
+  {
+    "code": "BS",
+    "name": "Bahamas",
+    "common_names": [
+      "Commonwealth of the Bahamas",
+      "044",
+      "BHS",
+      "BAH",
+      "BS"
+    ]
+  },
+  {
+    "code": "BA",
+    "name": "Bosnia and Herzegovina",
+    "common_names": [
+      "Bosnia and Herzegovina",
+      "070",
+      "BIH",
+      "BA",
+      "Bosnia-Herzegovina",
+      "Босна и Херцеговина"
+    ]
+  },
+  {
+    "code": "BL",
+    "name": "Saint Barthélemy",
+    "common_names": [
+      "Collectivity of Saint Barthélemy",
+      "652",
+      "BLM",
+      "",
+      "BL",
+      "St. Barthelemy",
+      "Collectivité de Saint-Barthélemy"
+    ]
+  },
+  {
+    "code": "SH",
+    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "common_names": [
+      "Saint Helena, Ascension and Tristan da Cunha",
+      "654",
+      "SHN",
+      "",
+      "Saint Helena",
+      "St. Helena, Ascension and Tristan da Cunha"
+    ]
+  },
+  {
+    "code": "BY",
+    "name": "Belarus",
+    "common_names": [
+      "Republic of Belarus",
+      "112",
+      "BLR",
+      "BY",
+      "Bielaruś",
+      "Белоруссия",
+      "Республика Белоруссия"
+    ]
+  },
+  {
+    "code": "BZ",
+    "name": "Belize",
+    "common_names": [
+      "Belize",
+      "084",
+      "BLZ",
+      "BIZ",
+      "BZ"
+    ]
+  },
+  {
+    "code": "BM",
+    "name": "Bermuda",
+    "common_names": [
+      "Bermuda",
+      "060",
+      "BMU",
+      "BER",
+      "BM",
+      "The Islands of Bermuda",
+      "The Bermudas",
+      "Somers Isles"
+    ]
+  },
+  {
+    "code": "BO",
+    "name": "Bolivia",
+    "common_names": [
+      "Plurinational State of Bolivia",
+      "068",
+      "BOL",
+      "BO",
+      "Buliwya",
+      "Wuliwya",
+      "Bolivia, Plurinational State of",
+      "Estado Plurinacional de Bolivia",
+      "Buliwya Mamallaqta",
+      "Wuliwya Suyu",
+      "Tetã Volívia"
+    ]
+  },
+  {
+    "code": "BQ",
+    "name": "Caribbean Netherlands",
+    "common_names": [
+      "Bonaire, Sint Eustatius and Saba",
+      "535",
+      "BES",
+      "",
+      "BES islands"
+    ]
+  },
+  {
+    "code": "BR",
+    "name": "Brazil",
+    "common_names": [
+      "Federative Republic of Brazil",
+      "076",
+      "BRA",
+      "BR",
+      "Brasil",
+      "República Federativa do Brasil"
+    ]
+  },
+  {
+    "code": "BB",
+    "name": "Barbados",
+    "common_names": [
+      "Barbados",
+      "052",
+      "BRB",
+      "BAR",
+      "BB"
+    ]
+  },
+  {
+    "code": "BN",
+    "name": "Brunei",
+    "common_names": [
+      "Nation of Brunei, Abode of Peace",
+      "096",
+      "BRN",
+      "BRU",
+      "BN",
+      "Brunei Darussalam",
+      "Nation of Brunei",
+      "the Abode of Peace"
+    ]
+  },
+  {
+    "code": "BT",
+    "name": "Bhutan",
+    "common_names": [
+      "Kingdom of Bhutan",
+      "064",
+      "BTN",
+      "BHU",
+      "BT"
+    ]
+  },
+  {
+    "code": "BV",
+    "name": "Bouvet Island",
+    "common_names": [
+      "Bouvet Island",
+      "074",
+      "BVT",
+      "",
+      "BV",
+      "Bouvetøya",
+      "Bouvet-øya"
+    ]
+  },
+  {
+    "code": "BW",
+    "name": "Botswana",
+    "common_names": [
+      "Republic of Botswana",
+      "072",
+      "BWA",
+      "BOT",
+      "BW",
+      "Lefatshe la Botswana"
+    ]
+  },
+  {
+    "code": "CF",
+    "name": "Central African Republic",
+    "common_names": [
+      "Central African Republic",
+      "140",
+      "CAF",
+      "CF",
+      "République centrafricaine"
+    ]
+  },
+  {
+    "code": "CA",
+    "name": "Canada",
+    "common_names": [
+      "Canada",
+      "124",
+      "CAN",
+      "CA"
+    ]
+  },
+  {
+    "code": "CC",
+    "name": "Cocos (Keeling) Islands",
+    "common_names": [
+      "Territory of the Cocos (Keeling) Islands",
+      "166",
+      "CCK",
+      "",
+      "CC",
+      "Keeling Islands",
+      "Cocos Islands"
+    ]
+  },
+  {
+    "code": "CH",
+    "name": "Switzerland",
+    "common_names": [
+      "Swiss Confederation",
+      "756",
+      "CHE",
+      "SUI",
+      "CH",
+      "Schweiz",
+      "Suisse",
+      "Svizzera",
+      "Svizra"
+    ]
+  },
+  {
+    "code": "CL",
+    "name": "Chile",
+    "common_names": [
+      "Republic of Chile",
+      "152",
+      "CHL",
+      "CHI",
+      "CL",
+      "República de Chile"
+    ]
+  },
+  {
+    "code": "CN",
+    "name": "China",
+    "common_names": [
+      "People\u0027s Republic of China",
+      "156",
+      "CHN",
+      "CN",
+      "Zhōngguó",
+      "Zhongguo",
+      "Zhonghua",
+      "中华人民共和国",
+      "Zhōnghuá Rénmín Gònghéguó"
+    ]
+  },
+  {
+    "code": "CI",
+    "name": "Ivory Coast",
+    "common_names": [
+      "Republic of Côte d\u0027Ivoire",
+      "384",
+      "CIV",
+      "CI",
+      "Côte d\u0027Ivoire",
+      "Ivory Coast",
+      "République de Côte d\u0027Ivoire"
+    ]
+  },
+  {
+    "code": "CM",
+    "name": "Cameroon",
+    "common_names": [
+      "Republic of Cameroon",
+      "120",
+      "CMR",
+      "CM",
+      "République du Cameroun"
+    ]
+  },
+  {
+    "code": "CD",
+    "name": "DR Congo",
+    "common_names": [
+      "Democratic Republic of the Congo",
+      "180",
+      "COD",
+      "CD",
+      "DR Congo",
+      "Congo-Kinshasa",
+      "Congo, the Democratic Republic of the",
+      "DRC"
+    ]
+  },
+  {
+    "code": "CG",
+    "name": "Republic of the Congo",
+    "common_names": [
+      "Republic of the Congo",
+      "178",
+      "COG",
+      "CGO",
+      "CG",
+      "Congo",
+      "Congo-Brazzaville"
+    ]
+  },
+  {
+    "code": "CK",
+    "name": "Cook Islands",
+    "common_names": [
+      "Cook Islands",
+      "184",
+      "COK",
+      "CK",
+      "Kūki \u0027Āirani"
+    ]
+  },
+  {
+    "code": "CO",
+    "name": "Colombia",
+    "common_names": [
+      "Republic of Colombia",
+      "170",
+      "COL",
+      "CO",
+      "República de Colombia"
+    ]
+  },
+  {
+    "code": "KM",
+    "name": "Comoros",
+    "common_names": [
+      "Union of the Comoros",
+      "174",
+      "COM",
+      "KM",
+      "Union des Comores",
+      "Udzima wa Komori",
+      "al-Ittiḥād al-Qumurī"
+    ]
+  },
+  {
+    "code": "CV",
+    "name": "Cape Verde",
+    "common_names": [
+      "Republic of Cabo Verde",
+      "132",
+      "CPV",
+      "CV",
+      "República de Cabo Verde"
+    ]
+  },
+  {
+    "code": "CR",
+    "name": "Costa Rica",
+    "common_names": [
+      "Republic of Costa Rica",
+      "188",
+      "CRI",
+      "CRC",
+      "CR",
+      "República de Costa Rica"
+    ]
+  },
+  {
+    "code": "CU",
+    "name": "Cuba",
+    "common_names": [
+      "Republic of Cuba",
+      "192",
+      "CUB",
+      "CU",
+      "República de Cuba"
+    ]
+  },
+  {
+    "code": "CW",
+    "name": "Curaçao",
+    "common_names": [
+      "Country of Curaçao",
+      "531",
+      "CUW",
+      "",
+      "CW",
+      "Curacao",
+      "Kòrsou",
+      "Land Curaçao",
+      "Pais Kòrsou"
+    ]
+  },
+  {
+    "code": "CX",
+    "name": "Christmas Island",
+    "common_names": [
+      "Territory of Christmas Island",
+      "162",
+      "CXR",
+      "",
+      "CX"
+    ]
+  },
+  {
+    "code": "KY",
+    "name": "Cayman Islands",
+    "common_names": [
+      "Cayman Islands",
+      "136",
+      "CYM",
+      "CAY",
+      "KY"
+    ]
+  },
+  {
+    "code": "CY",
+    "name": "Cyprus",
+    "common_names": [
+      "Republic of Cyprus",
+      "196",
+      "CYP",
+      "CY",
+      "Kýpros",
+      "Kıbrıs",
+      "Κυπριακή Δημοκρατία",
+      "Kıbrıs Cumhuriyeti"
+    ]
+  },
+  {
+    "code": "CZ",
+    "name": "Czechia",
+    "common_names": [
+      "Czech Republic",
+      "203",
+      "CZE",
+      "CZ",
+      "Česká republika",
+      "Česko"
+    ]
+  },
+  {
+    "code": "DE",
+    "name": "Germany",
+    "common_names": [
+      "Federal Republic of Germany",
+      "276",
+      "DEU",
+      "GER",
+      "DE",
+      "Bundesrepublik Deutschland"
+    ]
+  },
+  {
+    "code": "DJ",
+    "name": "Djibouti",
+    "common_names": [
+      "Republic of Djibouti",
+      "262",
+      "DJI",
+      "DJ",
+      "Jabuuti",
+      "Gabuuti",
+      "République de Djibouti",
+      "Gabuutih Ummuuno",
+      "Jamhuuriyadda Jabuuti"
+    ]
+  },
+  {
+    "code": "DM",
+    "name": "Dominica",
+    "common_names": [
+      "Commonwealth of Dominica",
+      "212",
+      "DMA",
+      "DM",
+      "Dominique",
+      "Wai‘tu kubuli"
+    ]
+  },
+  {
+    "code": "DK",
+    "name": "Denmark",
+    "common_names": [
+      "Kingdom of Denmark",
+      "208",
+      "DNK",
+      "DEN",
+      "DK",
+      "Danmark",
+      "Kongeriget Danmark"
+    ]
+  },
+  {
+    "code": "DO",
+    "name": "Dominican Republic",
+    "common_names": [
+      "Dominican Republic",
+      "214",
+      "DOM",
+      "DO"
+    ]
+  },
+  {
+    "code": "DZ",
+    "name": "Algeria",
+    "common_names": [
+      "People\u0027s Democratic Republic of Algeria",
+      "012",
+      "DZA",
+      "ALG",
+      "DZ",
+      "Dzayer",
+      "Algérie"
+    ]
+  },
+  {
+    "code": "EC",
+    "name": "Ecuador",
+    "common_names": [
+      "Republic of Ecuador",
+      "218",
+      "ECU",
+      "EC",
+      "República del Ecuador"
+    ]
+  },
+  {
+    "code": "EG",
+    "name": "Egypt",
+    "common_names": [
+      "Arab Republic of Egypt",
+      "818",
+      "EGY",
+      "EG"
+    ]
+  },
+  {
+    "code": "ER",
+    "name": "Eritrea",
+    "common_names": [
+      "State of Eritrea",
+      "232",
+      "ERI",
+      "ER",
+      "ሃገረ ኤርትራ",
+      "Dawlat Iritriyá",
+      "ʾErtrā",
+      "Iritriyā"
+    ]
+  },
+  {
+    "code": "EH",
     "name": "Western Sahara",
-    "code": "EH"
+    "common_names": [
+      "Sahrawi Arab Democratic Republic",
+      "732",
+      "ESH",
+      "",
+      "EH",
+      "Taneẓroft Tutrimt"
+    ]
   },
   {
+    "code": "ES",
+    "name": "Spain",
+    "common_names": [
+      "Kingdom of Spain",
+      "724",
+      "ESP",
+      "ES",
+      "Reino de España"
+    ]
+  },
+  {
+    "code": "EE",
+    "name": "Estonia",
+    "common_names": [
+      "Republic of Estonia",
+      "233",
+      "EST",
+      "EE",
+      "Eesti",
+      "Eesti Vabariik"
+    ]
+  },
+  {
+    "code": "ET",
+    "name": "Ethiopia",
+    "common_names": [
+      "Federal Democratic Republic of Ethiopia",
+      "231",
+      "ETH",
+      "ET",
+      "ʾĪtyōṗṗyā",
+      "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ"
+    ]
+  },
+  {
+    "code": "FI",
+    "name": "Finland",
+    "common_names": [
+      "Republic of Finland",
+      "246",
+      "FIN",
+      "FI",
+      "Suomi",
+      "Suomen tasavalta",
+      "Republiken Finland"
+    ]
+  },
+  {
+    "code": "FJ",
+    "name": "Fiji",
+    "common_names": [
+      "Republic of Fiji",
+      "242",
+      "FJI",
+      "FIJ",
+      "FJ",
+      "Viti",
+      "Matanitu ko Viti",
+      "Fijī Gaṇarājya"
+    ]
+  },
+  {
+    "code": "FK",
+    "name": "Falkland Islands",
+    "common_names": [
+      "Falkland Islands",
+      "238",
+      "FLK",
+      "",
+      "FK",
+      "Islas Malvinas",
+      "Falkland Islands (Malvinas)"
+    ]
+  },
+  {
+    "code": "FR",
+    "name": "France",
+    "common_names": [
+      "French Republic",
+      "250",
+      "FRA",
+      "FR",
+      "République française"
+    ]
+  },
+  {
+    "code": "FO",
+    "name": "Faroe Islands",
+    "common_names": [
+      "Faroe Islands",
+      "234",
+      "FRO",
+      "",
+      "FO",
+      "Føroyar",
+      "Færøerne"
+    ]
+  },
+  {
+    "code": "FM",
+    "name": "Micronesia",
+    "common_names": [
+      "Federated States of Micronesia",
+      "583",
+      "FSM",
+      "FM",
+      "Micronesia, Federated States of"
+    ]
+  },
+  {
+    "code": "GA",
+    "name": "Gabon",
+    "common_names": [
+      "Gabonese Republic",
+      "266",
+      "GAB",
+      "GA",
+      "République Gabonaise"
+    ]
+  },
+  {
+    "code": "GB",
+    "name": "United Kingdom",
+    "common_names": [
+      "United Kingdom of Great Britain and Northern Ireland",
+      "826",
+      "GBR",
+      "GB",
+      "UK",
+      "Great Britain"
+    ]
+  },
+  {
+    "code": "GE",
+    "name": "Georgia",
+    "common_names": [
+      "Georgia",
+      "268",
+      "GEO",
+      "GE",
+      "Sakartvelo"
+    ]
+  },
+  {
+    "code": "GG",
+    "name": "Guernsey",
+    "common_names": [
+      "Bailiwick of Guernsey",
+      "831",
+      "GGY",
+      "",
+      "GG",
+      "Bailliage de Guernesey"
+    ]
+  },
+  {
+    "code": "GH",
+    "name": "Ghana",
+    "common_names": [
+      "Republic of Ghana",
+      "288",
+      "GHA",
+      "GH"
+    ]
+  },
+  {
+    "code": "GI",
+    "name": "Gibraltar",
+    "common_names": [
+      "Gibraltar",
+      "292",
+      "GIB",
+      "",
+      "GI"
+    ]
+  },
+  {
+    "code": "GN",
+    "name": "Guinea",
+    "common_names": [
+      "Republic of Guinea",
+      "324",
+      "GIN",
+      "GUI",
+      "GN",
+      "République de Guinée"
+    ]
+  },
+  {
+    "code": "GP",
+    "name": "Guadeloupe",
+    "common_names": [
+      "Guadeloupe",
+      "312",
+      "GLP",
+      "",
+      "GP",
+      "Gwadloup"
+    ]
+  },
+  {
+    "code": "GM",
+    "name": "Gambia",
+    "common_names": [
+      "Republic of the Gambia",
+      "270",
+      "GMB",
+      "GAM",
+      "GM"
+    ]
+  },
+  {
+    "code": "GW",
+    "name": "Guinea-Bissau",
+    "common_names": [
+      "Republic of Guinea-Bissau",
+      "624",
+      "GNB",
+      "GBS",
+      "GW",
+      "República da Guiné-Bissau"
+    ]
+  },
+  {
+    "code": "GQ",
+    "name": "Equatorial Guinea",
+    "common_names": [
+      "Republic of Equatorial Guinea",
+      "226",
+      "GNQ",
+      "GEQ",
+      "GQ",
+      "República de Guinea Ecuatorial",
+      "République de Guinée équatoriale",
+      "República da Guiné Equatorial"
+    ]
+  },
+  {
+    "code": "GR",
+    "name": "Greece",
+    "common_names": [
+      "Hellenic Republic",
+      "300",
+      "GRC",
+      "GRE",
+      "GR",
+      "Elláda",
+      "Ελληνική Δημοκρατία"
+    ]
+  },
+  {
+    "code": "GD",
+    "name": "Grenada",
+    "common_names": [
+      "Grenada",
+      "308",
+      "GRD",
+      "GRN",
+      "GD"
+    ]
+  },
+  {
+    "code": "GL",
+    "name": "Greenland",
+    "common_names": [
+      "Greenland",
+      "304",
+      "GRL",
+      "",
+      "GL",
+      "Grønland"
+    ]
+  },
+  {
+    "code": "GT",
+    "name": "Guatemala",
+    "common_names": [
+      "Republic of Guatemala",
+      "320",
+      "GTM",
+      "GUA",
+      "GT"
+    ]
+  },
+  {
+    "code": "GF",
+    "name": "French Guiana",
+    "common_names": [
+      "Guiana",
+      "254",
+      "GUF",
+      "",
+      "GF",
+      "Guyane"
+    ]
+  },
+  {
+    "code": "GU",
+    "name": "Guam",
+    "common_names": [
+      "Guam",
+      "316",
+      "GUM",
+      "GU",
+      "Guåhån"
+    ]
+  },
+  {
+    "code": "GY",
+    "name": "Guyana",
+    "common_names": [
+      "Co-operative Republic of Guyana",
+      "328",
+      "GUY",
+      "GY"
+    ]
+  },
+  {
+    "code": "HK",
+    "name": "Hong Kong",
+    "common_names": [
+      "Hong Kong Special Administrative Region of the People\u0027s Republic of China",
+      "344",
+      "HKG",
+      "HK"
+    ]
+  },
+  {
+    "code": "HM",
+    "name": "Heard Island and McDonald Islands",
+    "common_names": [
+      "Heard Island and McDonald Islands",
+      "334",
+      "HMD",
+      "",
+      "HM"
+    ]
+  },
+  {
+    "code": "HN",
+    "name": "Honduras",
+    "common_names": [
+      "Republic of Honduras",
+      "340",
+      "HND",
+      "HON",
+      "HN",
+      "República de Honduras"
+    ]
+  },
+  {
+    "code": "HR",
+    "name": "Croatia",
+    "common_names": [
+      "Republic of Croatia",
+      "191",
+      "HRV",
+      "CRO",
+      "HR",
+      "Hrvatska",
+      "Republika Hrvatska"
+    ]
+  },
+  {
+    "code": "HT",
+    "name": "Haiti",
+    "common_names": [
+      "Republic of Haiti",
+      "332",
+      "HTI",
+      "HAI",
+      "HT",
+      "République d\u0027Haïti",
+      "Repiblik Ayiti"
+    ]
+  },
+  {
+    "code": "HU",
+    "name": "Hungary",
+    "common_names": [
+      "Hungary",
+      "348",
+      "HUN",
+      "HU"
+    ]
+  },
+  {
+    "code": "ID",
+    "name": "Indonesia",
+    "common_names": [
+      "Republic of Indonesia",
+      "360",
+      "IDN",
+      "INA",
+      "ID",
+      "Republik Indonesia"
+    ]
+  },
+  {
+    "code": "IM",
+    "name": "Isle of Man",
+    "common_names": [
+      "Isle of Man",
+      "833",
+      "IMN",
+      "",
+      "IM",
+      "Ellan Vannin",
+      "Mann",
+      "Mannin"
+    ]
+  },
+  {
+    "code": "IN",
+    "name": "India",
+    "common_names": [
+      "Republic of India",
+      "356",
+      "IND",
+      "IN",
+      "Bhārat",
+      "Bharat Ganrajya",
+      "இந்தியா"
+    ]
+  },
+  {
+    "code": "IO",
+    "name": "British Indian Ocean Territory",
+    "common_names": [
+      "British Indian Ocean Territory",
+      "086",
+      "IOT",
+      "",
+      "IO"
+    ]
+  },
+  {
+    "code": "IE",
+    "name": "Ireland",
+    "common_names": [
+      "Republic of Ireland",
+      "372",
+      "IRL",
+      "IE",
+      "Éire",
+      "Poblacht na hÉireann"
+    ]
+  },
+  {
+    "code": "IR",
+    "name": "Iran",
+    "common_names": [
+      "Islamic Republic of Iran",
+      "364",
+      "IRN",
+      "IRI",
+      "IR",
+      "Iran, Islamic Republic of",
+      "Jomhuri-ye Eslāmi-ye Irān"
+    ]
+  },
+  {
+    "code": "IQ",
+    "name": "Iraq",
+    "common_names": [
+      "Republic of Iraq",
+      "368",
+      "IRQ",
+      "IQ",
+      "Jumhūriyyat al-‘Irāq"
+    ]
+  },
+  {
+    "code": "IS",
+    "name": "Iceland",
+    "common_names": [
+      "Iceland",
+      "352",
+      "ISL",
+      "IS",
+      "Island",
+      "Republic of Iceland",
+      "Lýðveldið Ísland"
+    ]
+  },
+  {
+    "code": "IL",
+    "name": "Israel",
+    "common_names": [
+      "State of Israel",
+      "376",
+      "ISR",
+      "IL",
+      "Medīnat Yisrā\u0027el"
+    ]
+  },
+  {
+    "code": "IT",
+    "name": "Italy",
+    "common_names": [
+      "Italian Republic",
+      "380",
+      "ITA",
+      "IT",
+      "Repubblica italiana"
+    ]
+  },
+  {
+    "code": "JM",
+    "name": "Jamaica",
+    "common_names": [
+      "Jamaica",
+      "388",
+      "JAM",
+      "JM"
+    ]
+  },
+  {
+    "code": "JE",
+    "name": "Jersey",
+    "common_names": [
+      "Bailiwick of Jersey",
+      "832",
+      "JEY",
+      "",
+      "JE",
+      "Bailliage de Jersey",
+      "Bailliage dé Jèrri"
+    ]
+  },
+  {
+    "code": "JO",
+    "name": "Jordan",
+    "common_names": [
+      "Hashemite Kingdom of Jordan",
+      "400",
+      "JOR",
+      "JO",
+      "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+    ]
+  },
+  {
+    "code": "JP",
+    "name": "Japan",
+    "common_names": [
+      "Japan",
+      "392",
+      "JPN",
+      "JP",
+      "Nippon",
+      "Nihon"
+    ]
+  },
+  {
+    "code": "KZ",
+    "name": "Kazakhstan",
+    "common_names": [
+      "Republic of Kazakhstan",
+      "398",
+      "KAZ",
+      "KZ",
+      "Qazaqstan",
+      "Казахстан",
+      "Қазақстан Республикасы",
+      "Qazaqstan Respublïkası",
+      "Республика Казахстан",
+      "Respublika Kazakhstan"
+    ]
+  },
+  {
+    "code": "KE",
+    "name": "Kenya",
+    "common_names": [
+      "Republic of Kenya",
+      "404",
+      "KEN",
+      "KE",
+      "Jamhuri ya Kenya"
+    ]
+  },
+  {
+    "code": "KG",
+    "name": "Kyrgyzstan",
+    "common_names": [
+      "Kyrgyz Republic",
+      "417",
+      "KGZ",
+      "KG",
+      "Киргизия",
+      "Кыргыз Республикасы",
+      "Kyrgyz Respublikasy"
+    ]
+  },
+  {
+    "code": "KH",
+    "name": "Cambodia",
+    "common_names": [
+      "Kingdom of Cambodia",
+      "116",
+      "KHM",
+      "CAM",
+      "KH"
+    ]
+  },
+  {
+    "code": "KI",
+    "name": "Kiribati",
+    "common_names": [
+      "Independent and Sovereign Republic of Kiribati",
+      "296",
+      "KIR",
+      "KI",
+      "Republic of Kiribati",
+      "Ribaberiki Kiribati"
+    ]
+  },
+  {
+    "code": "KN",
+    "name": "Saint Kitts and Nevis",
+    "common_names": [
+      "Federation of Saint Christopher and Nevis",
+      "659",
+      "KNA",
+      "SKN",
+      "KN"
+    ]
+  },
+  {
+    "code": "KR",
+    "name": "South Korea",
+    "common_names": [
+      "Republic of Korea",
+      "410",
+      "KOR",
+      "KR",
+      "Korea, Republic of",
+      "남한",
+      "남조선"
+    ]
+  },
+  {
+    "code": "XK",
+    "name": "Kosovo",
+    "common_names": [
+      "Republic of Kosovo",
+      "",
+      "UNK",
+      "KOS",
+      "XK",
+      "Република Косово"
+    ]
+  },
+  {
+    "code": "KW",
+    "name": "Kuwait",
+    "common_names": [
+      "State of Kuwait",
+      "414",
+      "KWT",
+      "KUW",
+      "KW",
+      "Dawlat al-Kuwait"
+    ]
+  },
+  {
+    "code": "LA",
+    "name": "Laos",
+    "common_names": [
+      "Lao People\u0027s Democratic Republic",
+      "418",
+      "LAO",
+      "LA",
+      "Lao",
+      "Sathalanalat Paxathipatai Paxaxon Lao"
+    ]
+  },
+  {
+    "code": "LB",
+    "name": "Lebanon",
+    "common_names": [
+      "Lebanese Republic",
+      "422",
+      "LBN",
+      "LIB",
+      "LB",
+      "Al-Jumhūrīyah Al-Libnānīyah"
+    ]
+  },
+  {
+    "code": "LR",
+    "name": "Liberia",
+    "common_names": [
+      "Republic of Liberia",
+      "430",
+      "LBR",
+      "LR"
+    ]
+  },
+  {
+    "code": "LY",
+    "name": "Libya",
+    "common_names": [
+      "State of Libya",
+      "434",
+      "LBY",
+      "LBA",
+      "LY",
+      "Dawlat Libya"
+    ]
+  },
+  {
+    "code": "LC",
+    "name": "Saint Lucia",
+    "common_names": [
+      "Saint Lucia",
+      "662",
+      "LCA",
+      "LC"
+    ]
+  },
+  {
+    "code": "LI",
+    "name": "Liechtenstein",
+    "common_names": [
+      "Principality of Liechtenstein",
+      "438",
+      "LIE",
+      "LI",
+      "Fürstentum Liechtenstein"
+    ]
+  },
+  {
+    "code": "LK",
+    "name": "Sri Lanka",
+    "common_names": [
+      "Democratic Socialist Republic of Sri Lanka",
+      "144",
+      "LKA",
+      "SRI",
+      "LK",
+      "ilaṅkai"
+    ]
+  },
+  {
+    "code": "LS",
+    "name": "Lesotho",
+    "common_names": [
+      "Kingdom of Lesotho",
+      "426",
+      "LSO",
+      "LES",
+      "LS",
+      "Muso oa Lesotho"
+    ]
+  },
+  {
+    "code": "LT",
+    "name": "Lithuania",
+    "common_names": [
+      "Republic of Lithuania",
+      "440",
+      "LTU",
+      "LT",
+      "Lietuvos Respublika"
+    ]
+  },
+  {
+    "code": "LU",
+    "name": "Luxembourg",
+    "common_names": [
+      "Grand Duchy of Luxembourg",
+      "442",
+      "LUX",
+      "LU",
+      "Grand-Duché de Luxembourg",
+      "Großherzogtum Luxemburg",
+      "Groussherzogtum Lëtzebuerg"
+    ]
+  },
+  {
+    "code": "LV",
+    "name": "Latvia",
+    "common_names": [
+      "Republic of Latvia",
+      "428",
+      "LVA",
+      "LAT",
+      "LV",
+      "Latvijas Republika"
+    ]
+  },
+  {
+    "code": "MO",
+    "name": "Macau",
+    "common_names": [
+      "Macao Special Administrative Region of the People\u0027s Republic of China",
+      "446",
+      "MAC",
+      "",
+      "MO",
+      "澳门",
+      "Macao",
+      "中華人民共和國澳門特別行政區",
+      "Região Administrativa Especial de Macau da República Popular da China"
+    ]
+  },
+  {
+    "code": "MF",
+    "name": "Saint Martin",
+    "common_names": [
+      "Saint Martin",
+      "663",
+      "MAF",
+      "",
+      "MF",
+      "Collectivity of Saint Martin",
+      "Collectivité de Saint-Martin",
+      "Saint Martin (French part)"
+    ]
+  },
+  {
+    "code": "MA",
+    "name": "Morocco",
+    "common_names": [
+      "Kingdom of Morocco",
+      "504",
+      "MAR",
+      "MA",
+      "Al-Mamlakah al-Maġribiyah"
+    ]
+  },
+  {
+    "code": "MC",
+    "name": "Monaco",
+    "common_names": [
+      "Principality of Monaco",
+      "492",
+      "MCO",
+      "MON",
+      "MC",
+      "Principauté de Monaco"
+    ]
+  },
+  {
+    "code": "MD",
+    "name": "Moldova",
+    "common_names": [
+      "Republic of Moldova",
+      "498",
+      "MDA",
+      "MD",
+      "Moldova, Republic of",
+      "Republica Moldova"
+    ]
+  },
+  {
+    "code": "MG",
+    "name": "Madagascar",
+    "common_names": [
+      "Republic of Madagascar",
+      "450",
+      "MDG",
+      "MAD",
+      "MG",
+      "Repoblikan\u0027i Madagasikara",
+      "République de Madagascar"
+    ]
+  },
+  {
+    "code": "MV",
+    "name": "Maldives",
+    "common_names": [
+      "Republic of the Maldives",
+      "462",
+      "MDV",
+      "MV",
+      "Maldive Islands",
+      "Dhivehi Raajjeyge Jumhooriyya"
+    ]
+  },
+  {
+    "code": "MX",
+    "name": "Mexico",
+    "common_names": [
+      "United Mexican States",
+      "484",
+      "MEX",
+      "MX",
+      "Mexicanos",
+      "Estados Unidos Mexicanos"
+    ]
+  },
+  {
+    "code": "MH",
+    "name": "Marshall Islands",
+    "common_names": [
+      "Republic of the Marshall Islands",
+      "584",
+      "MHL",
+      "MH",
+      "Aolepān Aorōkin M̧ajeļ"
+    ]
+  },
+  {
+    "code": "MK",
+    "name": "North Macedonia",
+    "common_names": [
+      "Republic of North Macedonia",
+      "807",
+      "MKD",
+      "MK",
+      "The former Yugoslav Republic of Macedonia",
+      "Република Северна Македонија"
+    ]
+  },
+  {
+    "code": "ML",
+    "name": "Mali",
+    "common_names": [
+      "Republic of Mali",
+      "466",
+      "MLI",
+      "ML",
+      "République du Mali"
+    ]
+  },
+  {
+    "code": "MT",
+    "name": "Malta",
+    "common_names": [
+      "Republic of Malta",
+      "470",
+      "MLT",
+      "MT",
+      "Repubblika ta\u0027 Malta"
+    ]
+  },
+  {
+    "code": "MM",
+    "name": "Myanmar",
+    "common_names": [
+      "Republic of the Union of Myanmar",
+      "104",
+      "MMR",
+      "MYA",
+      "MM",
+      "Burma",
+      "Pyidaunzu Thanmăda Myăma Nainngandaw"
+    ]
+  },
+  {
+    "code": "ME",
+    "name": "Montenegro",
+    "common_names": [
+      "Montenegro",
+      "499",
+      "MNE",
+      "ME",
+      "Crna Gora"
+    ]
+  },
+  {
+    "code": "MN",
+    "name": "Mongolia",
+    "common_names": [
+      "Mongolia",
+      "496",
+      "MNG",
+      "MGL",
+      "MN"
+    ]
+  },
+  {
+    "code": "MP",
+    "name": "Northern Mariana Islands",
+    "common_names": [
+      "Commonwealth of the Northern Mariana Islands",
+      "580",
+      "MNP",
+      "",
+      "MP",
+      "Sankattan Siha Na Islas Mariånas"
+    ]
+  },
+  {
+    "code": "MZ",
+    "name": "Mozambique",
+    "common_names": [
+      "Republic of Mozambique",
+      "508",
+      "MOZ",
+      "MZ",
+      "República de Moçambique"
+    ]
+  },
+  {
+    "code": "MR",
+    "name": "Mauritania",
+    "common_names": [
+      "Islamic Republic of Mauritania",
+      "478",
+      "MRT",
+      "MTN",
+      "MR",
+      "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+    ]
+  },
+  {
+    "code": "MS",
+    "name": "Montserrat",
+    "common_names": [
+      "Montserrat",
+      "500",
+      "MSR",
+      "",
+      "MS"
+    ]
+  },
+  {
+    "code": "MQ",
+    "name": "Martinique",
+    "common_names": [
+      "Martinique",
+      "474",
+      "MTQ",
+      "",
+      "MQ"
+    ]
+  },
+  {
+    "code": "MU",
+    "name": "Mauritius",
+    "common_names": [
+      "Republic of Mauritius",
+      "480",
+      "MUS",
+      "MRI",
+      "MU",
+      "République de Maurice"
+    ]
+  },
+  {
+    "code": "MW",
+    "name": "Malawi",
+    "common_names": [
+      "Republic of Malawi",
+      "454",
+      "MWI",
+      "MAW",
+      "MW"
+    ]
+  },
+  {
+    "code": "MY",
+    "name": "Malaysia",
+    "common_names": [
+      "Malaysia",
+      "458",
+      "MYS",
+      "MAS",
+      "MY"
+    ]
+  },
+  {
+    "code": "YT",
+    "name": "Mayotte",
+    "common_names": [
+      "Department of Mayotte",
+      "175",
+      "MYT",
+      "",
+      "YT",
+      "Département de Mayotte"
+    ]
+  },
+  {
+    "code": "NA",
+    "name": "Namibia",
+    "common_names": [
+      "Republic of Namibia",
+      "516",
+      "NAM",
+      "NA",
+      "Namibië"
+    ]
+  },
+  {
+    "code": "NC",
+    "name": "New Caledonia",
+    "common_names": [
+      "New Caledonia",
+      "540",
+      "NCL",
+      "",
+      "NC"
+    ]
+  },
+  {
+    "code": "NE",
+    "name": "Niger",
+    "common_names": [
+      "Republic of Niger",
+      "562",
+      "NER",
+      "NIG",
+      "NE",
+      "Nijar"
+    ]
+  },
+  {
+    "code": "NF",
+    "name": "Norfolk Island",
+    "common_names": [
+      "Territory of Norfolk Island",
+      "574",
+      "NFK",
+      "",
+      "NF",
+      "Teratri of Norf\u0027k Ailen"
+    ]
+  },
+  {
+    "code": "NG",
+    "name": "Nigeria",
+    "common_names": [
+      "Federal Republic of Nigeria",
+      "566",
+      "NGA",
+      "NGR",
+      "NG",
+      "Nijeriya",
+      "Naíjíríà"
+    ]
+  },
+  {
+    "code": "NI",
+    "name": "Nicaragua",
+    "common_names": [
+      "Republic of Nicaragua",
+      "558",
+      "NIC",
+      "NCA",
+      "NI",
+      "República de Nicaragua"
+    ]
+  },
+  {
+    "code": "NU",
+    "name": "Niue",
+    "common_names": [
+      "Niue",
+      "570",
+      "NIU",
+      "",
+      "NU"
+    ]
+  },
+  {
+    "code": "NL",
+    "name": "Netherlands",
+    "common_names": [
+      "Kingdom of the Netherlands",
+      "528",
+      "NLD",
+      "NED",
+      "NL",
+      "Holland",
+      "Nederland",
+      "The Netherlands"
+    ]
+  },
+  {
+    "code": "NO",
+    "name": "Norway",
+    "common_names": [
+      "Kingdom of Norway",
+      "578",
+      "NOR",
+      "NO",
+      "Norge",
+      "Noreg",
+      "Kongeriket Norge",
+      "Kongeriket Noreg"
+    ]
+  },
+  {
+    "code": "NP",
+    "name": "Nepal",
+    "common_names": [
+      "Federal Democratic Republic of Nepal",
+      "524",
+      "NPL",
+      "NEP",
+      "NP",
+      "Loktāntrik Ganatantra Nepāl"
+    ]
+  },
+  {
+    "code": "NR",
+    "name": "Nauru",
+    "common_names": [
+      "Republic of Nauru",
+      "520",
+      "NRU",
+      "NR",
+      "Naoero",
+      "Pleasant Island",
+      "Ripublik Naoero"
+    ]
+  },
+  {
+    "code": "NZ",
+    "name": "New Zealand",
+    "common_names": [
+      "New Zealand",
+      "554",
+      "NZL",
+      "NZ",
+      "Aotearoa"
+    ]
+  },
+  {
+    "code": "OM",
+    "name": "Oman",
+    "common_names": [
+      "Sultanate of Oman",
+      "512",
+      "OMN",
+      "OMA",
+      "OM",
+      "Salṭanat ʻUmān"
+    ]
+  },
+  {
+    "code": "PK",
+    "name": "Pakistan",
+    "common_names": [
+      "Islamic Republic of Pakistan",
+      "586",
+      "PAK",
+      "PK",
+      "Pākistān",
+      "Islāmī Jumhūriya\u0027eh Pākistān"
+    ]
+  },
+  {
+    "code": "PA",
+    "name": "Panama",
+    "common_names": [
+      "Republic of Panama",
+      "591",
+      "PAN",
+      "PA",
+      "República de Panamá"
+    ]
+  },
+  {
+    "code": "PN",
+    "name": "Pitcairn Islands",
+    "common_names": [
+      "Pitcairn Group of Islands",
+      "612",
+      "PCN",
+      "",
+      "PN",
+      "Pitcairn",
+      "Pitcairn Henderson Ducie and Oeno Islands"
+    ]
+  },
+  {
+    "code": "PE",
+    "name": "Peru",
+    "common_names": [
+      "Republic of Peru",
+      "604",
+      "PER",
+      "PE",
+      "República del Perú"
+    ]
+  },
+  {
+    "code": "PH",
+    "name": "Philippines",
+    "common_names": [
+      "Republic of the Philippines",
+      "608",
+      "PHL",
+      "PHI",
+      "PH",
+      "Repúblika ng Pilipinas"
+    ]
+  },
+  {
+    "code": "PW",
+    "name": "Palau",
+    "common_names": [
+      "Republic of Palau",
+      "585",
+      "PLW",
+      "PW",
+      "Beluu er a Belau"
+    ]
+  },
+  {
+    "code": "PG",
+    "name": "Papua New Guinea",
+    "common_names": [
+      "Independent State of Papua New Guinea",
+      "598",
+      "PNG",
+      "PG",
+      "Independen Stet bilong Papua Niugini"
+    ]
+  },
+  {
+    "code": "PL",
+    "name": "Poland",
+    "common_names": [
+      "Republic of Poland",
+      "616",
+      "POL",
+      "PL",
+      "Rzeczpospolita Polska"
+    ]
+  },
+  {
+    "code": "PR",
+    "name": "Puerto Rico",
+    "common_names": [
+      "Commonwealth of Puerto Rico",
+      "630",
+      "PRI",
+      "PUR",
+      "PR",
+      "Estado Libre Asociado de Puerto Rico"
+    ]
+  },
+  {
+    "code": "KP",
+    "name": "North Korea",
+    "common_names": [
+      "Democratic People\u0027s Republic of Korea",
+      "408",
+      "PRK",
+      "KP",
+      "DPRK",
+      "조선민주주의인민공화국",
+      "Chosŏn Minjujuŭi Inmin Konghwaguk",
+      "Korea, Democratic People\u0027s Republic of",
+      "북한",
+      "북조선"
+    ]
+  },
+  {
+    "code": "PT",
+    "name": "Portugal",
+    "common_names": [
+      "Portuguese Republic",
+      "620",
+      "PRT",
+      "POR",
+      "PT",
+      "Portuguesa",
+      "República Portuguesa"
+    ]
+  },
+  {
+    "code": "PY",
+    "name": "Paraguay",
+    "common_names": [
+      "Republic of Paraguay",
+      "600",
+      "PRY",
+      "PAR",
+      "PY",
+      "República del Paraguay",
+      "Tetã Paraguái"
+    ]
+  },
+  {
+    "code": "PS",
+    "name": "Palestine",
+    "common_names": [
+      "State of Palestine",
+      "275",
+      "PSE",
+      "PLE",
+      "PS",
+      "Palestine, State of",
+      "Dawlat Filasṭin"
+    ]
+  },
+  {
+    "code": "PF",
+    "name": "French Polynesia",
+    "common_names": [
+      "French Polynesia",
+      "258",
+      "PYF",
+      "",
+      "PF",
+      "Polynésie française",
+      "Pōrīnetia Farāni"
+    ]
+  },
+  {
+    "code": "QA",
+    "name": "Qatar",
+    "common_names": [
+      "State of Qatar",
+      "634",
+      "QAT",
+      "QA",
+      "Dawlat Qaṭar"
+    ]
+  },
+  {
+    "code": "RE",
+    "name": "Réunion",
+    "common_names": [
+      "Réunion Island",
+      "638",
+      "REU",
+      "",
+      "RE",
+      "Reunion"
+    ]
+  },
+  {
+    "code": "RO",
+    "name": "Romania",
+    "common_names": [
+      "Romania",
+      "642",
+      "ROU",
+      "RO",
+      "Rumania",
+      "Roumania",
+      "România"
+    ]
+  },
+  {
+    "code": "RU",
+    "name": "Russia",
+    "common_names": [
+      "Russian Federation",
+      "643",
+      "RUS",
+      "RU",
+      "Российская Федерация"
+    ]
+  },
+  {
+    "code": "RW",
+    "name": "Rwanda",
+    "common_names": [
+      "Republic of Rwanda",
+      "646",
+      "RWA",
+      "RW",
+      "Repubulika y\u0027u Rwanda",
+      "République du Rwanda"
+    ]
+  },
+  {
+    "code": "SA",
+    "name": "Saudi Arabia",
+    "common_names": [
+      "Kingdom of Saudi Arabia",
+      "682",
+      "SAU",
+      "KSA",
+      "Saudi",
+      "SA",
+      "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+    ]
+  },
+  {
+    "code": "SD",
+    "name": "Sudan",
+    "common_names": [
+      "Republic of the Sudan",
+      "729",
+      "SDN",
+      "SUD",
+      "SD",
+      "Jumhūrīyat as-Sūdān"
+    ]
+  },
+  {
+    "code": "SN",
+    "name": "Senegal",
+    "common_names": [
+      "Republic of Senegal",
+      "686",
+      "SEN",
+      "SN",
+      "République du Sénégal"
+    ]
+  },
+  {
+    "code": "SG",
+    "name": "Singapore",
+    "common_names": [
+      "Republic of Singapore",
+      "702",
+      "SGP",
+      "SIN",
+      "SG",
+      "Singapura",
+      "Republik Singapura",
+      "新加坡共和国"
+    ]
+  },
+  {
+    "code": "GS",
+    "name": "South Georgia",
+    "common_names": [
+      "South Georgia and the South Sandwich Islands",
+      "239",
+      "SGS",
+      "",
+      "GS"
+    ]
+  },
+  {
+    "code": "SJ",
+    "name": "Svalbard and Jan Mayen",
+    "common_names": [
+      "Svalbard og Jan Mayen",
+      "744",
+      "SJM",
+      "",
+      "SJ",
+      "Svalbard and Jan Mayen Islands"
+    ]
+  },
+  {
+    "code": "SB",
+    "name": "Solomon Islands",
+    "common_names": [
+      "Solomon Islands",
+      "090",
+      "SLB",
+      "SOL",
+      "SB"
+    ]
+  },
+  {
+    "code": "SL",
+    "name": "Sierra Leone",
+    "common_names": [
+      "Republic of Sierra Leone",
+      "694",
+      "SLE",
+      "SL"
+    ]
+  },
+  {
+    "code": "SV",
+    "name": "El Salvador",
+    "common_names": [
+      "Republic of El Salvador",
+      "222",
+      "SLV",
+      "ESA",
+      "SV",
+      "República de El Salvador"
+    ]
+  },
+  {
+    "code": "SM",
+    "name": "San Marino",
+    "common_names": [
+      "Most Serene Republic of San Marino",
+      "674",
+      "SMR",
+      "SM",
+      "Republic of San Marino",
+      "Repubblica di San Marino"
+    ]
+  },
+  {
+    "code": "SO",
+    "name": "Somalia",
+    "common_names": [
+      "Federal Republic of Somalia",
+      "706",
+      "SOM",
+      "SO",
+      "aṣ-Ṣūmāl",
+      "Jamhuuriyadda Federaalka Soomaaliya",
+      "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+    ]
+  },
+  {
+    "code": "PM",
+    "name": "Saint Pierre and Miquelon",
+    "common_names": [
+      "Saint Pierre and Miquelon",
+      "666",
+      "SPM",
+      "",
+      "PM",
+      "Collectivité territoriale de Saint-Pierre-et-Miquelon"
+    ]
+  },
+  {
+    "code": "RS",
+    "name": "Serbia",
+    "common_names": [
+      "Republic of Serbia",
+      "688",
+      "SRB",
+      "RS",
+      "Srbija",
+      "Република Србија",
+      "Republika Srbija"
+    ]
+  },
+  {
+    "code": "SS",
+    "name": "South Sudan",
+    "common_names": [
+      "Republic of South Sudan",
+      "728",
+      "SSD",
+      "",
+      "SS"
+    ]
+  },
+  {
+    "code": "ST",
+    "name": "São Tomé and Príncipe",
+    "common_names": [
+      "Democratic Republic of São Tomé and Príncipe",
+      "678",
+      "STP",
+      "ST",
+      "Sao Tome and Principe",
+      "República Democrática de São Tomé e Príncipe"
+    ]
+  },
+  {
+    "code": "SR",
+    "name": "Suriname",
+    "common_names": [
+      "Republic of Suriname",
+      "740",
+      "SUR",
+      "SR",
+      "Sarnam",
+      "Sranangron",
+      "Republiek Suriname"
+    ]
+  },
+  {
+    "code": "SK",
+    "name": "Slovakia",
+    "common_names": [
+      "Slovak Republic",
+      "703",
+      "SVK",
+      "SK",
+      "Slovenská republika"
+    ]
+  },
+  {
+    "code": "SI",
+    "name": "Slovenia",
+    "common_names": [
+      "Republic of Slovenia",
+      "705",
+      "SVN",
+      "SLO",
+      "SI",
+      "Republika Slovenija"
+    ]
+  },
+  {
+    "code": "SE",
+    "name": "Sweden",
+    "common_names": [
+      "Kingdom of Sweden",
+      "752",
+      "SWE",
+      "SE",
+      "Konungariket Sverige"
+    ]
+  },
+  {
+    "code": "SZ",
+    "name": "Eswatini",
+    "common_names": [
+      "Kingdom of Eswatini",
+      "748",
+      "SWZ",
+      "SZ",
+      "Swaziland",
+      "weSwatini",
+      "Swatini",
+      "Ngwane",
+      "Umbuso weSwatini"
+    ]
+  },
+  {
+    "code": "SX",
+    "name": "Sint Maarten",
+    "common_names": [
+      "Sint Maarten",
+      "534",
+      "SXM",
+      "",
+      "SX",
+      "Sint Maarten (Dutch part)"
+    ]
+  },
+  {
+    "code": "SC",
+    "name": "Seychelles",
+    "common_names": [
+      "Republic of Seychelles",
+      "690",
+      "SYC",
+      "SEY",
+      "SC",
+      "Repiblik Sesel",
+      "République des Seychelles"
+    ]
+  },
+  {
+    "code": "SY",
+    "name": "Syria",
+    "common_names": [
+      "Syrian Arab Republic",
+      "760",
+      "SYR",
+      "SY",
+      "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+    ]
+  },
+  {
+    "code": "TC",
+    "name": "Turks and Caicos Islands",
+    "common_names": [
+      "Turks and Caicos Islands",
+      "796",
+      "TCA",
+      "",
+      "TC"
+    ]
+  },
+  {
+    "code": "TD",
+    "name": "Chad",
+    "common_names": [
+      "Republic of Chad",
+      "148",
+      "TCD",
+      "CHA",
+      "TD",
+      "Tchad",
+      "République du Tchad"
+    ]
+  },
+  {
+    "code": "TG",
+    "name": "Togo",
+    "common_names": [
+      "Togolese Republic",
+      "768",
+      "TGO",
+      "TOG",
+      "TG",
+      "Togolese",
+      "République Togolaise"
+    ]
+  },
+  {
+    "code": "TH",
+    "name": "Thailand",
+    "common_names": [
+      "Kingdom of Thailand",
+      "764",
+      "THA",
+      "TH",
+      "Prathet",
+      "Thai",
+      "ราชอาณาจักรไทย",
+      "Ratcha Anachak Thai"
+    ]
+  },
+  {
+    "code": "TJ",
+    "name": "Tajikistan",
+    "common_names": [
+      "Republic of Tajikistan",
+      "762",
+      "TJK",
+      "TJ",
+      "Toçikiston",
+      "Ҷумҳурии Тоҷикистон",
+      "Çumhuriyi Toçikiston"
+    ]
+  },
+  {
+    "code": "TK",
+    "name": "Tokelau",
+    "common_names": [
+      "Tokelau",
+      "772",
+      "TKL",
+      "",
+      "TK"
+    ]
+  },
+  {
+    "code": "TM",
+    "name": "Turkmenistan",
+    "common_names": [
+      "Turkmenistan",
+      "795",
+      "TKM",
+      "TM"
+    ]
+  },
+  {
+    "code": "TL",
+    "name": "Timor-Leste",
+    "common_names": [
+      "Democratic Republic of Timor-Leste",
+      "626",
+      "TLS",
+      "TL",
+      "East Timor",
+      "República Democrática de Timor-Leste",
+      "Repúblika Demokrátika Timór-Leste",
+      "Timór Lorosa\u0027e",
+      "Timor Lorosae"
+    ]
+  },
+  {
+    "code": "TO",
+    "name": "Tonga",
+    "common_names": [
+      "Kingdom of Tonga",
+      "776",
+      "TON",
+      "TGA",
+      "TO"
+    ]
+  },
+  {
+    "code": "TT",
+    "name": "Trinidad and Tobago",
+    "common_names": [
+      "Republic of Trinidad and Tobago",
+      "780",
+      "TTO",
+      "TT"
+    ]
+  },
+  {
+    "code": "TN",
+    "name": "Tunisia",
+    "common_names": [
+      "Tunisian Republic",
+      "788",
+      "TUN",
+      "TN",
+      "Republic of Tunisia",
+      "al-Jumhūriyyah at-Tūnisiyyah"
+    ]
+  },
+  {
+    "code": "TR",
+    "name": "Turkey",
+    "common_names": [
+      "Republic of Turkey",
+      "792",
+      "TUR",
+      "TR",
+      "Turkiye",
+      "Türkiye Cumhuriyeti"
+    ]
+  },
+  {
+    "code": "TV",
+    "name": "Tuvalu",
+    "common_names": [
+      "Tuvalu",
+      "798",
+      "TUV",
+      "TV"
+    ]
+  },
+  {
+    "code": "TW",
+    "name": "Taiwan",
+    "common_names": [
+      "Republic of China (Taiwan)",
+      "158",
+      "TWN",
+      "TPE",
+      "TW",
+      "Táiwān",
+      "Republic of China",
+      "中華民國",
+      "Zhōnghuá Mínguó",
+      "Chinese Taipei"
+    ]
+  },
+  {
+    "code": "TZ",
+    "name": "Tanzania",
+    "common_names": [
+      "United Republic of Tanzania",
+      "834",
+      "TZA",
+      "TAN",
+      "TZ",
+      "Tanzania, United Republic of",
+      "Jamhuri ya Muungano wa Tanzania"
+    ]
+  },
+  {
+    "code": "UG",
+    "name": "Uganda",
+    "common_names": [
+      "Republic of Uganda",
+      "800",
+      "UGA",
+      "UG",
+      "Jamhuri ya Uganda"
+    ]
+  },
+  {
+    "code": "UA",
+    "name": "Ukraine",
+    "common_names": [
+      "Ukraine",
+      "804",
+      "UKR",
+      "UA",
+      "Ukrayina"
+    ]
+  },
+  {
+    "code": "UM",
+    "name": "United States Minor Outlying Islands",
+    "common_names": [
+      "United States Minor Outlying Islands",
+      "581",
+      "UMI",
+      "",
+      "UM"
+    ]
+  },
+  {
+    "code": "UY",
+    "name": "Uruguay",
+    "common_names": [
+      "Oriental Republic of Uruguay",
+      "858",
+      "URY",
+      "URU",
+      "UY",
+      "República Oriental del Uruguay"
+    ]
+  },
+  {
+    "code": "US",
+    "name": "United States",
+    "common_names": [
+      "United States of America",
+      "840",
+      "USA",
+      "US"
+    ]
+  },
+  {
+    "code": "UZ",
+    "name": "Uzbekistan",
+    "common_names": [
+      "Republic of Uzbekistan",
+      "860",
+      "UZB",
+      "UZ",
+      "O‘zbekiston Respublikasi",
+      "Ўзбекистон Республикаси"
+    ]
+  },
+  {
+    "code": "VA",
+    "name": "Vatican City",
+    "common_names": [
+      "Vatican City State",
+      "336",
+      "VAT",
+      "",
+      "VA",
+      "Holy See (Vatican City State)",
+      "Stato della Città del Vaticano"
+    ]
+  },
+  {
+    "code": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "common_names": [
+      "Saint Vincent and the Grenadines",
+      "670",
+      "VCT",
+      "VIN",
+      "VC"
+    ]
+  },
+  {
+    "code": "VE",
+    "name": "Venezuela",
+    "common_names": [
+      "Bolivarian Republic of Venezuela",
+      "862",
+      "VEN",
+      "VE",
+      "Venezuela, Bolivarian Republic of",
+      "República Bolivariana de Venezuela"
+    ]
+  },
+  {
+    "code": "VG",
+    "name": "British Virgin Islands",
+    "common_names": [
+      "Virgin Islands",
+      "092",
+      "VGB",
+      "IVB",
+      "VG",
+      "Virgin Islands, British"
+    ]
+  },
+  {
+    "code": "VI",
+    "name": "United States Virgin Islands",
+    "common_names": [
+      "Virgin Islands of the United States",
+      "850",
+      "VIR",
+      "ISV",
+      "VI",
+      "Virgin Islands, U.S."
+    ]
+  },
+  {
+    "code": "VN",
+    "name": "Vietnam",
+    "common_names": [
+      "Socialist Republic of Vietnam",
+      "704",
+      "VNM",
+      "VIE",
+      "VN",
+      "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+      "Viet Nam"
+    ]
+  },
+  {
+    "code": "VU",
+    "name": "Vanuatu",
+    "common_names": [
+      "Republic of Vanuatu",
+      "548",
+      "VUT",
+      "VAN",
+      "VU",
+      "Ripablik blong Vanuatu",
+      "République de Vanuatu"
+    ]
+  },
+  {
+    "code": "WF",
+    "name": "Wallis and Futuna",
+    "common_names": [
+      "Territory of the Wallis and Futuna Islands",
+      "876",
+      "WLF",
+      "",
+      "WF",
+      "Territoire des îles Wallis et Futuna"
+    ]
+  },
+  {
+    "code": "WS",
+    "name": "Samoa",
+    "common_names": [
+      "Independent State of Samoa",
+      "882",
+      "WSM",
+      "SAM",
+      "WS",
+      "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+    ]
+  },
+  {
+    "code": "YE",
     "name": "Yemen",
-    "code": "YE"
+    "common_names": [
+      "Republic of Yemen",
+      "887",
+      "YEM",
+      "YE",
+      "Yemeni Republic",
+      "al-Jumhūriyyah al-Yamaniyyah"
+    ]
   },
   {
+    "code": "ZA",
+    "name": "South Africa",
+    "common_names": [
+      "Republic of South Africa",
+      "710",
+      "ZAF",
+      "RSA",
+      "ZA",
+      "Suid-Afrika"
+    ]
+  },
+  {
+    "code": "ZM",
     "name": "Zambia",
-    "code": "ZM"
+    "common_names": [
+      "Republic of Zambia",
+      "894",
+      "ZMB",
+      "ZAM",
+      "ZM"
+    ]
   },
   {
+    "code": "ZW",
     "name": "Zimbabwe",
-    "code": "ZW"
+    "common_names": [
+      "Republic of Zimbabwe",
+      "716",
+      "ZWE",
+      "ZIM",
+      "ZW"
+    ]
   }
 ]

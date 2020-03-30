@@ -25,7 +25,7 @@ data class CallbackQueryResponse(
                 @SerializedName("first_name")
                 val firstName: String, // theapache64
                 @SerializedName("id")
-                val id: Long, // 240810054
+                val id: Int, // 240810054
                 @SerializedName("is_bot")
                 val isBot: Boolean, // false
                 @SerializedName("language_code")

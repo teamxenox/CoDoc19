@@ -1,17 +1,19 @@
 package com.teamxenox.codoc19.core.agents
 
 import com.teamxenox.bootzan.GsonUtils.gson
-import com.teamxenox.codoc19.core.Geographer
+import com.teamxenox.codoc19.core.geography.Geographer
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
+import com.teamxenox.codoc19.data.entities.Analytics
 import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
+import com.teamxenox.covid19api.core.JHUCSVParser
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
 
@@ -78,9 +80,9 @@ open class TelegramBotAgent(
         messageId = query.message.messageId
 
         this.currentUser = getUserFromUpdate(
-                query.message.from.id,
-                query.message.from.username,
-                query.message.from.firstName
+                query.from.id,
+                query.from.username,
+                query.from.firstName
         )
 
         doctor = Doctor(telegramApi, chatId, messageId)
@@ -98,6 +100,13 @@ open class TelegramBotAgent(
             covidAnalyst!!.isChartRequest(buttonData) -> {
                 println("It's a chart request! $buttonData")
                 covidAnalyst!!.sendChart(currentUser, buttonData, chartRepo)
+
+                // Adding to analytics
+                analyticsRepo.save(Analytics().apply {
+                    userId = currentUser.id
+                    feature = Analytics.Feature.STATS_CHART
+                    data = buttonData
+                })
             }
 
             quizBoss!!.isQuizClickData(buttonData) -> {
@@ -118,17 +127,36 @@ open class TelegramBotAgent(
     override fun startQuiz() {
         this.quizBoss = QuizBoss(telegramApi, chatId, messageId)
         quizBoss!!.sendIntro()
+
+        // Adding to analytics
+        analyticsRepo.save(Analytics().apply {
+            userId = currentUser.id
+            feature = Analytics.Feature.QUIZ
+        })
     }
 
     override fun startTest() {
         doctor = Doctor(telegramApi, chatId, messageId)
         doctor!!.startTest()
+
+        // Adding to analytics
+        analyticsRepo.save(Analytics().apply {
+            userId = currentUser.id
+            feature = Analytics.Feature.TEST
+        })
     }
 
 
     override fun sendGlobalStats() {
         this.covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
         covidAnalyst!!.sendGlobalStats()
+
+        // Adding to analytics
+        analyticsRepo.save(Analytics().apply {
+            userId = currentUser.id
+            feature = Analytics.Feature.STATS
+            data = JHUCSVParser.COUNTRY_GLOBAL
+        })
     }
 
 
@@ -184,6 +212,13 @@ open class TelegramBotAgent(
                             chatId,
                             messageId
                     )
+
+                    analyticsRepo.save(Analytics().apply {
+                        userId = currentUser.id
+                        feature = Analytics.Feature.QA
+                        data = message
+                    })
+
                     scholarProxy.handle(jsonString)
                 }
 
@@ -230,6 +265,12 @@ open class TelegramBotAgent(
     override fun sendCountryStats(country: String) {
         val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
         covidAnalyst.sendCountryStats(country)
+
+        analyticsRepo.save(Analytics().apply {
+            userId = currentUser.id
+            feature = Analytics.Feature.STATS
+            data = country
+        })
     }
 
     /**

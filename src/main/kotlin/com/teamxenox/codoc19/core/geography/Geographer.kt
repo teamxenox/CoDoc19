@@ -1,4 +1,4 @@
-package com.teamxenox.codoc19.core
+package com.teamxenox.codoc19.core.geography
 
 import com.google.gson.reflect.TypeToken
 import com.teamxenox.bootzan.GsonUtils

@@ -109,10 +109,12 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         return buttonData.matches(CHART_REQUEST_REGEX)
     }
 
+    private val normalDateFormat = SimpleDateFormat("dd-MM-yyyy")
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
     private val mySqlDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
     fun sendChart(user: User, buttonData: String, chartRepo: ChartRepo) {
+
         val match = CHART_REQUEST_REGEX.find(buttonData)!!
         val type = match.groups["chartType"]!!.value
         val countryName = match.groups["countryName"]!!.value
@@ -155,12 +157,13 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         // checking if the chart available
         val chartDate = Date()
         val dateString = dateFormat.format(chartDate)
+        val normalDate = normalDateFormat.format(chartDate)
         val exChart = chartRepo.getChartCountryDateType(countryName, dateString, chartType)
 
         val caption = if (chartType == Chart.Type.DEATH) {
-            "Deaths as of $dateString"
+            "📈 Deaths as of $normalDate"
         } else {
-            "Confirmed cases as of $dateString"
+            "📉 Confirmed cases as of $normalDate"
         } + " - $countryName"
 
 

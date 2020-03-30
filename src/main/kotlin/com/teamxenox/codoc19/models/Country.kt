@@ -7,5 +7,7 @@ class Country(
         @SerializedName("code")
         val code: String, // ZW
         @SerializedName("name")
-        val name: String // Zimbabwe
+        val name: String, // Zimbabwe
+        @SerializedName("common_names")
+        val commonNames: Set<String>
 )

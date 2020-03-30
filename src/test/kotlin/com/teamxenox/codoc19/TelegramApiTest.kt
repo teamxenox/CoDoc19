@@ -8,13 +8,4 @@ import java.io.File
 
 class TelegramApiTest {
 
-    @Test
-    fun testSendPhotoFileSuccess() {
-        val telegramApi = Telegram(SecretConstants.TELEGRAM_ACTIVE_BOT_TOKEN)
-        val chatId = "240810054"
-        val file = File("charts/chart.png")
-        val resp = telegramApi.sendPhotoFile(chatId, file)
-        resp.code().should.equal(200)
-        println(resp.body())
-    }
 }

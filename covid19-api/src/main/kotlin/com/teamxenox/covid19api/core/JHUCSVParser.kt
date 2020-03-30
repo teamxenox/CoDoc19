@@ -9,11 +9,12 @@ object JHUCSVParser {
     /**
      * If country name == null, global data will be returned
      */
-    fun parseData(_countryName: String, csvData: String): List<Int> {
+    fun parseData(_countryName: String, csvData: String): MutableList<List<Int>> {
+
         val countryName = _countryName.toLowerCase()
         val data = mutableListOf<List<Int>>()
 
-        val countryGlobal= COUNTRY_GLOBAL.toLowerCase()
+        val countryGlobal = COUNTRY_GLOBAL.toLowerCase()
         for ((index, _line) in csvData.split("\n").withIndex()) {
             var line = _line
 
@@ -37,6 +38,10 @@ object JHUCSVParser {
 
         }
 
+        return data
+    }
+
+    fun merge(data: List<List<Int>>): List<Int> {
         val xLen = data.first().size
         for (x in data) {
             if (x.size != xLen) {

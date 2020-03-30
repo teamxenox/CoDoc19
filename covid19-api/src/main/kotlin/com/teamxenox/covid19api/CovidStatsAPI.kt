@@ -124,10 +124,13 @@ object CovidStatsAPI {
         val response = client.newCall(request).execute().body()
         if (response != null) {
             val csvData = response.string()
-            return JhuData(
-                    countryName,
-                    JHUCSVParser.parseData(countryName, csvData)
-            )
+            val parsedData = JHUCSVParser.parseData(countryName, csvData)
+            if (parsedData.isNotEmpty()) {
+                return JhuData(
+                        countryName,
+                        JHUCSVParser.merge(parsedData)
+                )
+            }
         }
         return null
     }
