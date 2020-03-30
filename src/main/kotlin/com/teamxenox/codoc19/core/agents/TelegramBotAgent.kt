@@ -7,10 +7,14 @@ import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
+import com.teamxenox.codoc19.data.entities.User
+import com.teamxenox.codoc19.data.repos.UserRepo
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
 
-open class TelegramBotAgent : BotAgent {
+open class TelegramBotAgent(
+        private val userRepo: UserRepo
+) : BotAgent(userRepo) {
 
     private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
@@ -114,6 +118,11 @@ open class TelegramBotAgent : BotAgent {
         this.update = gson.fromJson(jsonString, Update::class.java)
         val updateMessage = this.update!!.message
         if (updateMessage != null) {
+
+            // Checking if the user exist if not add him/her to db
+            val currentUser = getUser()
+            println("User is ${currentUser.tgUsername}")
+
             val message = updateMessage.text
 
             println("Chat id is ${updateMessage.chat.id}")
@@ -147,6 +156,23 @@ open class TelegramBotAgent : BotAgent {
             }
         } else {
             println("Junk!!")
+        }
+    }
+
+    private fun getUser(): User {
+        val updateMsg = update!!.message!!
+        var exUser = userRepo.findByTgUserId(updateMsg.from.id)
+        return if (exUser != null) {
+            println("exUser found : ${exUser.tgUsername}")
+            exUser
+        } else {
+            val newUser = User().apply {
+                tgUserId = updateMsg.from.id
+                tgUsername = updateMsg.from.username
+                tgFirstName = updateMsg.from.firstName
+            }
+            println("Creating new user : ${newUser.tgUsername}")
+            userRepo.save(newUser)
         }
     }
 

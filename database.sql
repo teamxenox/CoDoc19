@@ -6,7 +6,7 @@ CREATE TABLE `users`(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     tg_first_name TEXT,
     tg_username TEXT,
-    tg_user_id INT NOT NULL,
+    tg_user_id INT NOT NULL UNIQUE KEY,
     created_at TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
 );
 
