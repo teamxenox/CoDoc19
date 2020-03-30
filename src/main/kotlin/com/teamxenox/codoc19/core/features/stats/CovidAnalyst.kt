@@ -160,7 +160,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         val caption = if (chartType == Chart.Type.DEATH) {
             "Deaths as of $dateString"
         } else {
-            "Confirmed case of $dateString"
+            "Confirmed cases as of $dateString"
         } + " - $countryName"
 
 
