@@ -8,13 +8,15 @@ import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
 import com.teamxenox.codoc19.data.entities.User
+import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
 
 open class TelegramBotAgent(
-        private val userRepo: UserRepo
-) : BotAgent(userRepo) {
+        private val userRepo: UserRepo,
+        private val analyticsRepo: AnalyticsRepo
+) : BotAgent(userRepo, analyticsRepo) {
 
     private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
@@ -161,7 +163,7 @@ open class TelegramBotAgent(
 
     private fun getUser(): User {
         val updateMsg = update!!.message!!
-        var exUser = userRepo.findByUserId(updateMsg.from.id)
+        val exUser = userRepo.findByUserId(updateMsg.from.id)
         return if (exUser != null) {
             println("exUser found : ${exUser.username}")
             exUser
@@ -193,7 +195,6 @@ open class TelegramBotAgent(
         covidAnalyst.sendCountryStats(country)
     }
 
-
     /**
      * To send help text
      */
@@ -221,6 +222,5 @@ open class TelegramBotAgent(
         this.feedbackQuery = gson.fromJson(jsonString, CallbackQueryResponse::class.java)
         return this.feedbackQuery?.callbackQuery != null
     }
-
 
 }
