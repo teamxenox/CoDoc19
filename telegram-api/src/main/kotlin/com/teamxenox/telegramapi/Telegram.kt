@@ -1,12 +1,16 @@
 package com.teamxenox.telegramapi
 
 import com.teamxenox.telegramapi.models.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 
 class Telegram(
         private val accessToken: String
@@ -51,6 +55,18 @@ class Telegram(
         return api.answerCallbackQuery(
                 accessToken,
                 request
+        ).execute()
+    }
+
+    fun sendPhotoFile(chatId: String, file: File): Response<SendPhotoResponse> {
+        val mediaType = MediaType.parse("multipart/form-data")
+        val requestFile = RequestBody.create(mediaType, file)
+        val photoPart = MultipartBody.Part.createFormData("photo", file.name, requestFile)
+        val chatIdPart = RequestBody.create(mediaType, chatId)
+        return api.sendPhotoFile(
+                accessToken,
+                chatIdPart,
+                photoPart
         ).execute()
     }
 }
