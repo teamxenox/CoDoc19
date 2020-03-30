@@ -13,6 +13,7 @@ object JHUCSVParser {
 
         for ((index, _line) in csvData.split("\n").withIndex()) {
             var line = _line
+
             if (index == 0) {
                 continue
             }

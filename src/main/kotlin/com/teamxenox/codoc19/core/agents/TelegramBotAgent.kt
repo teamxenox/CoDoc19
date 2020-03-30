@@ -32,7 +32,7 @@ open class TelegramBotAgent : BotAgent {
     override fun handle(data: Any) {
 
         val jsonString = gson.toJson(data)
-
+        println("HIT!! -> $data")
         if (isButtonClick(jsonString)) {
             handleButtonClick()
         } else {
@@ -115,6 +115,8 @@ open class TelegramBotAgent : BotAgent {
         val updateMessage = this.update!!.message
         if (updateMessage != null) {
             val message = updateMessage.text
+
+            println("Chat id is ${updateMessage.chat.id}")
 
             // From information
             chatId = updateMessage.chat.id

@@ -109,7 +109,6 @@ object CovidStatsAPI {
         return getJHUData(countryName, CASE_DATA_URL)
     }
 
-
     private fun getJHUData(countryName: String?, deathDataUrl: String): JhuData? {
 
         val client = OkHttpClient.Builder()
