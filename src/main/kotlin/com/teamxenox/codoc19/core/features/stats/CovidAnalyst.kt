@@ -10,6 +10,13 @@ import com.teamxenox.telegramapi.models.SendMessageRequest
 
 class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, private val messageId: Long) : FeatureProxy(telegramApi, chatId, messageId) {
 
+    companion object {
+        private const val CHART_REQUEST_PREFIX = "cr"
+        private const val CHART_DEATH = "CD"
+        private const val CHART_CASE = "CS"
+        private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH|$CHART_CASE)(?<countryName>.+)".toRegex()
+    }
+
     override fun handle(jsonString: String) {
         TODO("Not yet implemented")
     }
@@ -89,5 +96,9 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                     )
             )
         }
+    }
+
+    fun isChartRequest(buttonData: String): Boolean {
+        return buttonData.matches(CHART_REQUEST_REGEX)
     }
 }

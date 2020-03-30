@@ -1,6 +1,7 @@
 package com.teamxenox.codoc19.core.agents
 
 import com.teamxenox.bootzan.GsonUtils.gson
+import com.teamxenox.codoc19.core.Geographer
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.core.features.qa.ScholarProxy
@@ -24,6 +25,7 @@ open class TelegramBotAgent(
     private var chatId: Long = -1
     private var messageId: Long = -1
     private var doctor: Doctor? = null
+    private var covidAnalyst: CovidAnalyst? = null
     private var quizBoss: QuizBoss? = null
 
     companion object {
@@ -74,6 +76,7 @@ open class TelegramBotAgent(
 
         doctor = Doctor(telegramApi, chatId, messageId)
         quizBoss = QuizBoss(telegramApi, chatId, messageId)
+        covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
 
         when {
             doctor!!.isTestButtonClick(buttonData) -> {
@@ -82,6 +85,11 @@ open class TelegramBotAgent(
                 doctor!!.handle(buttonData)
 
             }
+
+            covidAnalyst!!.isChartRequest(buttonData) -> {
+                println("It's a chart request! $buttonData")
+            }
+
             quizBoss!!.isQuizClickData(buttonData) -> {
                 println("It's a quiz click")
                 quizBoss!!.handle(buttonData)
@@ -98,8 +106,8 @@ open class TelegramBotAgent(
 
 
     override fun startQuiz() {
-        val quizBoss = QuizBoss(telegramApi, chatId, messageId)
-        quizBoss.sendIntro()
+        this.quizBoss = QuizBoss(telegramApi, chatId, messageId)
+        quizBoss!!.sendIntro()
     }
 
     override fun startTest() {
@@ -109,8 +117,8 @@ open class TelegramBotAgent(
 
 
     override fun sendGlobalStats() {
-        val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
-        covidAnalyst.sendGlobalStats()
+        this.covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
+        covidAnalyst!!.sendGlobalStats()
     }
 
 
@@ -149,12 +157,22 @@ open class TelegramBotAgent(
                 val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
                 sendCountryStats(countryName)
             } else {
-                val scholarProxy = ScholarProxy(
-                        telegramApi,
-                        chatId,
-                        messageId
-                )
-                scholarProxy.handle(jsonString)
+
+                // checking if it's a country name
+                val country = Geographer.getCountry(message)
+                if (country != null) {
+                    //it's a country name
+                    sendCountryStats(country.name)
+                } else {
+                    val scholarProxy = ScholarProxy(
+                            telegramApi,
+                            chatId,
+                            messageId
+                    )
+                    scholarProxy.handle(jsonString)
+                }
+
+
             }
         } else {
             println("Junk!!")
