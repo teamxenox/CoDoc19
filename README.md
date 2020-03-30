@@ -36,6 +36,12 @@ Several questions with options. You have to choose the right answer to ensure yo
 /stats
 ```
 
+5. To get statistics of specific country
+
+```
+Country Name or Country Code
+```
+Country name means full country name and country code is the 2 letter ISO code of countries.
 ## TODO
 - [ ] Stats command in progress
 - [ ] Add facebook support
