@@ -22,4 +22,11 @@ class ArrayUtilsTest {
 
         println(File("charts/").absolutePath)
     }
+
+    @Test
+    fun testDiffSuccess() {
+        val data = listOf(1, 2, 3, 3, 8)
+        val diffArr = ArrayUtils.getDiffNoNegative(data)
+        diffArr.toString().should.equal("[1, 1, 1, 0, 5]")
+    }
 }

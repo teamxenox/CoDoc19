@@ -1,16 +1,14 @@
 package com.teamxenox.covid19api.chart
 
 import com.teamxenox.covid19api.models.jhu.JhuData
+import com.teamxenox.covid19api.utils.ArrayUtils
 import com.teamxenox.covid19api.utils.JarUtils
 import org.knowm.xchart.BitmapEncoder
 import org.knowm.xchart.XYChart
 import org.knowm.xchart.XYChartBuilder
-import org.knowm.xchart.internal.chartpart.Chart
-import org.knowm.xchart.internal.series.Series
-import org.knowm.xchart.style.Styler
 import java.awt.Color
-import java.awt.Font
 import java.io.File
+import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
 
 class Graphologist {
@@ -21,6 +19,8 @@ class Graphologist {
 
         const val CHART_DEATH = 1
         const val CHART_CASE = 2
+        const val CHART_DEATH_DAILY = 3
+        const val CHART_CASE_DAILY = 4
 
         private const val CHART_DEATH_TITLE = "DEATHS"
         private const val CHART_CASE_TITLE = "CONFIRMED CASES"
@@ -50,37 +50,44 @@ class Graphologist {
     ): File {
 
         val chart = getChart(chartType, date, data)
-
         val fileName = "${data.countryName.replace(" ", "_")}_${date.replace("-", "_")}.png"
         val chartFile = File("${JarUtils.getJarDir()}charts/$fileName")
         BitmapEncoder.saveBitmap(chart, chartFile.absolutePath, BitmapEncoder.BitmapFormat.PNG);
         return chartFile
     }
 
-    fun getChart(chartType: Int, date: String, data: JhuData): XYChart {
+    fun getChart(chartType: Int, date: String, _data: JhuData): XYChart {
 
-        val chartTitle = if (chartType == CHART_DEATH) {
-            CHART_DEATH_TITLE
+        val data = if (chartType == CHART_CASE_DAILY || chartType == CHART_DEATH_DAILY) {
+            JhuData(
+                    _data.countryName,
+                    ArrayUtils.getDiffNoNegative(_data.daySeries)
+            )
         } else {
-            CHART_CASE_TITLE
+            _data
         }
 
-        val yAxisTitle = if (chartType == CHART_DEATH) {
-            CHART_DEATH_Y_AXIS_TITLE
-        } else {
-            CHART_CASE_Y_AXIS_TITLE
-        }
 
-        val chartLineColor = if (chartType == CHART_DEATH) {
-            Color.RED
-        } else {
-            Color.ORANGE
-        }
+        val seriesTitle: String
+        val chartLineColor: Color
+        val yAxisTitle : String
+        val chartTitle : String
 
-        val seriesTitle = if (chartType == CHART_DEATH) {
-            CHART_DEATH_LEGEND
-        } else {
-            CHART_CASE_LEGEND
+        when (chartType) {
+            CHART_DEATH, CHART_DEATH_DAILY -> {
+                seriesTitle = CHART_DEATH_LEGEND
+                chartLineColor = Color.RED
+                yAxisTitle =CHART_DEATH_Y_AXIS_TITLE
+                chartTitle =CHART_DEATH_TITLE
+            }
+            CHART_CASE, CHART_CASE_DAILY -> {
+                seriesTitle = CHART_CASE_LEGEND
+                chartLineColor = Color.ORANGE
+                yAxisTitle =CHART_CASE_Y_AXIS_TITLE
+                chartTitle =CHART_CASE_TITLE
+            }
+
+            else -> throw IllegalArgumentException("Undefined chartType `$chartType`")
         }
 
         val chart = XYChartBuilder()

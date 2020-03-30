@@ -18,6 +18,6 @@ class Chart {
     lateinit var createdAt: String
 
     enum class Type {
-        DEATH, CASE
+        DEATH, CASE, DEATH_DAILY, CASE_DAILY
     }
 }

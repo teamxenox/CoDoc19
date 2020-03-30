@@ -21,7 +21,9 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         private const val CHART_REQUEST_PREFIX = "cr"
         private const val CHART_DEATH = "CD"
         private const val CHART_CASE = "CS"
-        private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH|$CHART_CASE)(?<countryName>.+)".toRegex()
+        private const val CHART_DEATH_DAILY = "CDD"
+        private const val CHART_CASE_DAILY = "CSD"
+        private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH_DAILY|$CHART_CASE_DAILY|$CHART_DEATH|$CHART_CASE)(?<countryName>.+)".toRegex()
     }
 
     override fun handle(jsonString: String) {
@@ -57,6 +59,10 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                                         listOf(
                                                 SendMessageRequest.InlineButton("DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName"),
                                                 SendMessageRequest.InlineButton("CASES CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
+                                        ),
+                                        listOf(
+                                                SendMessageRequest.InlineButton("DEATHS DAILY CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH_DAILY}$countryName"),
+                                                SendMessageRequest.InlineButton("CASES DAILY CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE_DAILY}$countryName")
                                         )
                                 )
                         )
@@ -69,7 +75,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         val globalText = if (isGlobal) {
             "🌐 Global statistics are based on GMT +00:00"
         } else {
-            "🌐 Domestic statistics are based on GMT +05:30"
+            ""
         }
 
         return """
@@ -141,6 +147,26 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                 )
             }
 
+            CHART_DEATH_DAILY -> {
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.DEATH_DAILY,
+                        Graphologist.CHART_DEATH_DAILY
+                )
+            }
+
+            CHART_CASE_DAILY -> {
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.CASE_DAILY,
+                        Graphologist.CHART_CASE_DAILY
+                )
+            }
+
             else -> {
                 throw IllegalArgumentException("Undefined chart type `$type`")
             }
@@ -154,27 +180,50 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
             chartType: Chart.Type,
             gChartType: Int
     ) {
+
         // checking if the chart available
         val chartDate = Date()
         val dateString = dateFormat.format(chartDate)
         val normalDate = normalDateFormat.format(chartDate)
         val exChart = chartRepo.getChartCountryDateType(countryName, dateString, chartType)
 
-        val caption = if (chartType == Chart.Type.DEATH) {
-            "📈 Deaths as of $normalDate"
-        } else {
-            "📉 Confirmed cases as of $normalDate"
+        val caption = when (chartType) {
+
+            Chart.Type.DEATH -> {
+                "📈 Deaths as of $normalDate"
+            }
+
+            Chart.Type.CASE -> {
+                "📉 Confirmed cases as of $normalDate"
+            }
+
+            Chart.Type.DEATH_DAILY -> {
+                "📈 Deaths each day until $normalDate"
+            }
+
+            Chart.Type.CASE_DAILY -> {
+                "📈 Confirmed cases each day until $normalDate"
+            }
+
         } + " - $countryName"
 
 
         if (exChart == null) {
+
             println("Chat doesn't exist creating new one")
-            val jhuData = if (chartType == Chart.Type.DEATH) {
-                CovidStatsAPI.getDeathData(countryName)
-            } else {
-                CovidStatsAPI.getCaseData(countryName)
+
+            val jhuData = when (chartType) {
+                Chart.Type.DEATH, Chart.Type.DEATH_DAILY -> {
+                    CovidStatsAPI.getDeathData(countryName)
+                }
+
+                Chart.Type.CASE, Chart.Type.CASE_DAILY -> {
+                    CovidStatsAPI.getCaseData(countryName)
+                }
             }
+
             if (jhuData != null) {
+
                 val chartFile = Graphologist().prepareChart(gChartType, dateString, jhuData)
                 val sendFileResp = telegramApi.sendPhotoFile(
                         chatId,

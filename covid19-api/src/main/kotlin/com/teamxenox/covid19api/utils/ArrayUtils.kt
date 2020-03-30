@@ -18,4 +18,31 @@ object ArrayUtils {
         }
         return result
     }
+
+
+    /**
+     * To get difference without negative values
+     */
+    fun getDiffNoNegative(data: List<Int>): List<Int> {
+
+        val diff = mutableListOf<Int>()
+        var x = 0
+        for ((i, d) in data.withIndex()) {
+            if (i == 0) {
+                x = d
+                diff.add(d)
+                continue
+            }
+
+            var xDiff = d - x
+            if (xDiff < 0) {
+                // damn fix!! -_-
+                xDiff = 0
+            }
+            diff.add(xDiff)
+            x = d
+        }
+        return diff
+    }
+
 }
