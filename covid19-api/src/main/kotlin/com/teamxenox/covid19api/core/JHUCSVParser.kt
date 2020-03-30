@@ -4,13 +4,16 @@ import com.teamxenox.covid19api.utils.ArrayUtils
 import java.lang.IllegalArgumentException
 
 object JHUCSVParser {
+    const val COUNTRY_GLOBAL = "Global"
+
     /**
      * If country name == null, global data will be returned
      */
-    fun parseData(_countryName: String?, csvData: String): List<Int> {
-        val countryName = _countryName?.toLowerCase()
+    fun parseData(_countryName: String, csvData: String): List<Int> {
+        val countryName = _countryName.toLowerCase()
         val data = mutableListOf<List<Int>>()
 
+        val countryGlobal= COUNTRY_GLOBAL.toLowerCase()
         for ((index, _line) in csvData.split("\n").withIndex()) {
             var line = _line
 
@@ -26,7 +29,7 @@ object JHUCSVParser {
             val fields = line.split(",")
             if (fields.size > 1) {
                 val fCountryName = fields[1].toLowerCase()
-                if (fCountryName == countryName || countryName == null) {
+                if (countryName == countryGlobal || fCountryName == countryName) {
                     val x = fields.subList(4, fields.size).map { it.toInt() }
                     data.add(x)
                 }

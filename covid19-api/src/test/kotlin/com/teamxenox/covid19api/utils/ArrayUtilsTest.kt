@@ -2,6 +2,7 @@ package com.teamxenox.covid19api.utils
 
 import com.winterbe.expekt.should
 import org.junit.Test
+import java.io.File
 
 class ArrayUtilsTest {
 
@@ -18,5 +19,7 @@ class ArrayUtilsTest {
         merged[1].should.equal(2 + 5 + 6)
         merged[2].should.equal(3 + 6 + 9)
         merged[3].should.equal(4 + 5 + 6)
+
+        println(File("charts/").absolutePath)
     }
 }

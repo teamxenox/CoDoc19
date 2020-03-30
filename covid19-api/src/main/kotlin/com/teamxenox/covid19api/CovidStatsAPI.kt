@@ -90,7 +90,7 @@ object CovidStatsAPI {
             }
 
             return Statistics(
-                    "Global",
+                    JHUCSVParser.COUNTRY_GLOBAL,
                     globalAll.cases,
                     globalAll.deaths,
                     globalAll.recovered,
@@ -103,29 +103,29 @@ object CovidStatsAPI {
         return null
     }
 
-    fun getDeathData(countryName: String?): JhuData? {
+    fun getDeathData(countryName: String): JhuData? {
         return getJHUData(countryName, DEATH_DATA_URL)
     }
 
 
-    fun getCaseData(countryName: String?): JhuData? {
+    fun getCaseData(countryName: String): JhuData? {
         return getJHUData(countryName, CASE_DATA_URL)
     }
 
-    private fun getJHUData(countryName: String?, deathDataUrl: String): JhuData? {
+    private fun getJHUData(countryName: String, deathDataUrl: String): JhuData? {
 
         val client = OkHttpClient.Builder()
                 .build()
 
         val request = Request.Builder()
-                .url(DEATH_DATA_URL)
+                .url(deathDataUrl)
                 .build()
 
         val response = client.newCall(request).execute().body()
         if (response != null) {
             val csvData = response.string()
             return JhuData(
-                    countryName ?: "Global",
+                    countryName,
                     JHUCSVParser.parseData(countryName, csvData)
             )
         }

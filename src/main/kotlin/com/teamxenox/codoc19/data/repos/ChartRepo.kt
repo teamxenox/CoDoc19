@@ -12,5 +12,5 @@ interface ChartRepo : CrudRepository<Chart, Int> {
             @Param("country") country: String,
             @Param("date") date: String,
             @Param("chartType") chartType: Chart.Type
-    ): Chart
+    ): Chart?
 }

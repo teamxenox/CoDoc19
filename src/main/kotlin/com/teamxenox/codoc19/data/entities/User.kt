@@ -8,7 +8,7 @@ class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    var id: Int? = null
 
     var firstName: String? = null
     var username: String? = null

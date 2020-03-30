@@ -2,6 +2,7 @@ package com.teamxenox.codoc19.core.base
 
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendChatActionRequest
+import com.teamxenox.telegramapi.models.SendMessageRequest
 
 abstract class FeatureProxy(
         private val telegramApi: Telegram,
@@ -21,6 +22,16 @@ abstract class FeatureProxy(
         } else {
             println("Failed to send typing...")
         }
+    }
+
+    fun sendError(msg: String) {
+        telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = chatId,
+                        text = "😥 $msg",
+                        replyMsgId = messageId
+                )
+        )
     }
 
 }

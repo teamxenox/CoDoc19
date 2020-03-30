@@ -1,6 +1,9 @@
 package com.teamxenox.codoc19.core.features.stats
 
 import com.teamxenox.codoc19.core.base.FeatureProxy
+import com.teamxenox.codoc19.data.entities.Chart
+import com.teamxenox.codoc19.data.entities.User
+import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.utils.StringUtils.addComma
 import com.teamxenox.codoc19.utils.get
 import com.teamxenox.covid19api.CovidStatsAPI
@@ -8,7 +11,10 @@ import com.teamxenox.covid19api.chart.Graphologist
 import com.teamxenox.covid19api.models.Statistics
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendMessageRequest
+import com.teamxenox.telegramapi.models.SendPhotoRequest
 import java.lang.IllegalArgumentException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, private val messageId: Long) : FeatureProxy(telegramApi, chatId, messageId) {
 
@@ -106,25 +112,101 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         return buttonData.matches(CHART_REQUEST_REGEX)
     }
 
-    fun sendChart(buttonData: String) {
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    private val mySqlDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+
+    fun sendChart(user: User, buttonData: String, chartRepo: ChartRepo) {
         val match = CHART_REQUEST_REGEX.find(buttonData)!!
-        val chartType = match.groups["chartType"]!!.value
+        val type = match.groups["chartType"]!!.value
         val countryName = match.groups["countryName"]!!.value
 
-        when (chartType) {
+        when (type) {
 
             CHART_DEATH -> {
-                // checking if the chart available
-
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.DEATH,
+                        Graphologist.CHART_DEATH
+                )
             }
 
             CHART_CASE -> {
-
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.CASE,
+                        Graphologist.CHART_CASE
+                )
             }
 
             else -> {
-                throw IllegalArgumentException("Undefined chart type `$chartType`")
+                throw IllegalArgumentException("Undefined chart type `$type`")
             }
+        }
+    }
+
+    private fun sendChart(
+            user: User,
+            chartRepo: ChartRepo,
+            countryName: String,
+            chartType: Chart.Type,
+            gChartType: Int
+    ) {
+        // checking if the chart available
+        val chartDate = Date()
+        val dateString = dateFormat.format(chartDate)
+        val exChart = chartRepo.getChartCountryDateType(countryName, dateString, chartType)
+        if (exChart == null) {
+            println("Chat doesn't exist creating new one")
+            val jhuData = if (chartType == Chart.Type.DEATH) {
+                CovidStatsAPI.getDeathData(countryName)
+            } else {
+                CovidStatsAPI.getCaseData(countryName)
+            }
+            if (jhuData != null) {
+                val chartFile = Graphologist().getChart(gChartType, dateString, jhuData)
+                val sendFileResp = telegramApi.sendPhotoFile(
+                        chatId,
+                        chartFile
+                )
+
+                if (sendFileResp.code() == 200) {
+
+                    // chart sent
+                    val sendPhotoResp = sendFileResp.body()!!
+                    // delete chart from server
+                    chartFile.delete()
+
+                    // add the file id to db to reuser
+                    val fileId = sendPhotoResp.result.photo.first().fileId
+                    val newChart = Chart().apply {
+                        userId = user.id
+                        tgFileId = fileId
+                        this.chartType = chartType
+                        country = countryName
+                        createdAt = mySqlDateFormat.format(chartDate)
+                    }
+
+                    println("Chart saved to db : ${chartRepo.save(newChart)}")
+
+                } else {
+                    sendError("Something went wrong while sending the chart to you. Please try later")
+                }
+            } else {
+                sendError("Uhh ho! the data is being synced. Please try again later")
+            }
+        } else {
+            // chart already exist, just sent it
+            println("Chart exist. reusing...")
+            telegramApi.sendPhoto(SendPhotoRequest(
+                    chatId = chatId,
+                    photo = exChart.tgFileId
+            ))
+
+            println("Chart send")
         }
     }
 }

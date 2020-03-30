@@ -8,7 +8,6 @@ import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
-import com.teamxenox.codoc19.data.entities.Chart
 import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.ChartRepo
@@ -22,6 +21,7 @@ open class TelegramBotAgent(
         private val chartRepo: ChartRepo
 ) : BotAgent(userRepo, analyticsRepo) {
 
+    private lateinit var currentUser: User
     private var update: Update? = null
     private var feedbackQuery: CallbackQueryResponse? = null
     private val telegramApi = Telegram(SecretConstants.TELEGRAM_ACTIVE_BOT_TOKEN)
@@ -77,6 +77,12 @@ open class TelegramBotAgent(
         chatId = query.message.chat.id
         messageId = query.message.messageId
 
+        this.currentUser = getUserFromUpdate(
+                query.message.from.id,
+                query.message.from.username,
+                query.message.from.firstName
+        )
+
         doctor = Doctor(telegramApi, chatId, messageId)
         quizBoss = QuizBoss(telegramApi, chatId, messageId)
         covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
@@ -91,7 +97,7 @@ open class TelegramBotAgent(
 
             covidAnalyst!!.isChartRequest(buttonData) -> {
                 println("It's a chart request! $buttonData")
-                covidAnalyst!!.sendChart(buttonData)
+                covidAnalyst!!.sendChart(currentUser, buttonData, chartRepo)
             }
 
             quizBoss!!.isQuizClickData(buttonData) -> {
@@ -133,8 +139,13 @@ open class TelegramBotAgent(
         val updateMessage = this.update!!.message
         if (updateMessage != null) {
 
+
             // Checking if the user exist if not add him/her to db
-            val currentUser = getUser()
+            this.currentUser = getUserFromUpdate(
+                    updateMessage.from.id,
+                    updateMessage.from.username,
+                    updateMessage.from.firstName
+            )
             println("User is ${currentUser.username}")
 
             val message = updateMessage.text
@@ -183,23 +194,27 @@ open class TelegramBotAgent(
         }
     }
 
-    private fun getUser(): User {
-        val updateMsg = update!!.message!!
-        val exUser = userRepo.findByUserId(updateMsg.from.id)
+    private fun getUserFromUpdate(
+            tgUserId: Int,
+            tgUsername: String,
+            tgFirstName: String
+    ): User {
+        val exUser = userRepo.findByUserId(tgUserId)
         return if (exUser != null) {
             println("exUser found : ${exUser.username}")
             exUser
         } else {
             val newUser = User().apply {
-                userId = updateMsg.from.id
-                username = updateMsg.from.username
-                firstName = updateMsg.from.firstName
+                userId = tgUserId
+                username = tgUsername
+                firstName = tgFirstName
                 platform = User.Platform.TELEGRAM
             }
             println("Creating new user : ${newUser.username}")
             userRepo.save(newUser)
         }
     }
+
 
     private fun sendTyping() {
         val response = telegramApi.sendChatAction(

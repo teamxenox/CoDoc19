@@ -24,4 +24,10 @@ interface TelegramApi {
             @Part("chat_id") chatId: RequestBody,
             @Part photo: MultipartBody.Part
     ): Call<SendPhotoResponse>
+
+    @POST("/bot{from}/sendPhoto")
+    fun sendPhoto(
+            @Path("from") from: String,
+            @Body sendPhotoRequest: SendPhotoRequest
+    ): Call<SendPhotoResponse>
 }

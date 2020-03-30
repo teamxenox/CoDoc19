@@ -6,7 +6,6 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -58,15 +57,22 @@ class Telegram(
         ).execute()
     }
 
-    fun sendPhotoFile(chatId: String, file: File): Response<SendPhotoResponse> {
+    fun sendPhotoFile(chatId: Long, file: File): Response<SendPhotoResponse> {
         val mediaType = MediaType.parse("multipart/form-data")
         val requestFile = RequestBody.create(mediaType, file)
         val photoPart = MultipartBody.Part.createFormData("photo", file.name, requestFile)
-        val chatIdPart = RequestBody.create(mediaType, chatId)
+        val chatIdPart = RequestBody.create(mediaType, chatId.toString())
         return api.sendPhotoFile(
                 accessToken,
                 chatIdPart,
                 photoPart
+        ).execute()
+    }
+
+    fun sendPhoto(request: SendPhotoRequest): Response<SendPhotoResponse> {
+        return api.sendPhoto(
+                accessToken,
+                request
         ).execute()
     }
 }
