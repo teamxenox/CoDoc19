@@ -79,7 +79,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         val countryStats = CovidStatsAPI.getStats(country)
 
         if (countryStats != null) {
-            send(countryStats, "📍 <b>$country</b>", false)
+            send(countryStats, "📍 <b>${countryStats.countryName}</b>", false)
         } else {
             telegramApi.sendMessage(
                     SendMessageRequest(
