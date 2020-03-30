@@ -5,6 +5,8 @@ import com.teamxenox.covid19api.utils.JarUtils
 import org.knowm.xchart.BitmapEncoder
 import org.knowm.xchart.XYChart
 import org.knowm.xchart.XYChartBuilder
+import org.knowm.xchart.internal.chartpart.Chart
+import org.knowm.xchart.internal.series.Series
 import org.knowm.xchart.style.Styler
 import java.awt.Color
 import java.io.File
@@ -40,11 +42,21 @@ class Graphologist {
     }
 
 
-    fun getChart(
+    fun prepareChart(
             chartType: Int,
             date: String,
             data: JhuData
     ): File {
+
+        val chart = getChart(chartType, date, data)
+
+        val fileName = "${data.countryName.replace(" ", "_")}_${date.replace("-", "_")}.png"
+        val chartFile = File("${JarUtils.getJarDir()}charts/$fileName")
+        BitmapEncoder.saveBitmap(chart, chartFile.absolutePath, BitmapEncoder.BitmapFormat.PNG);
+        return chartFile
+    }
+
+    fun getChart(chartType: Int, date: String, data: JhuData): XYChart {
 
         val chartTitle = if (chartType == CHART_DEATH) {
             CHART_DEATH_TITLE
@@ -87,10 +99,8 @@ class Graphologist {
                     markerColor = chartLineColor
                 }
 
-        val fileName = "${data.countryName.replace(" ", "_")}_${date.replace("-", "_")}.png"
-        val chartFile = File("${JarUtils.getJarDir()}charts/$fileName")
-        BitmapEncoder.saveBitmap(chart, chartFile.absolutePath, BitmapEncoder.BitmapFormat.PNG);
-        return chartFile
+        return chart
+
     }
 
     private fun reformat(inputDate: String): String {

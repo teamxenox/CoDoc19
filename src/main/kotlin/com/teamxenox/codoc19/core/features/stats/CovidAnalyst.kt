@@ -167,7 +167,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                 CovidStatsAPI.getCaseData(countryName)
             }
             if (jhuData != null) {
-                val chartFile = Graphologist().getChart(gChartType, dateString, jhuData)
+                val chartFile = Graphologist().prepareChart(gChartType, dateString, jhuData)
                 val sendFileResp = telegramApi.sendPhotoFile(
                         chatId,
                         chartFile

@@ -1,10 +1,11 @@
 package com.teamxenox.covid19api.chart
 
+import com.teamxenox.covid19api.models.jhu.JhuData
+import com.teamxenox.covid19api.utils.JarUtils
 import com.winterbe.expekt.should
 import org.junit.Test
 import org.knowm.xchart.*
-import org.knowm.xchart.style.Styler
-import java.awt.Color
+import java.io.File
 
 
 class GraphologistTest {
@@ -25,9 +26,17 @@ class GraphologistTest {
     @Test
     fun testDeathChartSuccess() {
 
-        val deaths = doubleArrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 5.0, 4.0, 7.0, 10.0, 10.0, 12.0, 20.0, 20.0, 24.0)
-        val cases = doubleArrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 5.0, 5.0, 28.0, 30.0, 31.0, 34.0, 39.0, 43.0, 56.0, 62.0, 73.0, 82.0, 102.0, 113.0, 119.0, 142.0, 156.0, 194.0, 244.0, 330.0, 396.0, 499.0, 536.0, 657.0, 727.0, 887.0, 987.0)
+        val deaths = listOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4, 5, 4, 7, 10, 10, 12, 20, 20, 24)
+        val cases = listOf(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 28, 30, 31, 34, 39, 43, 56, 62, 73, 82, 102, 113, 119, 142, 156, 194, 244, 330, 396, 499, 536, 657, 727, 887, 987)
         deaths.size.should.equal(cases.size)
+
+        val chart = Graphologist().getChart(
+                Graphologist.CHART_DEATH,
+                "2020-03-30",
+                JhuData("India", deaths)
+        )
+        val chartFile = File("../charts/demo.png")
+        BitmapEncoder.saveBitmap(chart, chartFile.absolutePath, BitmapEncoder.BitmapFormat.PNG);
 
     }
 
