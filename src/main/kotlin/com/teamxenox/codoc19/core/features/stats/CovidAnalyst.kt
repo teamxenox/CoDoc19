@@ -56,10 +56,10 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                         replyMarkup = SendMessageRequest.ReplyMarkup(
                                 listOf(
                                         listOf(
-                                                SendMessageRequest.InlineButton("SHOW DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName")
+                                                SendMessageRequest.InlineButton("DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName")
                                         ),
                                         listOf(
-                                                SendMessageRequest.InlineButton("SHOW CASES CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
+                                                SendMessageRequest.InlineButton("CASES CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
                                         )
                                 )
                         )

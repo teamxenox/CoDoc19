@@ -9,6 +9,7 @@ import org.knowm.xchart.internal.chartpart.Chart
 import org.knowm.xchart.internal.series.Series
 import org.knowm.xchart.style.Styler
 import java.awt.Color
+import java.awt.Font
 import java.io.File
 import java.text.SimpleDateFormat
 
@@ -87,7 +88,6 @@ class Graphologist {
                 .height(CHART_HEIGHT)
                 .title("$chartTitle - ${data.countryName} - ${reformat(date)}")
                 .xAxisTitle(CHART_COMMON_X_AXIS_TITLE)
-                .theme(Styler.ChartTheme.Matlab)
                 .yAxisTitle(yAxisTitle)
                 .build()
 
@@ -108,6 +108,7 @@ class Graphologist {
     }
 
     private fun applyStyle(chart: XYChart) {
+
 
         chart.styler.apply {
             isChartTitleVisible = true
