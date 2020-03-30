@@ -64,24 +64,24 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         )
     }
 
-    private fun toText(header: String, globalStats: Statistics, isGlobal: Boolean): String {
+    private fun toText(header: String, stats: Statistics, isGlobal: Boolean): String {
 
         val globalText = if (isGlobal) {
             "🌐 Global statistics are based on GMT +00:00"
         } else {
-            ""
+            "🌐 Domestic statistics are based on GMT +05:30"
         }
 
         return """
             $header
 
-            😷 ${globalStats.totalCases.get("Case", "Cases")} : <b>${addComma(globalStats.totalCases)}</b>
-            😥 ${globalStats.totalDeaths.get("Death", "Deaths")} : <b>${addComma(globalStats.totalDeaths)}</b>
-            😇 Recovered : <b>${addComma(globalStats.totalRecovered)}</b>
-            🏥 Active ${globalStats.totalActiveCases.get("Case", "Cases")} : <b>${addComma(globalStats.totalActiveCases)}</b>
+            😷 ${stats.totalCases.get("Case", "Cases")} : <b>${addComma(stats.totalCases)}</b>
+            😥 ${stats.totalDeaths.get("Death", "Deaths")} : <b>${addComma(stats.totalDeaths)}</b>
+            😇 Recovered : <b>${addComma(stats.totalRecovered)}</b>
+            🏥 Active ${stats.totalActiveCases.get("Case", "Cases")} : <b>${addComma(stats.totalActiveCases)}</b>
             
-            😷 Today ${globalStats.todayCases.get("Case", "Cases")} : <b>${addComma(globalStats.todayCases)}</b>
-            😥 Today ${globalStats.todayDeaths.get("Death", "Deaths")} : <b>${addComma(globalStats.todayDeaths)}</b>
+            😷 Today ${stats.todayCases.get("Case", "Cases")} : <b>${addComma(stats.todayCases)}</b>
+            😥 Today ${stats.todayDeaths.get("Death", "Deaths")} : <b>${addComma(stats.todayDeaths)}</b>
             
             $globalText
         """.trimIndent()

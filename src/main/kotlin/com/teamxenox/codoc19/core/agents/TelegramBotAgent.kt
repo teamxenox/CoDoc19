@@ -16,6 +16,10 @@ import com.teamxenox.codoc19.data.repos.UserRepo
 import com.teamxenox.covid19api.core.JHUCSVParser
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
+import okhttp3.Callback
+import retrofit2.Call
+import retrofit2.Response
+import java.lang.Exception
 
 open class TelegramBotAgent(
         private val userRepo: UserRepo,
@@ -44,13 +48,14 @@ open class TelegramBotAgent(
 
     override fun handle(data: Any) {
 
+
         val jsonString = gson.toJson(data)
-        println("HIT!! -> $data")
         if (isButtonClick(jsonString)) {
             handleButtonClick()
         } else {
             handleQuestion(jsonString)
         }
+
     }
 
     private fun handleButtonClick() {
@@ -79,47 +84,54 @@ open class TelegramBotAgent(
         chatId = query.message.chat.id
         messageId = query.message.messageId
 
-        this.currentUser = getUserFromUpdate(
-                query.from.id,
-                query.from.username,
-                query.from.firstName
-        )
+        sendTyping()
 
-        doctor = Doctor(telegramApi, chatId, messageId)
-        quizBoss = QuizBoss(telegramApi, chatId, messageId)
-        covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
+        try {
+            this.currentUser = getUserFromUpdate(
+                    query.from.id,
+                    query.from.username,
+                    query.from.firstName
+            )
 
-        when {
-            doctor!!.isTestButtonClick(buttonData) -> {
+            doctor = Doctor(telegramApi, chatId, messageId)
+            quizBoss = QuizBoss(telegramApi, chatId, messageId)
+            covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
 
-                println("It's test button click")
-                doctor!!.handle(buttonData)
+            when {
+                doctor!!.isTestButtonClick(buttonData) -> {
 
+                    println("It's test button click")
+                    doctor!!.handle(buttonData)
+
+                }
+
+                covidAnalyst!!.isChartRequest(buttonData) -> {
+                    println("It's a chart request! $buttonData")
+                    covidAnalyst!!.sendChart(currentUser, buttonData, chartRepo)
+
+                    // Adding to analytics
+                    analyticsRepo.save(Analytics().apply {
+                        userId = currentUser.id
+                        feature = Analytics.Feature.STATS_CHART
+                        data = buttonData
+                    })
+                }
+
+                quizBoss!!.isQuizClickData(buttonData) -> {
+                    println("It's a quiz click")
+                    quizBoss!!.handle(buttonData)
+                }
+
+                else -> {
+                    println("It's feedback for scholar API")
+                    // question feedback for scholar API
+                    val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
+                    scholarProxy.handleFeedback(feedbackQuery!!)
+                }
             }
-
-            covidAnalyst!!.isChartRequest(buttonData) -> {
-                println("It's a chart request! $buttonData")
-                covidAnalyst!!.sendChart(currentUser, buttonData, chartRepo)
-
-                // Adding to analytics
-                analyticsRepo.save(Analytics().apply {
-                    userId = currentUser.id
-                    feature = Analytics.Feature.STATS_CHART
-                    data = buttonData
-                })
-            }
-
-            quizBoss!!.isQuizClickData(buttonData) -> {
-                println("It's a quiz click")
-                quizBoss!!.handle(buttonData)
-            }
-
-            else -> {
-                println("It's feedback for scholar API")
-                // question feedback for scholar API
-                val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
-                scholarProxy.handleFeedback(feedbackQuery!!)
-            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            sendUnknownErrorMessage()
         }
     }
 
@@ -162,7 +174,6 @@ open class TelegramBotAgent(
 
     private fun handleQuestion(jsonString: String) {
 
-        println("JSON is $jsonString")
         this.update = gson.fromJson(jsonString, Update::class.java)
         val updateMessage = this.update!!.message
         if (updateMessage != null) {
@@ -184,45 +195,48 @@ open class TelegramBotAgent(
             chatId = updateMessage.chat.id
             messageId = updateMessage.messageId
 
-            sendTyping()
+            try {
+                sendTyping()
 
-            println("Message is `$message`")
+                println("Message is `$message`")
 
-            if (message == CMD_HELP || message == CMD_START) {
-                sendHelp(chatId, messageId)
-            } else if (message == CMD_TEST) {
-                startTest()
-            } else if (message == CMD_QUIZ) {
-                startQuiz()
-            } else if (message == CMD_STATS) {
-                sendGlobalStats()
-            } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
-                val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
-                sendCountryStats(countryName)
-            } else {
-
-                // checking if it's a country name
-                val country = Geographer.getCountry(message)
-                if (country != null) {
-                    //it's a country name
-                    sendCountryStats(country.name)
+                if (message == CMD_HELP || message == CMD_START) {
+                    sendHelp(chatId, messageId)
+                } else if (message == CMD_TEST) {
+                    startTest()
+                } else if (message == CMD_QUIZ) {
+                    startQuiz()
+                } else if (message == CMD_STATS) {
+                    sendGlobalStats()
+                } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
+                    val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
+                    sendCountryStats(countryName)
                 } else {
-                    val scholarProxy = ScholarProxy(
-                            telegramApi,
-                            chatId,
-                            messageId
-                    )
 
-                    analyticsRepo.save(Analytics().apply {
-                        userId = currentUser.id
-                        feature = Analytics.Feature.QA
-                        data = message
-                    })
+                    // checking if it's a country name
+                    val country = Geographer.getCountry(message)
+                    if (country != null) {
+                        //it's a country name
+                        sendCountryStats(country.name)
+                    } else {
+                        val scholarProxy = ScholarProxy(
+                                telegramApi,
+                                chatId,
+                                messageId
+                        )
 
-                    scholarProxy.handle(jsonString)
+                        analyticsRepo.save(Analytics().apply {
+                            userId = currentUser.id
+                            feature = Analytics.Feature.QA
+                            data = message
+                        })
+
+                        scholarProxy.handle(jsonString)
+                    }
                 }
-
-
+            } catch (e: Exception) {
+                e.printStackTrace()
+                sendUnknownErrorMessage()
             }
         } else {
             println("Junk!!")
@@ -252,14 +266,34 @@ open class TelegramBotAgent(
 
 
     private fun sendTyping() {
-        val response = telegramApi.sendChatAction(
+
+        telegramApi.sendChatActionAsync(
                 SendChatActionRequest(Telegram.CHAT_ACTION_TYPING, chatId)
+        ).enqueue(object : retrofit2.Callback<SendChatActionResponse> {
+
+            override fun onFailure(call: Call<SendChatActionResponse>, t: Throwable) {
+                println("Failed to send typing")
+            }
+
+            override fun onResponse(call: Call<SendChatActionResponse>, response: Response<SendChatActionResponse>) {
+                if (response.code() == 200) {
+                    println("Typing sent...")
+                } else {
+                    println("Failed to send typing...")
+                }
+            }
+
+        })
+    }
+
+    fun sendUnknownErrorMessage() {
+        this.telegramApi.sendMessage(
+                SendMessageRequest(
+                        chatId = chatId,
+                        replyMsgId = messageId,
+                        text = "What? 🧐 . I am sorry, I dont' know about that. 🤷‍♂"
+                )
         )
-        if (response.code() == 200) {
-            println("Typing sent...")
-        } else {
-            println("Failed to send typing...")
-        }
     }
 
     override fun sendCountryStats(country: String) {
