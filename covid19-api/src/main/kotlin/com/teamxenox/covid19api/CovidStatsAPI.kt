@@ -3,6 +3,9 @@ package com.teamxenox.covid19api
 import com.teamxenox.covid19api.apis.GlobalApi
 import com.teamxenox.covid19api.apis.IndianApi
 import com.teamxenox.covid19api.core.JHUCSVParser
+import com.teamxenox.covid19api.core.RoyLab
+import com.teamxenox.covid19api.models.GlobalCountryResponse
+import com.teamxenox.covid19api.models.RoyLabData
 import com.teamxenox.covid19api.models.Statistics
 import com.teamxenox.covid19api.models.jhu.JhuData
 import com.teamxenox.covid19api.utils.ArrayUtils
@@ -15,6 +18,7 @@ object CovidStatsAPI {
 
     private const val DEATH_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
     private const val CASE_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+
 
     private val indianApi by lazy {
         return@lazy Retrofit.Builder()
@@ -37,9 +41,9 @@ object CovidStatsAPI {
      */
     fun getStats(_country: String): Statistics? {
 
-        val country = _country.toLowerCase()
+        val countryName = _country.toLowerCase()
 
-        if (country == "ind" || country == "in" || country == "india") {
+        if (countryName == "ind" || countryName == "in" || countryName == "india") {
 
             val indianApiResponse = indianApi.getData().execute().body()!!
             val india = indianApiResponse.statewise.find { it.state == "Total" }!!
@@ -56,22 +60,46 @@ object CovidStatsAPI {
 
         } else {
 
-            val resp = globalApi.getCountryData(country).execute()
+            val resp = globalApi.getCountryData(countryName).execute()
             if (resp.code() == 200) {
                 val countryData = resp.body()!!
-                return Statistics(
-                        countryData.country,
-                        countryData.cases,
-                        countryData.deaths,
-                        countryData.recovered,
-                        countryData.active,
-                        countryData.todayCases,
-                        countryData.todayDeaths
-                )
+
+                val royCountryData = RoyLab.getData().find { it.countryName.toLowerCase() == countryName }
+                if (royCountryData != null) {
+                    println("Roydata available")
+                    return Statistics(
+                            countryData.country,
+                            largestOf(countryData.cases, royCountryData.confirmedCases),
+                            largestOf(countryData.deaths, royCountryData.deaths),
+                            largestOf(countryData.recovered, royCountryData.recovered),
+                            countryData.active,
+                            countryData.todayCases,
+                            countryData.todayDeaths
+                    )
+                } else {
+                    println("Roydata not available")
+                    return Statistics(
+                            countryData.country,
+                            countryData.cases,
+                            countryData.deaths,
+                            countryData.recovered,
+                            countryData.active,
+                            countryData.todayCases,
+                            countryData.todayDeaths
+                    )
+                }
             }
         }
 
         return null
+    }
+
+    private fun largestOf(x: Int, y: Int): Int {
+        return if (x > y) {
+            x
+        } else {
+            y
+        }
     }
 
     /**
@@ -90,11 +118,22 @@ object CovidStatsAPI {
                 todayDeaths += country.todayDeaths
             }
 
+            val royLabData = RoyLab.getData()
+            var rDeaths: Int = 0
+            var rCases: Int = 0
+            var rRecovered: Int = 0
+
+            for (rData in royLabData) {
+                rDeaths += rData.deaths
+                rCases += rData.confirmedCases
+                rRecovered += rData.recovered
+            }
+
             return Statistics(
                     JHUCSVParser.COUNTRY_GLOBAL,
-                    globalAll.cases,
-                    globalAll.deaths,
-                    globalAll.recovered,
+                    largestOf(globalAll.cases, rCases),
+                    largestOf(globalAll.deaths, rDeaths),
+                    largestOf(globalAll.recovered, rRecovered),
                     globalAll.active,
                     todayCases,
                     todayDeaths
@@ -151,6 +190,5 @@ object CovidStatsAPI {
 
         return null
     }
-
-
 }
+
