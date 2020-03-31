@@ -21,9 +21,11 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         private const val CHART_REQUEST_PREFIX = "cr"
         private const val CHART_DEATH = "CD"
         private const val CHART_CASE = "CS"
+        private const val CHART_RECOVERED = "CR"
         private const val CHART_DEATH_DAILY = "CDD"
         private const val CHART_CASE_DAILY = "CSD"
-        private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH_DAILY|$CHART_CASE_DAILY|$CHART_DEATH|$CHART_CASE)(?<countryName>.+)".toRegex()
+        private const val CHART_RECOVERED_DAILY = "CRD"
+        private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH_DAILY|$CHART_CASE_DAILY|$CHART_RECOVERED_DAILY|$CHART_DEATH|$CHART_CASE|$CHART_RECOVERED)(?<countryName>.+)".toRegex()
     }
 
     override fun handle(jsonString: String) {
@@ -49,23 +51,25 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
 
         val txt = toText(header, stats, isGlobal)
         val countryName = stats.countryName
+        val chartButtons = mutableListOf(
+                listOf(
+                        SendMessageRequest.InlineButton("DEATHS 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName"),
+                        SendMessageRequest.InlineButton("CASES 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName"),
+                        SendMessageRequest.InlineButton("RECOVERED 📉", "${CHART_REQUEST_PREFIX}${CHART_RECOVERED}$countryName")
+                ),
+                listOf(
+                        SendMessageRequest.InlineButton("D-DAILY 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH_DAILY}$countryName"),
+                        SendMessageRequest.InlineButton("C-DAILY 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE_DAILY}$countryName"),
+                        SendMessageRequest.InlineButton("R-DAILY 📉", "${CHART_REQUEST_PREFIX}${CHART_RECOVERED_DAILY}$countryName")
+                )
+        )
+
         telegramApi.sendMessage(
                 SendMessageRequest(
                         chatId = chatId,
                         replyMsgId = messageId,
                         text = txt,
-                        replyMarkup = SendMessageRequest.ReplyMarkup(
-                                listOf(
-                                        listOf(
-                                                SendMessageRequest.InlineButton("DEATHS CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH}$countryName"),
-                                                SendMessageRequest.InlineButton("CASES CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE}$countryName")
-                                        ),
-                                        listOf(
-                                                SendMessageRequest.InlineButton("DEATHS DAILY CHART 📈", "${CHART_REQUEST_PREFIX}${CHART_DEATH_DAILY}$countryName"),
-                                                SendMessageRequest.InlineButton("CASES DAILY CHART 📉", "${CHART_REQUEST_PREFIX}${CHART_CASE_DAILY}$countryName")
-                                        )
-                                )
-                        )
+                        replyMarkup = SendMessageRequest.ReplyMarkup(chartButtons)
                 )
         )
     }
@@ -167,6 +171,26 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                 )
             }
 
+            CHART_RECOVERED -> {
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.RECOVERED,
+                        Graphologist.CHART_RECOVERED
+                )
+            }
+
+            CHART_RECOVERED_DAILY -> {
+                sendChart(
+                        user,
+                        chartRepo,
+                        countryName,
+                        Chart.Type.RECOVERED_DAILY,
+                        Graphologist.CHART_RECOVERED_DAILY
+                )
+            }
+
             else -> {
                 throw IllegalArgumentException("Undefined chart type `$type`")
             }
@@ -197,12 +221,20 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                 "📉 Confirmed cases as of $normalDate"
             }
 
+            Chart.Type.RECOVERED -> {
+                "📉 Recovered cases as of $normalDate"
+            }
+
             Chart.Type.DEATH_DAILY -> {
                 "📈 Deaths each day until $normalDate"
             }
 
             Chart.Type.CASE_DAILY -> {
                 "📈 Confirmed cases each day until $normalDate"
+            }
+
+            Chart.Type.RECOVERED_DAILY -> {
+                "📈 Recovered cases each day until $normalDate"
             }
 
         } + " - $countryName"
@@ -213,6 +245,10 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
             println("Chat doesn't exist creating new one")
 
             val jhuData = when (chartType) {
+                Chart.Type.RECOVERED, Chart.Type.RECOVERED_DAILY -> {
+                    CovidStatsAPI.getRecoveredData(countryName)
+                }
+
                 Chart.Type.DEATH, Chart.Type.DEATH_DAILY -> {
                     CovidStatsAPI.getDeathData(countryName)
                 }
@@ -254,7 +290,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                     sendError("Something went wrong while sending the chart to you. Please try later")
                 }
             } else {
-                sendError("No cases reported 🤷‍♂")
+                sendError("Sorry chart is not available for `$countryName` 🤷‍♂")
             }
         } else {
             // chart already exist, just sent it

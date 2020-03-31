@@ -18,7 +18,7 @@ object CovidStatsAPI {
 
     private const val DEATH_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
     private const val CASE_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
-
+    private const val RECOVERED_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"
 
     private val indianApi by lazy {
         return@lazy Retrofit.Builder()
@@ -152,6 +152,10 @@ object CovidStatsAPI {
         return getJHUData(countryName, CASE_DATA_URL)
     }
 
+    fun getRecoveredData(countryName: String): JhuData? {
+        return getJHUData(countryName, RECOVERED_DATA_URL)
+    }
+
 
     private fun getJHUData(_countryName: String, deathDataUrl: String): JhuData? {
 
@@ -174,7 +178,6 @@ object CovidStatsAPI {
             if (response != null) {
                 val csvData = response.string()
                 val parsedData = JHUCSVParser.parseData(countryName, csvData)
-                println("Data is `$parsedData`")
                 if (parsedData.deaths.isNotEmpty()) {
                     val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
                     if (finalData.isNotEmpty()) {
@@ -190,5 +193,7 @@ object CovidStatsAPI {
 
         return null
     }
+
+
 }
 

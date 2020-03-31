@@ -23,16 +23,19 @@ class Graphologist {
         const val CHART_CASE = 2
         const val CHART_DEATH_DAILY = 3
         const val CHART_CASE_DAILY = 4
+        const val CHART_RECOVERED = 5
+        const val CHART_RECOVERED_DAILY = 6
 
         private const val CHART_DEATH_TITLE = "DEATHS"
         private const val CHART_CASE_TITLE = "CONFIRMED CASES"
+        private const val CHART_RECOVERED_TITLE = "RECOVERED CASES"
 
         private const val CHART_COMMON_X_AXIS_TITLE = "Day"
-        private const val CHART_DEATH_Y_AXIS_TITLE = "Deaths"
-        private const val CHART_CASE_Y_AXIS_TITLE = "People"
+        private const val CHART_Y_AXIS = "People"
 
         private const val CHART_DEATH_LEGEND = "death"
         private const val CHART_CASE_LEGEND = "cases"
+        private const val CHART_RECOVERED_LEGEND = "recovered"
 
         private val chartBgColor = Color.decode("#121212")
         private val plotBgColor = Color.decode("#222222")
@@ -76,7 +79,11 @@ class Graphologist {
 
     private fun getChart(chartType: Int, date: String, _data: JhuData): XYChart {
 
-        val data = if (chartType == CHART_CASE_DAILY || chartType == CHART_DEATH_DAILY) {
+        val data = if (
+                chartType == CHART_CASE_DAILY ||
+                chartType == CHART_DEATH_DAILY ||
+                chartType == CHART_RECOVERED_DAILY
+        ) {
             JhuData(
                     _data.countryName,
                     _data.firstDeath,
@@ -89,20 +96,24 @@ class Graphologist {
 
         val seriesTitle: String
         val chartLineColor: Color
-        val yAxisTitle: String
         val chartTitle: String
 
         when (chartType) {
+
+            CHART_RECOVERED, CHART_RECOVERED_DAILY -> {
+                seriesTitle = CHART_RECOVERED_LEGEND
+                chartLineColor = Color.GREEN
+                chartTitle = CHART_RECOVERED_TITLE
+            }
+
             CHART_DEATH, CHART_DEATH_DAILY -> {
                 seriesTitle = CHART_DEATH_LEGEND
                 chartLineColor = Color.RED
-                yAxisTitle = CHART_DEATH_Y_AXIS_TITLE
                 chartTitle = CHART_DEATH_TITLE
             }
             CHART_CASE, CHART_CASE_DAILY -> {
                 seriesTitle = CHART_CASE_LEGEND
                 chartLineColor = Color.ORANGE
-                yAxisTitle = CHART_CASE_Y_AXIS_TITLE
                 chartTitle = CHART_CASE_TITLE
             }
 
@@ -114,7 +125,7 @@ class Graphologist {
                 .height(CHART_HEIGHT)
                 .title("$chartTitle - ${data.countryName} (${reformatJhuDate(data.firstDeath)} - ${reformat(date)})")
                 .xAxisTitle(CHART_COMMON_X_AXIS_TITLE)
-                .yAxisTitle(yAxisTitle)
+                .yAxisTitle(CHART_Y_AXIS)
                 .build()
 
         with(chart.styler) {
