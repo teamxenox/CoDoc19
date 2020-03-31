@@ -32,24 +32,24 @@ class Doctor(
 
         private val questions = mapOf(
 
-                ID_FEAR to "Do you fear that you might have COVID-19 ? 🤔",
+                ID_FEAR to "Hey there! Hope you are doing well. \ud83d\ude42 \nDo you fear that you might have COVID-19 ? 🤔",
 
                 // sequential questions for covid-19
-                ID_FEVER to "Do you have fever?",
-                ID_COUGH to "Do you have cough?",
-                ID_SOB to "Do you feel shortness of breath?",
+                ID_FEVER to "Do you have fever? \ud83e\udd12",
+                ID_COUGH to "Do you have cough? \ud83e\udd27",
+                ID_SOB to "Do you feel shortness of breath? \ud83d\ude23",
 
-                ID_AGE_ABOVE_50 to "How old ar e you? Are you above 50 years old ?",
+                ID_AGE_ABOVE_50 to "How old are you? Are you above 50 years old \ud83e\uddd3?",
                 ID_LOCATION to "Where do you live? 🌎",
                 ID_CONDITION to "Is your condition is really bad? 😷",
 
                 // sequential questions for common flu
                 ID_RUNNY_NOSE to "Do you have runny nose? 👃",
-                ID_MUSCLE_ACHES to "Do you have muscle aches?",
-                ID_FATIGUE to "Do you feel fatigue?"
+                ID_MUSCLE_ACHES to "Do you have muscle aches? \ud83d\udcaa",
+                ID_FATIGUE to "Do you feel fatigue? \ud83d\ude2a"
         )
 
-    }
+    } 
 
     /**
      * To data button click
@@ -89,7 +89,7 @@ class Doctor(
                     telegramApi.sendMessage(
                             SendMessageRequest(
                                     chatId = chatId,
-                                    text = "You're lucky 😇"
+                                    text = "Nothing to worry there! You're lucky 😇"
                             )
                     )
                 }
@@ -164,7 +164,7 @@ class Doctor(
                 } else {
                     // condition not bad
                     telegramApi.sendMessage(
-                            SendMessageRequest(chatId = chatId, text = "Please isolate yourself and stay away from elderly people 👨‍🦳. We'll fight this")
+                            SendMessageRequest(chatId = chatId, text = "Please isolate yourself and stay away from elderly people 👨‍🦳. We'll fight this \ud83e\udd1b")
                     )
                 }
 
@@ -198,7 +198,7 @@ class Doctor(
                     telegramApi.sendMessage(
                             SendMessageRequest(
                                     chatId = chatId,
-                                    text = "Don't worry. You're just having common flu"
+                                    text = "Don't worry. You're just having common flu. \ud83d\udc4d"
                             )
                     )
                 } else {
