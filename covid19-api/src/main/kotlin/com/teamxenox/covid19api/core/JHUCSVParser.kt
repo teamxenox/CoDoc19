@@ -50,7 +50,6 @@ object JHUCSVParser {
                 if (countryName == countryGlobal || fCountryName == countryName) {
                     // skip first four params, ie state, country, lat and lon
                     val deaths = fields.subList(TEXT_FIELD_COUNT, fields.size).map { it.toInt() }
-                    println("Sum: ${deaths.sum()}")
                     if (firstDeathDate == null) {
                         // first death not found yet
                         val hasDeath = deaths.sum() > 0

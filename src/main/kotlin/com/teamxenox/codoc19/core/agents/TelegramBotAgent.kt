@@ -85,7 +85,7 @@ open class TelegramBotAgent(
         chatId = query.message.chat.id
         messageId = query.message.messageId
 
-        sendTyping()
+
 
         try {
             this.currentUser = getUserFromUpdate(
@@ -100,8 +100,8 @@ open class TelegramBotAgent(
 
             when {
                 doctor!!.isTestButtonClick(buttonData) -> {
-
                     println("It's test button click")
+                    sendTyping()
                     doctor!!.handle(buttonData)
 
                 }
@@ -120,12 +120,14 @@ open class TelegramBotAgent(
 
                 quizBoss!!.isQuizClickData(buttonData) -> {
                     println("It's a quiz click")
+                    sendTyping()
                     quizBoss!!.handle(buttonData)
                 }
 
                 else -> {
                     println("It's feedback for scholar API")
                     // question feedback for scholar API
+                    sendTyping()
                     val scholarProxy = ScholarProxy(telegramApi, chatId, messageId)
                     scholarProxy.handleFeedback(feedbackQuery!!)
                 }
@@ -143,6 +145,7 @@ open class TelegramBotAgent(
 
         // Adding to analytics
         analyticsRepo.save(Analytics().apply {
+            userId = currentUser.id
             userId = currentUser.id
             feature = Analytics.Feature.QUIZ
         })
@@ -278,9 +281,13 @@ open class TelegramBotAgent(
 
 
     private fun sendTyping() {
+        sendAction(Telegram.CHAT_ACTION_TYPING)
+    }
 
+
+    private fun sendAction(action: String) {
         telegramApi.sendChatActionAsync(
-                SendChatActionRequest(Telegram.CHAT_ACTION_TYPING, chatId)
+                SendChatActionRequest(action, chatId)
         ).enqueue(object : retrofit2.Callback<SendChatActionResponse> {
 
             override fun onFailure(call: Call<SendChatActionResponse>, t: Throwable) {

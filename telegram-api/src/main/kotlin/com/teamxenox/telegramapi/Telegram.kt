@@ -21,6 +21,7 @@ class Telegram(
 
         // Chat actions
         const val CHAT_ACTION_TYPING = "typing"
+        const val CHAT_ACTION_SENDING_PHOTO = "upload_photo"
 
 
         private val api = Retrofit.Builder()

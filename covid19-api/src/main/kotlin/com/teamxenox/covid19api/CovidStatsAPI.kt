@@ -162,6 +162,7 @@ object CovidStatsAPI {
         val countryName = _countryName.toLowerCase().trim()
 
         if (countryName == "us" || countryName == "usa" || countryName == "united states" || countryName == "united states of america") {
+            println("AAAAAAAAAAAMMMMM!!!")
             // See : https://github.com/teamxenox/CoDoc19/issues/19
             return null
         } else {

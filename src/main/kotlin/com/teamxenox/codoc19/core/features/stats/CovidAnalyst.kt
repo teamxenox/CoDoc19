@@ -290,13 +290,11 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                     sendError("Something went wrong while sending the chart to you. Please try later")
                 }
             } else {
-                sendError("Sorry chart is not available for `$countryName` 🤷‍♂")
+                sendError("Sorry charts are not available for `$countryName` 🤷‍♂")
             }
         } else {
             // chart already exist, just sent it
             println("Chart exist. reusing...")
-
-
 
             telegramApi.sendPhoto(SendPhotoRequest(
                     chatId = chatId,
