@@ -31,7 +31,7 @@ class GraphologistTest {
         val chart = Graphologist().prepareChart(
                 Graphologist.CHART_DEATH,
                 "2020-03-31",
-                JhuData("India", deaths)
+                JhuData("India", "2020-03-11", deaths)
         )
 
     }

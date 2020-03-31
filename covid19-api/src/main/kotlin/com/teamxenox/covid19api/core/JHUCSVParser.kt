@@ -1,21 +1,27 @@
 package com.teamxenox.covid19api.core
 
+import com.teamxenox.covid19api.models.jhu.JhuParseData
 import com.teamxenox.covid19api.utils.ArrayUtils
 import java.lang.IllegalArgumentException
 
 object JHUCSVParser {
     const val COUNTRY_GLOBAL = "Global"
+    private const val TEXT_FIELD_COUNT = 4
 
     /**
      * If country name == null, global data will be returned
+     * part.first = first death start date
      */
-    fun parseData(_countryName: String, csvData: String): MutableList<List<Int>> {
+    fun parseData(_countryName: String, csvData: String): JhuParseData {
 
         val countryName = _countryName.toLowerCase()
         val data = mutableListOf<List<Int>>()
 
         val countryGlobal = COUNTRY_GLOBAL.toLowerCase()
-        for ((index, _line) in csvData.split("\n").withIndex()) {
+        val csvLines = csvData.split("\n")
+        val headings = csvLines.first().split(",")
+        var firstDeathDate: String? = null
+        for ((index, _line) in csvLines.withIndex()) {
             var line = _line
 
             if (index == 0) {
@@ -31,14 +37,28 @@ object JHUCSVParser {
             if (fields.size > 1) {
                 val fCountryName = fields[1].toLowerCase()
                 if (countryName == countryGlobal || fCountryName == countryName) {
-                    val x = fields.subList(4, fields.size).map { it.toInt() }
-                    data.add(x)
+                    // skip first four params, ie state, country, lat and lon
+                    val deaths = fields.subList(TEXT_FIELD_COUNT, fields.size).map { it.toInt() }
+
+                    if (firstDeathDate == null) {
+                        // first death not found yet
+                        val hasDeath = deaths.sum() > 0
+                        if (hasDeath) {
+                            val firstDeathIndex = deaths.indexOfFirst { it > 0 }
+                            require(firstDeathIndex != -1) { "TSH : Death index can't be negative" }
+                            firstDeathDate = headings[TEXT_FIELD_COUNT + firstDeathIndex]
+                        }
+                    }
+                    data.add(deaths)
                 }
             }
-
         }
 
-        return data
+
+        return JhuParseData(
+                firstDeathDate,
+                data
+        )
     }
 
     fun merge(data: List<List<Int>>): List<Int> {
@@ -51,4 +71,6 @@ object JHUCSVParser {
 
         return ArrayUtils.mergeColumn(data)
     }
+
+
 }

@@ -45,4 +45,16 @@ object ArrayUtils {
         return diff
     }
 
+    fun trimStartNonDeaths(data: List<Int>): List<Int> {
+        val newData = mutableListOf<Int>()
+        for (d in data) {
+            if (d == 0 && newData.isEmpty()) {
+                continue
+            }
+
+            newData.add(d)
+        }
+        return newData
+    }
+
 }

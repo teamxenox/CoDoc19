@@ -29,4 +29,11 @@ class ArrayUtilsTest {
         val diffArr = ArrayUtils.getDiffNoNegative(data)
         diffArr.toString().should.equal("[1, 1, 1, 0, 5]")
     }
+
+    @Test
+    fun testTrimNonDeaths() {
+        val deaths = listOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3, 4, 5, 0, 0)
+        val result = ArrayUtils.trimStartNonDeaths(deaths)
+        result.toString().should.equal("[1, 2, 2, 2, 3, 4, 5, 0, 0]")
+    }
 }

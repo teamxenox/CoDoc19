@@ -40,6 +40,7 @@ class Graphologist {
 
         private val inputDateFormat = SimpleDateFormat("yyyy-MM-dd")
         private val outputDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        private val jhuDateFormat = SimpleDateFormat("MM/dd/yy")
 
         private const val WATERMARK_TEXT = "Generated with @CoDoc19Bot"
         private const val WM_FONT_SIZE = 15
@@ -78,6 +79,7 @@ class Graphologist {
         val data = if (chartType == CHART_CASE_DAILY || chartType == CHART_DEATH_DAILY) {
             JhuData(
                     _data.countryName,
+                    _data.firstDeath,
                     ArrayUtils.getDiffNoNegative(_data.daySeries)
             )
         } else {
@@ -110,31 +112,12 @@ class Graphologist {
         val chart = XYChartBuilder()
                 .width(CHART_WIDTH)
                 .height(CHART_HEIGHT)
-                .title("$chartTitle - ${data.countryName} - ${reformat(date)}")
+                .title("$chartTitle - ${data.countryName} (${reformatJhuDate(data.firstDeath)} ${reformat(date)})")
                 .xAxisTitle(CHART_COMMON_X_AXIS_TITLE)
                 .yAxisTitle(yAxisTitle)
                 .build()
 
-        applyStyle(chart)
-
-        chart.addSeries(seriesTitle, null, data.daySeries)
-                .apply {
-                    lineColor = chartLineColor
-                    markerColor = chartLineColor
-                }
-
-        return chart
-
-    }
-
-    private fun reformat(inputDate: String): String {
-        return outputDateFormat.format(inputDateFormat.parse(inputDate))
-    }
-
-    private fun applyStyle(chart: XYChart) {
-
-
-        chart.styler.apply {
+        with(chart.styler) {
             isChartTitleVisible = true
             isLegendVisible = true
             xAxisLabelRotation = 45
@@ -147,5 +130,26 @@ class Graphologist {
             isToolTipsAlwaysVisible = true
         }
 
+        chart.addSeries(seriesTitle, null, data.daySeries)
+                .apply {
+                    lineColor = chartLineColor
+                    markerColor = chartLineColor
+                }
+
+        return chart
+
     }
+
+    private fun reformatJhuDate(firstDeath: String): String {
+        return reformat(jhuDateFormat, firstDeath)
+    }
+
+    private fun reformat(inputDate: String): String {
+        return reformat(inputDateFormat, inputDate)
+    }
+
+    private fun reformat(inputDateFormat: SimpleDateFormat, inputDate: String): String {
+        return outputDateFormat.format(inputDateFormat.parse(inputDate))
+    }
+
 }
