@@ -112,7 +112,7 @@ class Graphologist {
         val chart = XYChartBuilder()
                 .width(CHART_WIDTH)
                 .height(CHART_HEIGHT)
-                .title("$chartTitle - ${data.countryName} (${reformatJhuDate(data.firstDeath)} ${reformat(date)})")
+                .title("$chartTitle - ${data.countryName} (${reformatJhuDate(data.firstDeath)} - ${reformat(date)})")
                 .xAxisTitle(CHART_COMMON_X_AXIS_TITLE)
                 .yAxisTitle(yAxisTitle)
                 .build()
