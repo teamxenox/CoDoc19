@@ -18,26 +18,26 @@
       "When you come home \uD83C\uDFD8",
       "When you come to work \uD83D\uDCBC",
       "Before handling food 🍔",
-      "Blow your nose, sneeze or cough",
-      "After shaking someone\u0027s hand",
+      "Blow your nose, sneeze or cough \ud83e\udd27",
+      "After shaking someone\u0027s hand \ud83e\udd1d",
       "All of the above"
     ],
     "answer_index": 5,
-    "reason": "It\u0027s always a good idea to wash your hands when you come from outside, interact with people or food. To protect others, wash your hands after blowing your nose, sneezing or coughing.\\n\\nDo not cough or sneeze into your hands! Use a tissue or your elbow. "
+    "reason": "It\u0027s always a good idea to wash your hands when you come from outside, interact with people or food. To protect others, wash your hands after blowing your nose, sneezing or coughing.\\n\\nDo not cough or sneeze into your hands! Use a tissue or your elbow. \ud83e\udd27 \ud83d\udcaa"
   },
   {
     "id": 3,
-    "question": "You don\u0027t need to wash your hands when you\u0027re using a sanitizing gel.",
+    "question": "You don\u0027t need to wash your hands when you\u0027re using a sanitizing gel. \ud83e\udd14",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don\u0027t have access to washing your hands with soap and water."
+    "reason": "Hand sanitizer with over 60% alcohol does kill bacteria, but it does not replace washing your hands. Use hand sanitizer when you don\u0027t have access to washing your hands with soap and water. \ud83e\uddfc"
   },
   {
     "id": 4,
-    "question": "How long can COVID-19 survive on surfaces?",
+    "question": "How long can COVID-19 survive on surfaces? \ud83d\uded1",
     "options": [
       "8 hours",
       "24 hours",
@@ -45,11 +45,11 @@
       "3 days"
     ],
     "answer_index": 3,
-    "reason": "COVID-19 can survive for up to 3 days on some surfaces. Hard surfaces like glass, metal or plastic can carry the virus for longer than soft surfaces like clothing."
+    "reason": "COVID-19 can survive for up to 3 days on some surfaces. Hard surfaces like glass, metal or plastic can carry the virus for longer than soft surfaces like clothing. \ud83d\ude31"
   },
   {
     "id": 5,
-    "question": "Which of these have you cleaned with disinfectant?",
+    "question": "Which of these have you cleaned with disinfectant? \ud83d\udd75\ufe0f",
     "options": [
       "Door knobs",
       "Light switches",
@@ -59,42 +59,42 @@
       "All of the above"
     ],
     "answer_index": 5,
-    "reason": "All frequently touched surfaces should be cleaned daily with disinfectant."
+    "reason": "All frequently touched surfaces should be cleaned daily with disinfectant. \ud83d\udd75\ufe0f"
   },
   {
     "id": 6,
-    "question": "Does wearing a face mask protect you from COVID-19?",
+    "question": "Does wearing a face mask protect you from COVID-19? \ud83d\ude37",
     "options": [
       "Yes",
       "No",
       "Only N-95 masks help"
     ],
     "answer_index": 1,
-    "reason": "Wearing a surgical mask can prevent you from spreading the virus if you\u0027re sick. The only mask that can protect you from COVID-19 is a N-95 respirator that medical professionals are trained to put on properly and check after each use.\\n\\nSocial distancing, handwashing and not touching your face work best."
+    "reason": "Wearing a surgical mask can prevent you from spreading the virus if you\u0027re sick. The only mask that can protect you from COVID-19 is a N-95 respirator that medical professionals are trained to put on properly and check after each use.\\n\\nSocial distancing, handwashing and not touching your face work best. \u2695\ufe0f"
   },
   {
     "id": 7,
-    "question": " Social distancing is only for the elderly and those with high-risk conditions.",
+    "question": " Social distancing is only for the elderly and those with high-risk conditions. \ud83d\udc74 \ud83d\udc75",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "Social distancing protects part of the population with chronic conditions, immunosuppressed and the elderly. Even if you\u0027re not one of them, you can still get infected and transmit it onto the most vulnerable.\\n\\nIf you can, stay home."
+    "reason": "Social distancing protects part of the population with chronic conditions, immunosuppressed and the elderly. Even if you\u0027re not one of them, you can still get infected and transmit it onto the most vulnerable.\\n\\nIf you can, stay home. \u2695\ufe0f"
   },
   {
     "id": 8,
-    "question": "Only people who have tested positive for COVID-19 need to stay home and isolate themselves.",
+    "question": "Only people who have tested positive for COVID-19 need to stay home and isolate themselves.\ud83d\ude22",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "Any infected person, with or without symptoms, could spread the virus by touching a surface or being within 6 feet from someone"
+    "reason": "Any infected person, with or without symptoms, could spread the virus by touching a surface or being within 6 feet from someone. \u2695\ufe0f"
   },
   {
     "id": 9,
-    "question": "How long can it take to show symptoms?",
+    "question": "How long can it take to show symptoms? \ud83e\udd14",
     "options": [
       "2 days",
       "4 days",
@@ -102,66 +102,66 @@
       "14 days"
     ],
     "answer_index": 3,
-    "reason": "Symptoms of COVID-19 appear within two to 14 days after exposure and include fever, cough and difficulty breathing."
+    "reason": "Symptoms of COVID-19 appear within two to 14 days after exposure and include fever, cough and difficulty breathing. \u2695\ufe0f"
   },
   {
     "id": 10,
-    "question": "You are less likely to get COVID-19 than the flu",
+    "question": "You are less likely to get COVID-19 than the flu. \ud83e\udda0",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "COVID-19 is almost 2x as infectious as the flu. The average person with the flu infects 1.3 people. The average person with COVID-19 can infect 2.2 people."
+    "reason": "COVID-19 is almost 2x as infectious as the flu. The average person with the flu infects 1.3 people. The average person with COVID-19 can infect 2.2 people. \u2620\ufe0f"
   },
   {
     "id": 11,
-    "question": "Kids can\u0027t catch COVID-19",
+    "question": "Kids can\u0027t catch COVID-19. \ud83e\uddd2",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "Kids can become infected. Children under age of 18 have tested positive for COVID-19, but they experience very mild symptoms. Parents and grandparents can catch COVID-19 from the kids and have a harder time recovering."
+    "reason": "Kids can become infected. Children under age of 18 have tested positive for COVID-19, but they experience very mild symptoms. Parents and grandparents can catch COVID-19 from the kids and have a harder time recovering. \ud83e\uddd1\u200d\u2695\ufe0f"
   },
   {
     "id": 12,
-    "question": "Vitamin C supplements will stop you from catching COVID-19",
+    "question": "Vitamin C supplements will stop you from catching COVID-19. \ud83d\udc8a",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "Vitamin C should absolutely be included in your daily diet if you want to maintain a healthy immune system. But megadosing on supplements is unlikely to lower your risk of catching COVID-19, and may at most give you a modest advantage against the virus."
+    "reason": "Vitamin C should absolutely be included in your daily diet if you want to maintain a healthy immune system. But megadosing on supplements is unlikely to lower your risk of catching COVID-19, and may at most give you a modest advantage against the virus. \ud83e\uddd1\u200d\u2695\ufe0f"
   },
   {
     "id": 13,
-    "question": "It\u0027s safe to receive a package from China",
+    "question": "It\u0027s safe to receive a package from China. \ud83d\udce6 \u27a1\ufe0f \ud83c\udde8\ud83c\uddf3",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 0,
-    "reason": "Currently, there is no evidence to support transmission of COVID-19 associated with imported goods, and there have not been any cases of COVID-19 in the United States associated with imported goods."
+    "reason": "Currently, there is no evidence to support transmission of COVID-19 associated with imported goods, and there have not been any cases of COVID-19 in the United States associated with imported goods. \u2695\ufe0f"
   },
   {
     "id": 14,
-    "question": "You can get the coronavirus if you eat at Chinese restaurants in the US",
+    "question": "You can get the coronavirus if you eat at Chinese restaurants in the US. \ud83e\udd14",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "When it comes to catching COVID-19, Chinese restaurants are no different from other restaurants."
+    "reason": "When it comes to catching COVID-19, Chinese restaurants are no different from other restaurants. \ud83d\ude09"
   },
   {
     "id": 15,
-    "question": "When you experience COVID-19 symptoms, you should go to your doctor immediately.",
+    "question": "When you experience COVID-19 symptoms, you should go to your doctor immediately. \ud83d\ude24",
     "options": [
       "True",
       "False"
     ],
     "answer_index": 1,
-    "reason": "If you have COVID-19 and go to the hospital, you will infect others. If you don\u0027t, you can get infected. Call your doctor instead."
+    "reason": "If you have COVID-19 and go to the hospital, you will infect others. If you don\u0027t, you can get infected. Call your doctor instead. \ud83d\udcde"
   }
 ]
