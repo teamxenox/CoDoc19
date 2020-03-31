@@ -72,8 +72,8 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
 
     private fun toText(header: String, stats: Statistics, isGlobal: Boolean): String {
 
-        val globalText = if (isGlobal) {
-            "🌐 Global statistics are based on GMT +00:00"
+        val globalText = if (stats.countryName != "India") {
+            "🌐 Statistics are based on GMT +00:00"
         } else {
             ""
         }

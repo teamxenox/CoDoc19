@@ -13,7 +13,7 @@ import java.lang.IllegalArgumentException
 class QuizBoss(
         private val telegramApi: Telegram,
         private val chatId: Long,
-        private val messageId: Long
+        messageId: Long
 ) : FeatureProxy(telegramApi, chatId, messageId) {
 
     companion object {

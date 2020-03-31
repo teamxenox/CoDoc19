@@ -7,9 +7,11 @@ import org.knowm.xchart.BitmapEncoder
 import org.knowm.xchart.XYChart
 import org.knowm.xchart.XYChartBuilder
 import java.awt.Color
+import java.awt.Font
 import java.io.File
 import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
+import javax.imageio.ImageIO
 
 class Graphologist {
 
@@ -39,7 +41,11 @@ class Graphologist {
         private val inputDateFormat = SimpleDateFormat("yyyy-MM-dd")
         private val outputDateFormat = SimpleDateFormat("dd/MM/yyyy")
 
-
+        private const val WATERMARK_TEXT = "Generated with @CoDoc19Bot"
+        private const val WM_FONT_SIZE = 15
+        private const val WM_X = CHART_WIDTH - ((WATERMARK_TEXT.length / 1.7) * WM_FONT_SIZE).toInt()
+        private const val WM_Y = CHART_HEIGHT - (WM_FONT_SIZE * 0.75).toInt()
+        private val WM_FONT = Font("Ubuntu", Font.BOLD, WM_FONT_SIZE)
     }
 
 
@@ -51,12 +57,23 @@ class Graphologist {
 
         val chart = getChart(chartType, date, data)
         val fileName = "${data.countryName.replace(" ", "_")}_${date.replace("-", "_")}.png"
+
+        // Adding watermark
+        val buffImage = BitmapEncoder.getBufferedImage(chart);
+        val graphics = buffImage.graphics
+        graphics.apply {
+            font = WM_FONT
+            color = plotBgColor
+            drawString(WATERMARK_TEXT, WM_X, WM_Y)
+        }.dispose()
+
         val chartFile = File("${JarUtils.getJarDir()}charts/$fileName")
-        BitmapEncoder.saveBitmap(chart, chartFile.absolutePath, BitmapEncoder.BitmapFormat.PNG);
+        ImageIO.write(buffImage, "png", chartFile)
+
         return chartFile
     }
 
-    fun getChart(chartType: Int, date: String, _data: JhuData): XYChart {
+    private fun getChart(chartType: Int, date: String, _data: JhuData): XYChart {
 
         val data = if (chartType == CHART_CASE_DAILY || chartType == CHART_DEATH_DAILY) {
             JhuData(
@@ -70,21 +87,21 @@ class Graphologist {
 
         val seriesTitle: String
         val chartLineColor: Color
-        val yAxisTitle : String
-        val chartTitle : String
+        val yAxisTitle: String
+        val chartTitle: String
 
         when (chartType) {
             CHART_DEATH, CHART_DEATH_DAILY -> {
                 seriesTitle = CHART_DEATH_LEGEND
                 chartLineColor = Color.RED
-                yAxisTitle =CHART_DEATH_Y_AXIS_TITLE
-                chartTitle =CHART_DEATH_TITLE
+                yAxisTitle = CHART_DEATH_Y_AXIS_TITLE
+                chartTitle = CHART_DEATH_TITLE
             }
             CHART_CASE, CHART_CASE_DAILY -> {
                 seriesTitle = CHART_CASE_LEGEND
                 chartLineColor = Color.ORANGE
-                yAxisTitle =CHART_CASE_Y_AXIS_TITLE
-                chartTitle =CHART_CASE_TITLE
+                yAxisTitle = CHART_CASE_Y_AXIS_TITLE
+                chartTitle = CHART_CASE_TITLE
             }
 
             else -> throw IllegalArgumentException("Undefined chartType `$chartType`")
