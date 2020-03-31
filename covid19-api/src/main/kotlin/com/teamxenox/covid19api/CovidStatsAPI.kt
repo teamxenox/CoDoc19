@@ -38,7 +38,7 @@ object CovidStatsAPI {
 
         val country = _country.toLowerCase()
 
-        if (country == "ind" || country == "india") {
+        if (country == "ind" || country == "in" || country == "india") {
 
             val indianApiResponse = indianApi.getData().execute().body()!!
             val india = indianApiResponse.statewise.find { it.state == "Total" }!!

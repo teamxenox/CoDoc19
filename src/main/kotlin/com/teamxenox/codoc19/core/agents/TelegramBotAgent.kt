@@ -13,6 +13,7 @@ import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
+import com.teamxenox.codoc19.models.Country
 import com.teamxenox.covid19api.core.JHUCSVParser
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
@@ -210,14 +211,25 @@ open class TelegramBotAgent(
                     sendGlobalStats()
                 } else if (CMD_STATS_COUNTRY_REGEX.matches(message)) {
                     val countryName = CMD_STATS_COUNTRY_REGEX.find(message)!!.groups["country"]!!.value
-                    sendCountryStats(countryName)
+                    val country = Geographer.getCountry(countryName)
+                    if (country != null) {
+                        sendCountryStats(country)
+                    } else {
+                        telegramApi.sendMessage(
+                                SendMessageRequest(
+                                        chatId = chatId,
+                                        replyMsgId = messageId,
+                                        text = "Seems like $countryName is not a country at all 🤕"
+                                )
+                        )
+                    }
                 } else {
 
                     // checking if it's a country name
                     val country = Geographer.getCountry(message)
                     if (country != null) {
                         //it's a country name
-                        sendCountryStats(country.name)
+                        sendCountryStats(country)
                     } else {
                         val scholarProxy = ScholarProxy(
                                 telegramApi,
@@ -286,7 +298,7 @@ open class TelegramBotAgent(
         })
     }
 
-    fun sendUnknownErrorMessage() {
+    private fun sendUnknownErrorMessage() {
         this.telegramApi.sendMessage(
                 SendMessageRequest(
                         chatId = chatId,
@@ -296,14 +308,14 @@ open class TelegramBotAgent(
         )
     }
 
-    override fun sendCountryStats(country: String) {
+    override fun sendCountryStats(country: Country) {
         val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
-        covidAnalyst.sendCountryStats(country)
+        covidAnalyst.sendCountryStats(country.name)
 
         analyticsRepo.save(Analytics().apply {
             userId = currentUser.id
             feature = Analytics.Feature.STATS
-            data = country
+            data = country.name
         })
     }
 
