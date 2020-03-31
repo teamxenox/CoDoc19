@@ -113,12 +113,17 @@ object CovidStatsAPI {
         return getJHUData(countryName, CASE_DATA_URL)
     }
 
+
     private fun getJHUData(_countryName: String, deathDataUrl: String): JhuData? {
+
         val countryName = _countryName.toLowerCase().trim()
+
         if (countryName == "us" || countryName == "usa" || countryName == "united states" || countryName == "united states of america") {
             // See : https://github.com/teamxenox/CoDoc19/issues/19
             return null
         } else {
+
+
             val client = OkHttpClient.Builder()
                     .build()
 
@@ -130,12 +135,16 @@ object CovidStatsAPI {
             if (response != null) {
                 val csvData = response.string()
                 val parsedData = JHUCSVParser.parseData(countryName, csvData)
+                println("Data is `$parsedData`")
                 if (parsedData.deaths.isNotEmpty()) {
-                    return JhuData(
-                            countryName,
-                            parsedData.firstDeathDate!!,
-                            ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
-                    )
+                    val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
+                    if (finalData.isNotEmpty()) {
+                        return JhuData(
+                                countryName,
+                                parsedData.firstDeathDate,
+                                finalData
+                        )
+                    }
                 }
             }
         }

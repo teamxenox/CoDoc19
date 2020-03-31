@@ -140,7 +140,10 @@ class Graphologist {
 
     }
 
-    private fun reformatJhuDate(firstDeath: String): String {
+    private fun reformatJhuDate(firstDeath: String?): String {
+        if (firstDeath == null) {
+            return ""
+        }
         return reformat(jhuDateFormat, firstDeath)
     }
 

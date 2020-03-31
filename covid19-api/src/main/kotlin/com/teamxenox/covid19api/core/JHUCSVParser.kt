@@ -7,6 +7,12 @@ import java.lang.IllegalArgumentException
 object JHUCSVParser {
     const val COUNTRY_GLOBAL = "Global"
     private const val TEXT_FIELD_COUNT = 4
+    private const val INVALID_SK = "\"Korea, South\""
+
+    private val countryNameMap = mapOf(
+            "s. korea" to "south korea"
+    )
+
 
     /**
      * If country name == null, global data will be returned
@@ -14,7 +20,12 @@ object JHUCSVParser {
      */
     fun parseData(_countryName: String, csvData: String): JhuParseData {
 
-        val countryName = _countryName.toLowerCase()
+        var countryName = _countryName.toLowerCase()
+
+        if (countryNameMap.containsKey(countryName)) {
+            countryName = countryNameMap[countryName].toString()
+        }
+
         val data = mutableListOf<List<Int>>()
 
         val countryGlobal = COUNTRY_GLOBAL.toLowerCase()
@@ -29,8 +40,8 @@ object JHUCSVParser {
             }
 
             // south korea fix
-            if (line.contains("Korea, South")) {
-                line = line.replace("Korea, South", "South Korea")
+            if (line.contains(INVALID_SK)) {
+                line = line.replace(INVALID_SK, "South Korea")
             }
 
             val fields = line.split(",")
@@ -39,7 +50,7 @@ object JHUCSVParser {
                 if (countryName == countryGlobal || fCountryName == countryName) {
                     // skip first four params, ie state, country, lat and lon
                     val deaths = fields.subList(TEXT_FIELD_COUNT, fields.size).map { it.toInt() }
-
+                    println("Sum: ${deaths.sum()}")
                     if (firstDeathDate == null) {
                         // first death not found yet
                         val hasDeath = deaths.sum() > 0
@@ -49,6 +60,7 @@ object JHUCSVParser {
                             firstDeathDate = headings[TEXT_FIELD_COUNT + firstDeathIndex]
                         }
                     }
+
                     data.add(deaths)
                 }
             }

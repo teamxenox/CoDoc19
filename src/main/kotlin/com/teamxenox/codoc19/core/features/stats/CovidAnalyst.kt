@@ -103,7 +103,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                     SendMessageRequest(
                             chatId = chatId,
                             replyMsgId = messageId,
-                            text = "It seems like `$country` is not a country at all. 🙄"
+                            text = "Ohh sorry. We don't have enough data from `$country` 😥"
                     )
             )
         }
@@ -254,7 +254,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
                     sendError("Something went wrong while sending the chart to you. Please try later")
                 }
             } else {
-                sendError("Uhh ho! the data is being synced. Please try again later")
+                sendError("No cases reported 🤷‍♂")
             }
         } else {
             // chart already exist, just sent it
