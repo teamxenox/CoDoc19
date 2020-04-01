@@ -1,0 +1,1 @@
+./gradlew bootJar && mv build/libs/codoc19-0.0.1-SNAPSHOT.jar codoc19.jar
