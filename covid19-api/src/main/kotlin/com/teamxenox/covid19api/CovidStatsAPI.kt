@@ -9,16 +9,18 @@ import com.teamxenox.covid19api.models.RoyLabData
 import com.teamxenox.covid19api.models.Statistics
 import com.teamxenox.covid19api.models.jhu.JhuData
 import com.teamxenox.covid19api.utils.ArrayUtils
+import com.teamxenox.covid19api.utils.JarUtils
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 
 object CovidStatsAPI {
 
-    private const val DEATH_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
-    private const val CASE_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
-    private const val RECOVERED_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"
+    private val DEATH_DATA_FILE = File("${JarUtils.getJarDir()}assets/time_series_covid19_deaths_global.csv")
+    private val CASE_DATA_FILE = File("${JarUtils.getJarDir()}assets/time_series_covid19_confirmed_global.csv")
+    private val RECOVERED_DATA_FILE = File("${JarUtils.getJarDir()}assets/time_series_covid19_recovered_global.csv")
 
     private val indianApi by lazy {
         return@lazy Retrofit.Builder()
@@ -144,20 +146,20 @@ object CovidStatsAPI {
     }
 
     fun getDeathData(countryName: String): JhuData? {
-        return getJHUData(countryName, DEATH_DATA_URL)
+        return getJHUData(countryName, DEATH_DATA_FILE)
     }
 
 
     fun getCaseData(countryName: String): JhuData? {
-        return getJHUData(countryName, CASE_DATA_URL)
+        return getJHUData(countryName, CASE_DATA_FILE)
     }
 
     fun getRecoveredData(countryName: String): JhuData? {
-        return getJHUData(countryName, RECOVERED_DATA_URL)
+        return getJHUData(countryName, RECOVERED_DATA_FILE)
     }
 
 
-    private fun getJHUData(_countryName: String, deathDataUrl: String): JhuData? {
+    private fun getJHUData(_countryName: String, dataFile: File): JhuData? {
 
         val countryName = _countryName.toLowerCase().trim()
 
@@ -166,28 +168,16 @@ object CovidStatsAPI {
             // See : https://github.com/teamxenox/CoDoc19/issues/19
             return null
         } else {
-
-
-            val client = OkHttpClient.Builder()
-                    .build()
-
-            val request = Request.Builder()
-                    .url(deathDataUrl)
-                    .build()
-
-            val response = client.newCall(request).execute().body()
-            if (response != null) {
-                val csvData = response.string()
-                val parsedData = JHUCSVParser.parseData(countryName, csvData)
-                if (parsedData.deaths.isNotEmpty()) {
-                    val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
-                    if (finalData.isNotEmpty()) {
-                        return JhuData(
-                                countryName,
-                                parsedData.firstDeathDate,
-                                finalData
-                        )
-                    }
+            val csvData = dataFile.readText()
+            val parsedData = JHUCSVParser.parseData(countryName, csvData)
+            if (parsedData.deaths.isNotEmpty()) {
+                val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
+                if (finalData.isNotEmpty()) {
+                    return JhuData(
+                            countryName,
+                            parsedData.firstDeathDate,
+                            finalData
+                    )
                 }
             }
         }

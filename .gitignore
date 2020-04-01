@@ -138,3 +138,4 @@ gradle-app.setting
 SecretConstants.kt
 
 src/main/resources/application.properties
+curls.txt
