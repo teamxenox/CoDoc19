@@ -4,11 +4,8 @@ import com.google.gson.reflect.TypeToken
 import com.teamxenox.bootzan.GsonUtils
 import com.teamxenox.codoc19.core.base.FeatureProxy
 import com.teamxenox.codoc19.models.QuizQuestion
-import com.teamxenox.codoc19.utils.JarUtils
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.SendMessageRequest
-import java.io.File
-import java.lang.IllegalArgumentException
 
 class QuizBoss(
         private val telegramApi: Telegram,
@@ -22,9 +19,9 @@ class QuizBoss(
         private val NEXT_REGEX = "nq(?<nextQuestionId>\\d+)s(?<score>\\d+)".toRegex()
 
         private val questions by lazy {
-            val quizFile = File("${JarUtils.getJarDir()}assets/quiz.json")
+            val quizJson = QuizBoss::class.java.getResourceAsStream("/quiz.json").bufferedReader().readText()
             val type = object : TypeToken<List<QuizQuestion>>() {}.type
-            GsonUtils.gson.fromJson<List<QuizQuestion>>(quizFile.readText(), type)
+            GsonUtils.gson.fromJson<List<QuizQuestion>>(quizJson, type)
         }
 
     }

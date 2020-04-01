@@ -49,7 +49,7 @@ class Doctor(
                 ID_FATIGUE to "Do you feel fatigue? \ud83d\ude2a"
         )
 
-    } 
+    }
 
     /**
      * To data button click

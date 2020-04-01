@@ -1,7 +1,6 @@
 package com.teamxenox.covid19api.core
 
 import com.winterbe.expekt.should
-import org.junit.Assert.*
 import org.junit.Test
 
 class RoyLabTest {

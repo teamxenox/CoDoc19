@@ -26,6 +26,6 @@ class Analytics {
     var data: String? = null
 
     enum class Feature {
-        QA,TEST, QUIZ, STATS, STATS_CHART
+        QA, TEST, QUIZ, STATS, STATS_CHART
     }
 }

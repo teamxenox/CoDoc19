@@ -1,11 +1,11 @@
 package com.teamxenox.scholar.subjects.corona
 
 import com.google.gson.Gson
-import com.teamxenox.scholar.models.Answer
-import com.teamxenox.scholar.subjects.Subject
 import com.teamxenox.scholar.data.api.faqqa.AnswersRequest
 import com.teamxenox.scholar.data.feedback.AddFeedbackRequest
+import com.teamxenox.scholar.models.Answer
 import com.teamxenox.scholar.models.Feedback
+import com.teamxenox.scholar.subjects.Subject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

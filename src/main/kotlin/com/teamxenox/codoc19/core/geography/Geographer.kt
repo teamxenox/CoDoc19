@@ -3,15 +3,15 @@ package com.teamxenox.codoc19.core.geography
 import com.google.gson.reflect.TypeToken
 import com.teamxenox.bootzan.GsonUtils
 import com.teamxenox.codoc19.models.Country
-import com.teamxenox.codoc19.utils.JarUtils
-import java.io.File
 
 object Geographer {
 
     private val countries by lazy {
-        val countriesFile = File("${JarUtils.getJarDir()}assets/countries.json")
+        val countriesJson = Geographer::class.java.getResourceAsStream("/countries.json")
+                .bufferedReader()
+                .readText()
         val type = object : TypeToken<List<Country>>() {}.type
-        GsonUtils.gson.fromJson<List<Country>>(countriesFile.readText(), type)
+        GsonUtils.gson.fromJson<List<Country>>(countriesJson, type)
     }
 
     fun getCountry(_text: String): Country? {

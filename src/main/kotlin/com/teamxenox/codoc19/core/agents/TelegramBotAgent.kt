@@ -1,13 +1,13 @@
 package com.teamxenox.codoc19.core.agents
 
 import com.teamxenox.bootzan.GsonUtils.gson
-import com.teamxenox.codoc19.core.geography.Geographer
 import com.teamxenox.codoc19.core.SecretConstants
 import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.core.features.qa.ScholarProxy
 import com.teamxenox.codoc19.core.features.quiz.QuizBoss
 import com.teamxenox.codoc19.core.features.stats.CovidAnalyst
 import com.teamxenox.codoc19.core.features.test.Doctor
+import com.teamxenox.codoc19.core.geography.Geographer
 import com.teamxenox.codoc19.data.entities.Analytics
 import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
@@ -17,10 +17,8 @@ import com.teamxenox.codoc19.models.Country
 import com.teamxenox.covid19api.core.JHUCSVParser
 import com.teamxenox.telegramapi.Telegram
 import com.teamxenox.telegramapi.models.*
-import okhttp3.Callback
 import retrofit2.Call
 import retrofit2.Response
-import java.lang.Exception
 
 open class TelegramBotAgent(
         private val userRepo: UserRepo,

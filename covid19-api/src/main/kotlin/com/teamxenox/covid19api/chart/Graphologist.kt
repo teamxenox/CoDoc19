@@ -2,14 +2,12 @@ package com.teamxenox.covid19api.chart
 
 import com.teamxenox.covid19api.models.jhu.JhuData
 import com.teamxenox.covid19api.utils.ArrayUtils
-import com.teamxenox.covid19api.utils.JarUtils
 import org.knowm.xchart.BitmapEncoder
 import org.knowm.xchart.XYChart
 import org.knowm.xchart.XYChartBuilder
 import java.awt.Color
 import java.awt.Font
 import java.io.File
-import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
 import javax.imageio.ImageIO
 
@@ -71,7 +69,7 @@ class Graphologist {
             drawString(WATERMARK_TEXT, WM_X, WM_Y)
         }.dispose()
 
-        val chartFile = File("${JarUtils.getJarDir()}./charts/$fileName")
+        val chartFile = File("charts/$fileName")
         println("file is ${chartFile.absolutePath}")
         ImageIO.write(buffImage, "png", chartFile)
 

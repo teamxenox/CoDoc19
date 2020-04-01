@@ -2,7 +2,6 @@ package com.teamxenox.covid19api.core
 
 import com.teamxenox.covid19api.models.jhu.JhuParseData
 import com.teamxenox.covid19api.utils.ArrayUtils
-import java.lang.IllegalArgumentException
 
 object JHUCSVParser {
     const val COUNTRY_GLOBAL = "Global"

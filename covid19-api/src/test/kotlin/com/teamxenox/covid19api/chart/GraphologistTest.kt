@@ -1,14 +1,11 @@
 package com.teamxenox.covid19api.chart
 
 import com.teamxenox.covid19api.models.jhu.JhuData
-import com.teamxenox.covid19api.utils.JarUtils
 import com.winterbe.expekt.should
 import org.junit.Test
-import org.knowm.xchart.*
-import java.awt.Color
-import java.awt.Font
-import java.io.File
-import javax.imageio.ImageIO
+import org.knowm.xchart.BitmapEncoder
+import org.knowm.xchart.QuickChart
+import org.knowm.xchart.SwingWrapper
 
 
 class GraphologistTest {

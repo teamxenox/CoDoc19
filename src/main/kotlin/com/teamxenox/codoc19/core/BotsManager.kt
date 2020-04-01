@@ -5,7 +5,6 @@ import com.teamxenox.codoc19.core.base.BotAgent
 import com.teamxenox.codoc19.data.repos.AnalyticsRepo
 import com.teamxenox.codoc19.data.repos.ChartRepo
 import com.teamxenox.codoc19.data.repos.UserRepo
-import java.lang.IllegalArgumentException
 
 class BotsManager(
         private val userRepo: UserRepo,
