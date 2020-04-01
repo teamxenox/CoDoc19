@@ -23,7 +23,7 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         private const val CHART_CASE = "CS"
         private const val CHART_RECOVERED = "CR"
         private const val CHART_DEATH_DAILY = "CDD"
-        private const val CHART_CASE_DAILY = "CSD"
+        private const val CHART_CASE_DAILY = "CCD"
         private const val CHART_RECOVERED_DAILY = "CRD"
         private val CHART_REQUEST_REGEX = "$CHART_REQUEST_PREFIX(?<chartType>$CHART_DEATH_DAILY|$CHART_CASE_DAILY|$CHART_RECOVERED_DAILY|$CHART_DEATH|$CHART_CASE|$CHART_RECOVERED)(?<countryName>.+)".toRegex()
     }

@@ -7,7 +7,7 @@ import java.io.File
 /**
  * DO NOT RUN THIS FILE. ASK @theapache64 why!
  */
-fun main() {
+fun generate() {
     val quizSourceFile = File("/home/theapache64/Documents/projects/codoc19/extras/quiz_source.json")
     val gson = Gson()
     val quizSrc = gson.fromJson(quizSourceFile.readText(), QuizSource::class.java)

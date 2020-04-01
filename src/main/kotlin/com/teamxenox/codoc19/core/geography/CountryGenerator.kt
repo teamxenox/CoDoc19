@@ -489,7 +489,7 @@ data class CountryItem(
     }
 }
 
-fun main() {
+fun generate() {
     val type = object : TypeToken<List<CountryItem>>() {}.type
     val fullCountriesJson = File("assets/countries_full.json").readText()
     val fCountries = GsonUtils.gson.fromJson<List<CountryItem>>(fullCountriesJson, type)
