@@ -71,7 +71,8 @@ class Graphologist {
             drawString(WATERMARK_TEXT, WM_X, WM_Y)
         }.dispose()
 
-        val chartFile = File("${JarUtils.getJarDir()}charts/$fileName")
+        val chartFile = File("${JarUtils.getJarDir()}./charts/$fileName")
+        println("file is ${chartFile.absolutePath}")
         ImageIO.write(buffImage, "png", chartFile)
 
         return chartFile
