@@ -163,7 +163,7 @@ object CovidStatsAPI {
             return null
         } else {
             val resourceAsStream = CovidStatsAPI::class.java.getResourceAsStream(dataFileName)
-            println("Stream is $resourceAsStream")
+            println("Data file is $dataFileName")
             val csvData = resourceAsStream.bufferedReader().readText()
             val parsedData = JHUCSVParser.parseData(countryName, csvData)
             if (parsedData.deaths.isNotEmpty()) {
