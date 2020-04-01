@@ -11,6 +11,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.util.concurrent.TimeUnit
 
 class Telegram(
         private val accessToken: String
@@ -26,12 +27,17 @@ class Telegram(
 
         private val api = Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .client(OkHttpClient.Builder().apply {
-                    val logging = HttpLoggingInterceptor()
-                    logging.level = HttpLoggingInterceptor.Level.BODY
-
-                    //addInterceptor(logging)
-                }.build())
+                .client(OkHttpClient.Builder()
+                        .connectTimeout(60, TimeUnit.SECONDS)
+                        .readTimeout(60, TimeUnit.SECONDS)
+                        .writeTimeout(60, TimeUnit.SECONDS)
+                        .followRedirects(true)
+                        .followSslRedirects(true)
+                        /*.apply {
+                            val logging = HttpLoggingInterceptor()
+                            logging.level = HttpLoggingInterceptor.Level.BODY
+                            addInterceptor(logging)
+                        }*/.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(TelegramApi::class.java)
