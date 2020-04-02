@@ -1,50 +1,68 @@
 # CoDoc19 :robot:
 
-An open source bot which helps to diagnose symptoms of COVID-19 virus staying at home!
+CoDoc19 is a telegram bot which helps to let you know more about COVID-19. 
 
-<img src="https://user-images.githubusercontent.com/15226353/77837846-5e04ff00-718b-11ea-89b7-a3f0cefa25c8.jpg" data-canonical-src="https://user-images.githubusercontent.com/15226353/77837846-5e04ff00-718b-11ea-89b7-a3f0cefa25c8.jpg" width="250" height="500"  />
+![intro](screenshots/intro.jpg)
 
-## Usage
 
-Currently we have telegram support. Bot's telegram handler is [@CoDoc19Bot](https://t.me/CoDoc19Bot). So just go to telegram app and start interacting with it :man_technologist:
+## Features / Commands
 
-### Main Commands
-
-1. To start interacting with the bot :beginner:
+To start interacting with the bot :beginner:
 ```
 /start
 ```
-After entering this command you will get following three options:
+After entering this command you will get the available commands
 
-2. To check the likelihood of having COVID 19 :clipboard:
+### Corona Test
+
+To check the likelihood of having COVID 19 :clipboard:
+
 ```
 /test
 ```
-You will get several Yes :heavy_check_mark: | No :x: questions. 
 
-3. To check whether you are taking correct measures against COVID 19 :thinking:
+![corona_test](screenshots/test.jpg)
+
+With this test you can quickly check the likelihood of having Covid-19. This test is regularly updated and based on the recommendations of certified health organizations. It is purely intended to provide guidance and is not an official diagnosis.
+
+### Quiz
+
+To check if you're taking the correct protective measures against COVID-19.
 
 ```
 /quiz
 ```
 
+![quiz](screenshots/quiz.jpg)
+
 Several questions with options. You have to choose the right answer to ensure you have been good in taking measures :fist_left:
 
 4. To get current statistics of death, cases, recoveries etc. :chart_with_upwards_trend:
+
+### Statistics
 
 ```
 /stats
 ```
 
-5. To get statistics of specific country
+To get statistics related to death, active cases and recovered cases. Both global level and country wise.
 
-```
-Country Name or Country Code
-```
-Country name means full country name and country code is the 2 letter ISO code of countries.
+#### Global
+
+To get global statistics, you just have to pass the `/stats` command
+
+![global_stats](screenshots/stats.jpg)
+
+#### Country-wise
+To get country-wise statistics, you can directly pass **country name** or **country code**.
+
+![country_stats](screenshots/stats_countries.jpg)
+
+
 ## TODO
-- [ ] Stats command in progress
-- [ ] Add facebook support
+
+- [ ] Build web interface 
+- [ ] Build facebook bot
 
 
 ## Contributing
@@ -62,7 +80,6 @@ Feel free to contribute to this project and treat it like your own. 😊
 - [shishirjha :cyclone:](https://github.com/shishirjha)
 
 
-
 ## License
 
-[MIT License](https://github.com/teamxenox/codoc19/blob/master/LICENSE)
+[Apache 2.0](https://github.com/teamxenox/codoc19/blob/master/LICENSE)
