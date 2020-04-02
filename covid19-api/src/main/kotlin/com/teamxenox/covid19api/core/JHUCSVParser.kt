@@ -6,11 +6,12 @@ import com.teamxenox.covid19api.utils.ArrayUtils
 object JHUCSVParser {
     const val COUNTRY_GLOBAL = "Global"
     private const val TEXT_FIELD_COUNT_GLOBAL = 4
-    private const val TEXT_FIELD_COUNT_USA = 11
+    private const val TEXT_FIELD_COUNT_USA = 12
     private const val INVALID_SK = "\"Korea, South\""
 
     private val countryNameMap = mapOf(
-            "s. korea" to "south korea"
+            "s. korea" to "south korea",
+            "usa" to "us"
     )
 
 
@@ -42,7 +43,7 @@ object JHUCSVParser {
         val countryNameArrIndex = if (isGlobal) {
             1
         } else {
-            8
+            7
         }
 
         println("Parsing $textFieldCount:$countryNameArrIndex...")
@@ -60,7 +61,7 @@ object JHUCSVParser {
                 }
             }
 
-            val fields = line.split(",")
+            val fields = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)".toRegex())
             if (fields.size > 1) {
                 val fCountryName = fields[countryNameArrIndex].toLowerCase()
                 if (countryName == countryGlobal || fCountryName == countryName) {

@@ -17,6 +17,7 @@ object CovidStatsAPI {
     private const val RECOVERED_DATA_FILE_NAME_GLOBAL = "/time_series_covid19_recovered_global.csv"
 
     // USA
+    private const val COUNTRY_USA = "USA"
     private const val DEATH_DATA_FILE_NAME_USA = "/time_series_covid19_deaths_US.csv"
     private const val CASE_DATA_FILE_NAME_USA = "/time_series_covid19_confirmed_US.csv"
 
@@ -145,25 +146,24 @@ object CovidStatsAPI {
     }
 
     fun getDeathDataGlobal(countryName: String): JhuData? {
-        return getJHUData(countryName, DEATH_DATA_FILE_NAME_GLOBAL, true)
+        return if (countryName == COUNTRY_USA) {
+            getJHUData(countryName, DEATH_DATA_FILE_NAME_USA, false)
+        } else {
+            getJHUData(countryName, DEATH_DATA_FILE_NAME_GLOBAL, true)
+        }
     }
 
 
     fun getCaseDataGlobal(countryName: String): JhuData? {
-        return getJHUData(countryName, CASE_DATA_FILE_NAME_GLOBAL, true)
+        return if (countryName == COUNTRY_USA) {
+            getJHUData(countryName, CASE_DATA_FILE_NAME_USA, false)
+        } else {
+            getJHUData(countryName, CASE_DATA_FILE_NAME_GLOBAL, true)
+        }
     }
 
     fun getRecoveredDataGlobal(countryName: String): JhuData? {
         return getJHUData(countryName, RECOVERED_DATA_FILE_NAME_GLOBAL, true)
-    }
-
-    fun getDeathDataUSA(countryName: String): JhuData? {
-        return getJHUData(countryName, DEATH_DATA_FILE_NAME_USA, false)
-    }
-
-
-    fun getCaseDataUSA(countryName: String): JhuData? {
-        return getJHUData(countryName, CASE_DATA_FILE_NAME_USA, false)
     }
 
 

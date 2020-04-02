@@ -19,6 +19,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 
     implementation 'org.knowm.xchart:xchart:3.6.2'
+    implementation 'de.siegmar:fastcsv:1.0.3'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation "com.winterbe:expekt:0.5.0"
