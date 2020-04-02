@@ -28,6 +28,18 @@ To check the likelihood of having COVID 19 :clipboard:
 
 With this test you can quickly check the likelihood of having Covid-19. This test is regularly updated and based on the recommendations of certified health organizations. It is purely intended to provide guidance and is not an official diagnosis.
 
+### QA
+
+Provide trustworthy answers to questions about COVID-19 via NLP
+
+![qa](screenshots/qa.jpg)
+
+People have many questions about COVID-19, answers are scattered on different websites,
+finding the right answers takes a lot of time and trustworthiness of answers is hard to judge. So we created a `QA` feature.
+The model is currently in it's learning phase. This may result in matching of wrong question. 
+I believe this will be improved in time.
+
+
 ### Quiz
 
 To check if you're taking the correct protective measures against COVID-19.
@@ -81,6 +93,15 @@ Feel free to contribute to this project and treat it like your own. 😊
 - [theapache64 🚁](https://github.com/theapache64)
 - [pavanjadhaw 🍀](https://github.com/pavanjadhaw)
 - [shishirjha :cyclone:](https://github.com/shishirjha)
+
+## Thanks to
+
+- [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19)
+- [deepset-ai/COVID-QA](https://github.com/deepset-ai/COVID-QA)
+- [CoronaTest](https://coronatest.live)
+- [Roylab Stats](https://www.youtube.com/watch?v=qgylp3Td1Bw)
+- [XChart](https://knowm.org/open-source/xchart/)
+- [Telegram Bot API](https://core.telegram.org/bots/api)
 
 
 ## License
