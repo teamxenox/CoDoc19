@@ -8,6 +8,8 @@ object JHUCSVParser {
     private const val TEXT_FIELD_COUNT_GLOBAL = 4
     private const val TEXT_FIELD_COUNT_USA = 12
     private const val INVALID_SK = "\"Korea, South\""
+    private const val REPLACEMENT_SK = "South Korea"
+    private val CSV_SPLIT_REGEX = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)".toRegex()
 
     private val countryNameMap = mapOf(
             "s. korea" to "south korea",
@@ -57,13 +59,16 @@ object JHUCSVParser {
             // south korea fix
             if (isGlobal) {
                 if (line.contains(INVALID_SK)) {
-                    line = line.replace(INVALID_SK, "South Korea")
+                    line = line.replace(INVALID_SK, REPLACEMENT_SK)
                 }
             }
 
-            val fields = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)".toRegex())
+            val fields = line.split(CSV_SPLIT_REGEX)
             if (fields.size > 1) {
                 val fCountryName = fields[countryNameArrIndex].toLowerCase()
+                if (fCountryName.contains("korea")) {
+                    println("korea found")
+                }
                 if (countryName == countryGlobal || fCountryName == countryName) {
                     val deaths = fields.subList(textFieldCount, fields.size).map { it.toInt() }
                     if (firstDeathDate == null) {
