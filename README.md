@@ -73,6 +73,12 @@ To get country-wise statistics, you can directly pass **country name** or **coun
 
 ![country_stats](screenshots/stats_countries.jpg)
 
+### Charts
+
+You can also generate **charts** for both global and country stats 😎. 
+Simply click the chart button to generate a chart.
+
+![chart](screenshots/charts.jpg)
 
 ## TODO
 
