@@ -1,1 +1,1 @@
-./gradlew bootJar && mv build/libs/codoc19-0.0.1-SNAPSHOT.jar codoc19.jar && sudo chmod +x codoc19.jar
+./gradlew bootJar && mv build/libs/codoc19-1.0.0-alpha01.jar codoc19.jar && sudo chmod +x codoc19.jar
