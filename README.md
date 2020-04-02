@@ -4,6 +4,9 @@ CoDoc19 is a telegram bot which helps to let you know more about COVID-19.
 
 ![intro](screenshots/intro.jpg)
 
+## Install
+
+The telegram handler is [@CoDoc19Bot](https://t.me/CoDoc19Bot). So just go to telegram app and start interacting with it :man_technologist:
 
 ## Features / Commands
 
