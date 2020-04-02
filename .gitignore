@@ -139,3 +139,9 @@ SecretConstants.kt
 
 src/main/resources/application.properties
 curls.txt
+
+covid19-api/src/main/resources/time_series_covid19_confirmed_global.csv
+covid19-api/src/main/resources/time_series_covid19_recovered_global.csv
+covid19-api/src/main/resources/time_series_covid19_deaths_global.csv
+covid19-api/src/main/resources/time_series_covid19_deaths_US.csv
+covid19-api/src/main/resources/time_series_covid19_confirmed_US.csv
