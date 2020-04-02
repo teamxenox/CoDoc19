@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.teamxenox"
-version = "1.0.0-alpha01"
+version = "1.0.0-alpha02"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
