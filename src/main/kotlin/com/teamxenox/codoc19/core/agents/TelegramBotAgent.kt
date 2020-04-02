@@ -315,7 +315,8 @@ open class TelegramBotAgent(
 
     override fun sendCountryStats(country: Country) {
         val covidAnalyst = CovidAnalyst(telegramApi, chatId, messageId)
-        covidAnalyst.sendCountryStats(country.name)
+        covidAnalyst.sendCountryStats(country)
+
 
         analyticsRepo.save(Analytics().apply {
             userId = currentUser.id

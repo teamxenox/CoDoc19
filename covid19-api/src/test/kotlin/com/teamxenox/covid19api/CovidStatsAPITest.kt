@@ -31,14 +31,14 @@ class CovidStatsAPITest {
 
     @Test
     fun testTimeSeriesDeathDataIndiaSuccess() {
-        val deathData = CovidStatsAPI.getDeathData("India")!!
+        val deathData = CovidStatsAPI.getDeathDataGlobal("India")!!
         deathData.countryName.should.equal("India")
         deathData.daySeries.size.should.above(0)
     }
 
     @Test
     fun testTimeSeriesCaseDataIndiaSuccess() {
-        val deathData = CovidStatsAPI.getCaseData("India")!!
+        val deathData = CovidStatsAPI.getCaseDataGlobal("India")!!
         println(deathData)
         deathData.countryName.should.equal("India")
         deathData.daySeries.size.should.above(0)

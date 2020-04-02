@@ -4,6 +4,7 @@ import com.teamxenox.codoc19.core.base.FeatureProxy
 import com.teamxenox.codoc19.data.entities.Chart
 import com.teamxenox.codoc19.data.entities.User
 import com.teamxenox.codoc19.data.repos.ChartRepo
+import com.teamxenox.codoc19.models.Country
 import com.teamxenox.codoc19.utils.StringUtils.addComma
 import com.teamxenox.codoc19.utils.get
 import com.teamxenox.covid19api.CovidStatsAPI
@@ -97,8 +98,8 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
         """.trimIndent()
     }
 
-    fun sendCountryStats(country: String) {
-        val countryStats = CovidStatsAPI.getStats(country)
+    fun sendCountryStats(country: Country) {
+        val countryStats = CovidStatsAPI.getStats(country.code)
 
         if (countryStats != null) {
             send(countryStats, "📍 <b>${countryStats.countryName}</b>", false)
@@ -246,15 +247,15 @@ class CovidAnalyst(private val telegramApi: Telegram, private val chatId: Long, 
 
             val jhuData = when (chartType) {
                 Chart.Type.RECOVERED, Chart.Type.RECOVERED_DAILY -> {
-                    CovidStatsAPI.getRecoveredData(countryName)
+                    CovidStatsAPI.getRecoveredDataGlobal(countryName)
                 }
 
                 Chart.Type.DEATH, Chart.Type.DEATH_DAILY -> {
-                    CovidStatsAPI.getDeathData(countryName)
+                    CovidStatsAPI.getDeathDataGlobal(countryName)
                 }
 
                 Chart.Type.CASE, Chart.Type.CASE_DAILY -> {
-                    CovidStatsAPI.getCaseData(countryName)
+                    CovidStatsAPI.getCaseDataGlobal(countryName)
                 }
             }
 

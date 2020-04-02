@@ -12,9 +12,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object CovidStatsAPI {
 
-    private const val DEATH_DATA_FILE_NAME = "/time_series_covid19_deaths_global.csv"
-    private const val CASE_DATA_FILE_NAME = "/time_series_covid19_confirmed_global.csv"
-    private const val RECOVERED_DATA_FILE_NAME = "/time_series_covid19_recovered_global.csv"
+    private const val DEATH_DATA_FILE_NAME_GLOBAL = "/time_series_covid19_deaths_global.csv"
+    private const val CASE_DATA_FILE_NAME_GLOBAL = "/time_series_covid19_confirmed_global.csv"
+    private const val RECOVERED_DATA_FILE_NAME_GLOBAL = "/time_series_covid19_recovered_global.csv"
+
+    // USA
+    private const val DEATH_DATA_FILE_NAME_USA = "/time_series_covid19_deaths_US.csv"
+    private const val CASE_DATA_FILE_NAME_USA = "/time_series_covid19_confirmed_US.csv"
 
     private val indianApi by lazy {
         return@lazy Retrofit.Builder()
@@ -56,6 +60,7 @@ object CovidStatsAPI {
 
         } else {
 
+            println("Getting stats data for $countryName")
             val resp = globalApi.getCountryData(countryName).execute()
             if (resp.code() == 200) {
                 val countryData = resp.body()!!
@@ -139,41 +144,52 @@ object CovidStatsAPI {
         return null
     }
 
-    fun getDeathData(countryName: String): JhuData? {
-        return getJHUData(countryName, DEATH_DATA_FILE_NAME)
+    fun getDeathDataGlobal(countryName: String): JhuData? {
+        return getJHUData(countryName, DEATH_DATA_FILE_NAME_GLOBAL, true)
     }
 
 
-    fun getCaseData(countryName: String): JhuData? {
-        return getJHUData(countryName, CASE_DATA_FILE_NAME)
+    fun getCaseDataGlobal(countryName: String): JhuData? {
+        return getJHUData(countryName, CASE_DATA_FILE_NAME_GLOBAL, true)
     }
 
-    fun getRecoveredData(countryName: String): JhuData? {
-        return getJHUData(countryName, RECOVERED_DATA_FILE_NAME)
+    fun getRecoveredDataGlobal(countryName: String): JhuData? {
+        return getJHUData(countryName, RECOVERED_DATA_FILE_NAME_GLOBAL, true)
+    }
+
+    fun getDeathDataUSA(countryName: String): JhuData? {
+        return getJHUData(countryName, DEATH_DATA_FILE_NAME_USA, false)
     }
 
 
-    private fun getJHUData(_countryName: String, dataFileName: String): JhuData? {
+    fun getCaseDataUSA(countryName: String): JhuData? {
+        return getJHUData(countryName, CASE_DATA_FILE_NAME_USA, false)
+    }
+
+
+    private fun getJHUData(_countryName: String, dataFileName: String, isGlobal: Boolean): JhuData? {
 
         val countryName = _countryName.toLowerCase().trim()
 
-        if (countryName == "us" || countryName == "usa" || countryName == "united states" || countryName == "united states of america") {
+        /*if (countryName == "us" || countryName == "usa" || countryName == "united states" || countryName == "united states of america") {
             println("AAAAAAAAAAAMMMMM!!!")
             // See : https://github.com/teamxenox/CoDoc19/issues/19
             return null
         } else {
-            val resourceAsStream = CovidStatsAPI::class.java.getResourceAsStream(dataFileName)
-            val csvData = resourceAsStream.bufferedReader().readText()
-            val parsedData = JHUCSVParser.parseData(countryName, csvData)
-            if (parsedData.deaths.isNotEmpty()) {
-                val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
-                if (finalData.isNotEmpty()) {
-                    return JhuData(
-                            countryName,
-                            parsedData.firstDeathDate,
-                            finalData
-                    )
-                }
+
+        }*/
+
+        val resourceAsStream = CovidStatsAPI::class.java.getResourceAsStream(dataFileName)
+        val csvData = resourceAsStream.bufferedReader().readText()
+        val parsedData = JHUCSVParser.parseData(countryName, csvData, isGlobal)
+        if (parsedData.deaths.isNotEmpty()) {
+            val finalData = ArrayUtils.trimStartNonDeaths(JHUCSVParser.merge(parsedData.deaths))
+            if (finalData.isNotEmpty()) {
+                return JhuData(
+                        countryName,
+                        parsedData.firstDeathDate,
+                        finalData
+                )
             }
         }
 
