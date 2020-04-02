@@ -2,7 +2,7 @@
 
 CoDoc19 is a telegram bot which helps to let you know more about COVID-19. 
 
-![intro](screenshots/intro.jpg)
+![intro](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/intro.jpg)
 
 ## Install
 
@@ -24,7 +24,7 @@ To check the likelihood of having COVID 19 :clipboard:
 /test
 ```
 
-![corona_test](screenshots/test.jpg)
+![corona_test](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/test.jpg)
 
 With this test you can quickly check the likelihood of having Covid-19. This test is regularly updated and based on the recommendations of certified health organizations. It is purely intended to provide guidance and is not an official diagnosis.
 
@@ -32,7 +32,7 @@ With this test you can quickly check the likelihood of having Covid-19. This tes
 
 Provide trustworthy answers to questions about COVID-19 via NLP
 
-![qa](screenshots/qa.jpg)
+![qa](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/qa.jpg)
 
 People have many questions about COVID-19, answers are scattered on different websites,
 finding the right answers takes a lot of time and trustworthiness of answers is hard to judge. So we created a `QA` feature.
@@ -48,7 +48,7 @@ To check if you're taking the correct protective measures against COVID-19.
 /quiz
 ```
 
-![quiz](screenshots/quiz.jpg)
+![quiz](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/quiz.jpg)
 
 Several questions with options. You have to choose the right answer to ensure you have been good in taking measures :fist_left:
 
@@ -66,19 +66,19 @@ To get statistics related to death, active cases and recovered cases. Both globa
 
 To get global statistics, you just have to pass the `/stats` command
 
-![global_stats](screenshots/stats.jpg)
+![global_stats](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats.jpg)
 
 #### Country-wise
 To get country-wise statistics, you can directly pass **country name** or **country code**.
 
-![country_stats](screenshots/stats_countries.jpg)
+![country_stats](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats_countries.jpg)
 
 ### Charts
 
 You can also generate **charts** for both global and country stats 😎. 
 Simply click the chart button to generate a chart.
 
-![chart](screenshots/charts.jpg)
+![chart](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/charts.jpg)
 
 ## TODO
 
