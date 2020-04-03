@@ -2,8 +2,6 @@
 
 CoDoc19 is a telegram bot which helps to let you know more about COVID-19. 
 
-![intro](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/intro.jpg)
-
 ## Install ⚙️
 
 The telegram handler is [@CoDoc19Bot](https://t.me/CoDoc19Bot). So just go to telegram app and start interacting with it :man_technologist:
@@ -23,8 +21,9 @@ To check the likelihood of having COVID 19 📋
 ```
 /test
 ```
-
-![corona_test](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/test.jpg)
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/test.jpg" height="600"/>
+</p>
 
 With this test you can quickly check the likelihood of having Covid-19. This test is regularly updated and based on the recommendations of certified health organizations. It is purely intended to provide guidance and is not an official diagnosis.
 
@@ -32,7 +31,9 @@ With this test you can quickly check the likelihood of having Covid-19. This tes
 
 Provide trustworthy answers to questions about COVID-19 via NLP
 
-![qa](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/qa.jpg)
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/qa.jpg" height="600"/>
+</p>
 
 People have many questions about COVID-19, answers are scattered on different websites,
 finding the right answers takes a lot of time and trustworthiness of answers is hard to judge. So we created a `QA` feature.
@@ -48,7 +49,9 @@ To check if you're taking the correct protective measures against COVID-19.
 /quiz
 ```
 
-![quiz](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/quiz.jpg)
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/quiz.jpg" height="600"/>
+</p>
 
 Several questions with options. You have to choose the right answer to ensure you have been good in taking measures :fist_left:
 
@@ -66,19 +69,26 @@ To get statistics related to death, active cases and recovered cases. Both globa
 
 To get global statistics, you just have to pass the `/stats` command
 
-![global_stats](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats.jpg)
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats.jpg" height="600"/>
+</p>
 
 #### Country-wise 🗺
-To get country-wise statistics, you can directly pass **country name** or **country code**.
+To get country-wise statistics, pass countrname with `/stats` command. eg `/stats India`
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats_countries.jpg" height="600"/>
+</p>
 
-![country_stats](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats_countries.jpg)
+**PRO TIP** : You can directly pass **country name** or **country code** without `/stats`. eg try `India` 😉
 
 ### Charts 📉
 
 You can also generate **charts** for both global and country stats 😎. 
 Simply click the chart button to generate a chart.
 
-![chart](https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/charts.jpg)
+<p align="center">
+<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/charts.jpg" height="600"/>
+</p>
 
 ## TODO ✍️
 
