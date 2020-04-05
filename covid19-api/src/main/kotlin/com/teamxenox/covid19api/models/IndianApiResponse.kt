@@ -52,26 +52,21 @@ data class IndianApiResponse(
             val confirmed: String, // 1053
             @SerializedName("deaths")
             val deaths: String, // 27
-            @SerializedName("delta")
-            val delta: Delta,
+
+            @SerializedName("deltaconfirmed")
+            val deltaconfirmed: Int, // 24
+            @SerializedName("deltadeaths")
+            val deltadeaths: Int, // 0
+            @SerializedName("deltarecovered")
+            val deltarecovered: Int, // 0
+
             @SerializedName("lastupdatedtime")
             val lastupdatedtime: String, // 29/03/2020 16:17:24
             @SerializedName("recovered")
             val recovered: String, // 86
             @SerializedName("state")
             val state: String // Total
-    ) {
-        data class Delta(
-                @SerializedName("active")
-                val active: Int, // 24
-                @SerializedName("confirmed")
-                val confirmed: Int, // 24
-                @SerializedName("deaths")
-                val deaths: Int, // 0
-                @SerializedName("recovered")
-                val recovered: Int // 0
-        )
-    }
+    )
 
     data class Tested(
             @SerializedName("source")

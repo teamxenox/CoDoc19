@@ -31,3 +31,4 @@ CREATE TABLE `charts`(
 );
 
 ALTER TABLE `analytics` CHANGE `data` `data` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;
+ALTER TABLE `users` CHANGE `first_name` `first_name` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;

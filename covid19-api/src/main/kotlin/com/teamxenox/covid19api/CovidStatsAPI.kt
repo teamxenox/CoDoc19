@@ -55,8 +55,8 @@ object CovidStatsAPI {
                     india.deaths.toInt(),
                     india.recovered.toInt(),
                     india.active.toInt(),
-                    india.delta.confirmed,
-                    india.delta.deaths
+                    india.deltaconfirmed,
+                    india.deltadeaths
             )
 
         } else {
