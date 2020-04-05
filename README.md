@@ -74,10 +74,9 @@ To get global statistics, you just have to pass the `/stats` command
 </p>
 
 #### Country-wise 🗺
-To get country-wise statistics, pass countrname with `/stats` command. eg `/stats India`
-<p align="center">
-<img src="https://raw.githubusercontent.com/teamxenox/CoDoc19/master/screenshots/stats_countries.jpg" height="600"/>
-</p>
+
+To get country-wise statistics, pass country name with `/stats` command. eg `/stats India`
+
 
 **PRO TIP** : You can directly pass **country name** or **country code** without `/stats`. eg try `India` 😉
 
