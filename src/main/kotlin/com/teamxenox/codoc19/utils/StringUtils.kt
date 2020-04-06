@@ -9,7 +9,7 @@ object StringUtils {
         return NumberFormat.getNumberInstance(Locale.US).format(number)
     }
 
-    private fun addCommaIndia(_number: Int): String {
+    fun addCommaIndia(_number: Int): String {
         val number = _number.toString()
         return if (number.length >= 4) {
             when (number.length) {
