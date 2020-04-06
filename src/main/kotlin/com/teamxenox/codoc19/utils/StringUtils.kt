@@ -1,7 +1,15 @@
 package com.teamxenox.codoc19.utils
 
+import java.text.NumberFormat
+import java.util.*
+
 object StringUtils {
-    fun addComma(_number: Int): String {
+
+    fun addComma(number: Int): String {
+        return NumberFormat.getNumberInstance(Locale.US).format(number)
+    }
+
+    private fun addCommaIndia(_number: Int): String {
         val number = _number.toString()
         return if (number.length >= 4) {
             when (number.length) {
