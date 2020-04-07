@@ -16,17 +16,12 @@ deepsetUrlList =[deepsetApiFaqUrl,deepsetApiFeedbackUrl]
 
 # Function for checking individual api..
 def apiCheck(latestSchema,UrlType):
-    with open('{}.txt'.format(UrlType[2]),'r+') as f:
+    with open('{}.txt'.format(UrlType[2]),'r') as f:
         currentSchema = f.read()
         if currentSchema == latestSchema:
-            return "Json Structure/Schema is upto date for {} U+2714".format(UrlType[0])
+            return "JSON Structure/Schema is upto date for {} U+2714".format(UrlType[0])
         else:
-            query = input("schema has changed do you want to update it[y/n]?\n")
-            if query == 'y':
-                newSchema = f.write(latestSchema)
-                return "Schema updated... U+2714"
-            else:
-                return "You have chosen not to update schema.. Now you have to manually update it.. U+2757"
+            return "JSON Structure/Schema has been changed for {} U+2757".format(UrlType[0])
 
 def statusCheck(response,urlType):
     if response.status_code == 200:
@@ -83,6 +78,3 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
 
 if __name__ == '__main__':
     main(indianApiUrlList,globalUrlList,deepsetUrlList)
-        
-
-
