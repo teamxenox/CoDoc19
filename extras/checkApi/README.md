@@ -20,3 +20,8 @@ $ . codoc19env/bin/activate
 ```shell script
 (codoc19env) $ python check_api.py
 ```
+
+5. To detect and update the changed JSON Structure: 
+```shell script
+(codoc19env) $ python update.py
+```
