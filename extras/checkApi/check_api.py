@@ -84,51 +84,5 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
 if __name__ == '__main__':
     main(indianApiUrlList,globalUrlList,deepsetUrlList)
         
-# builder = SchemaBuilder()
-# resp = requests.get('https://api.covid19india.org/data.json')
-# data = resp.json()
-# builder.add_object(data)
-# textData = json.dumps(builder.to_json())
-# # print(json.loads(textData))
-# with open('./deepSetApiFeedbackCurrentSchema2.txt','w+') as firstFile:
-#     content = firstFile.write(textData)
-    # print(content)
-# import requests
-# import json
 
-# resp = requests.get("https://api.covid19india.org/data.json")
-# # resp = requests.get("https://corona.lmao.ninja/")
-# d = statusCheck(resp)
-# print(d)
-
-# data = jsonresp.json()
-# for i in data:
-#     print(i)
-# print(isinstance(data,dict))
-
-# for i in resp.json().keys():
-#     print(i)
-
-# for i in d['statewise']:
-#     print(i)
-
-# currentCovidIndiaSchema = None
-
-# resp = requests.get("https://covid-backend.deepset.ai/models/1/faq-qa")
-# print(isinstance(resp.json(),dict))
-# data = resp.json()
-# builder.add_object(data)
-# print(json.dumps(builder.to_json()))
-
-# schema = {
-#      "type" : "object",
-#      "properties" : {
-#          "price" : {"type" : "number"},
-#          "name" : {"type" : "string"},
-#      },
-#  }
-# try:
-#     validate(instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema,)  
-# except:
-#     print("invalid json")
 
