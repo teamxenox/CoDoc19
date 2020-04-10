@@ -4,12 +4,13 @@ import com.teamxenox.scholar.models.Feedback
 
 object FeedbackParser {
 
-    private val feedbackRegEx = "(?<feedback>\\w)(?<documentId>\\d+)(?<question>.+)".toRegex()
+    private val feedbackRegEx = "(?<modelId>\\d+)(?<feedback>\\w)(?<documentId>\\d+)(?<question>.+)".toRegex()
 
     fun parse(data: String): Feedback {
         val match = feedbackRegEx.find(data)
         val groups = match!!.groups
         return Feedback(
+                groups["modelId"]!!.value,
                 getFeedbackString(groups["feedback"]!!.value[0]),
                 groups["question"]!!.value,
                 groups["documentId"]!!.value.toLong()

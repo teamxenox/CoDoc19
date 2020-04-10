@@ -1,6 +1,7 @@
 package com.teamxenox.scholar.models
 
 data class Answer(
+        val modelId: String,
         val documentId: String,
         val askedQuestion: String,
         val matchedQuestion: String,

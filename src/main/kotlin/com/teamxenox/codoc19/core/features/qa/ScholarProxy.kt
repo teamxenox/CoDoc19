@@ -89,33 +89,33 @@ A: ${answer.answer}
         return try {
 
             val modelAndQuestion = answer.documentId + answer.askedQuestion
-
+            val modelId = answer.modelId
             SendMessageRequest.ReplyMarkup(
                     listOf(
                             listOf(
                                     // Relevant
                                     SendMessageRequest.InlineButton(
                                             FEEDBACK_RELEVANT_TEXT,
-                                            FEEDBACK_RELEVANT_KEY + modelAndQuestion
+                                            modelId + FEEDBACK_RELEVANT_KEY + modelAndQuestion
                                     ),
 
                                     // Fake
                                     SendMessageRequest.InlineButton(
                                             FEEDBACK_FAKE_TEXT,
-                                            FEEDBACK_FAKE_KEY + modelAndQuestion
+                                            modelId + FEEDBACK_FAKE_KEY + modelAndQuestion
                                     )
                             ),
                             listOf(
                                     // Irrelevant
                                     SendMessageRequest.InlineButton(
                                             FEEDBACK_IRRELEVANT_TEXT,
-                                            FEEDBACK_IRRELEVANT_KEY + modelAndQuestion
+                                            modelId + FEEDBACK_IRRELEVANT_KEY + modelAndQuestion
                                     ),
 
                                     // Outdated
                                     SendMessageRequest.InlineButton(
                                             FEEDBACK_OUTDATED_TEXT,
-                                            FEEDBACK_OUTDATED_KEY + modelAndQuestion
+                                            modelId + FEEDBACK_OUTDATED_KEY + modelAndQuestion
                                     )
                             )
                     )

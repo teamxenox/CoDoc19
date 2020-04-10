@@ -6,12 +6,14 @@ import com.teamxenox.scholar.data.feedback.AddFeedbackRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface DeepSetApi {
 
     @POST("question/ask")
     fun getAnswers(@Body answersRequest: AnswersRequest): Call<AnswersResponse>
 
-    @POST("models/1/feedback")
-    fun addFeedback(@Body addFeedbackRequest: AddFeedbackRequest): Call<Any>
+    @POST("models/{modelId}/feedback")
+    fun addFeedback(@Path("modelId") modelId: String,
+                    @Body addFeedbackRequest: AddFeedbackRequest): Call<Any>
 }

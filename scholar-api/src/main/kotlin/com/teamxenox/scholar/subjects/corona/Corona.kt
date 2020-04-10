@@ -30,8 +30,10 @@ object Corona : Subject {
         ).execute().body()
 
         if (answersResponse?.results!!.first().answers.isNotEmpty()) {
-            val ans = answersResponse.results.first().answers.first()
+            val result = answersResponse.results.first()
+            val ans = result.answers.first()
             return Answer(
+                    result.modelId.toString(),
                     ans.meta.documentId,
                     question,
                     ans.question,
@@ -47,6 +49,7 @@ object Corona : Subject {
 
     override fun addFeedback(feedback: Feedback): Boolean {
         val response = api.addFeedback(
+                feedback.modelId,
                 AddFeedbackRequest(
                         feedback.feedback,
                         feedback.question,
