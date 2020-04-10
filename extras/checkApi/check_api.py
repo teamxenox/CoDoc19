@@ -46,9 +46,6 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
     for i in globalUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        # builder = SchemaBuilder()
-        # builder.add_object(data)
-        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
         api_check = apiCheck(data,i)
@@ -57,9 +54,6 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
     for i in deepsetUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        # builder = SchemaBuilder()
-        # builder.add_object(data)
-        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
         api_check = apiCheck(data,i)
@@ -68,9 +62,6 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
     for i in indianApiUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        # builder = SchemaBuilder()
-        # builder.add_object(data)
-        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
         api_check = apiCheck(data,i)
