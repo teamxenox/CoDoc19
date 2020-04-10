@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface DeepSetApi {
 
-    @POST("models/1/faq-qa")
+    @POST("question/ask")
     fun getAnswers(@Body answersRequest: AnswersRequest): Call<AnswersResponse>
 
     @POST("models/1/feedback")

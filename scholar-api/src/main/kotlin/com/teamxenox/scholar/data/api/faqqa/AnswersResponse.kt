@@ -10,6 +10,8 @@ class AnswersResponse(
 data class Result(
         @SerializedName("answers")
         val answers: List<Answer>,
+        @SerializedName("model_id")
+        val modelId: Int,
         @SerializedName("question")
         val question: String // How does corona spread?
 ) {
