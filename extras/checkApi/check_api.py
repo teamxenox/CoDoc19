@@ -4,12 +4,12 @@ import json
 import requests
 
 # Globals
-indianApiUrl = ['IndianApi','https://api.covid19india.org/data.json','IndianApiCurrentSchema']
-globalApiUrl = ['globalApi','https://corona.lmao.ninja/all','globalApiCurrentSchema']
-globalApiCountriesUrl = ['globalApi --> Countries','https://corona.lmao.ninja/countries','globalApiCountriesCurrentSchema']
-globalApiUsaUrl = ['globalApi --> USA','https://corona.lmao.ninja/countries/USA','globalApiUSACurrentSchema']
-deepsetApiFaqUrl = ['DeepsetApi --> FAQ','https://covid-backend.deepset.ai/models/1/faq-qa','deepSetApiFaqCurrentSchema']
-deepsetApiFeedbackUrl = ['DeepSetApi --> Feedback','https://covid-backend.deepset.ai/models/1/feedback','deepSetApiFeedbackCurrentSchema']
+indianApiUrl = ['Indian API','https://api.covid19india.org/data.json','IndianApiCurrentSchema']
+globalApiUrl = ['Global API','https://corona.lmao.ninja/all','globalApiCurrentSchema']
+globalApiCountriesUrl = ['Global API / Countries','https://corona.lmao.ninja/countries','globalApiCountriesCurrentSchema']
+globalApiUsaUrl = ['Global API / USA','https://corona.lmao.ninja/countries/USA','globalApiUSACurrentSchema']
+deepsetApiFaqUrl = ['DeepSet API / FAQ','https://covid-backend.deepset.ai/models/1/faq-qa','deepSetApiFaqCurrentSchema']
+deepsetApiFeedbackUrl = ['DeepSetApi / Feedback','https://covid-backend.deepset.ai/models/1/feedback','deepSetApiFeedbackCurrentSchema']
 indianApiUrlList = [indianApiUrl]
 globalUrlList = [globalApiUrl,globalApiCountriesUrl,globalApiUsaUrl]
 deepsetUrlList =[deepsetApiFaqUrl,deepsetApiFeedbackUrl]
@@ -20,27 +20,27 @@ def apiCheck(data,UrlType):
         currentSchema = json.loads(f.read())
         try:
             validate(instance=data,schema=currentSchema)
-            return "JSON Structure/Schema is upto date for {}".format(UrlType[0])
+            return "✅ JSON Structure/Schema is upto date for {}".format(UrlType[0])
         except:
-            return "JSON Structure/Schema has been changed for {}".format(UrlType[0])
+            return "❌ JSON Structure/Schema has been changed for {}".format(UrlType[0])
 
 def statusCheck(response,urlType):
     if response.status_code == 200:
-        return "Api is up and running for {} U+2714".format(urlType[0])
+        return "✅ {} API".format(urlType[0])
     if response.status_code == 301:
-        return "The url for api has changed for {} U+26A0".format(urlType[0])
+        return "❌ The url for api has changed for {}".format(urlType[0])
     if response.status_code == 400:
-        return "bad request for {} U+26A0".format(urlType[0])
+        return "❌ Bad request for {}".format(urlType[0])
     if response.status_code == 401:
-        return "Authentication problem for {} U+26A0".format(urlType[0])
+        return "❌ Authentication problem for {}".format(urlType[0])
     if response.status_code == 403:
-        return "Forbidden request for {} U+26A0".format(urlType[0])
+        return "❌ Forbidden request for {}".format(urlType[0])
     if response.status_code == 404:
-        return "Resource not found for {} U+26A0".format(urlType[0])
+        return "❌ Resource not found for {}".format(urlType[0])
     if response.status_code == 503:
-        return "Server not ready handle the request for {} U+26A0".format(urlType[0])
+        return "❌ Server not ready handle the request for {}".format(urlType[0])
     else:
-        return "{} response was returned U+26A0".format(response.status_code)
+        return "❌ {} response was returned".format(response.status_code)
 
 def main(indianApiUrlList,globalUrlList,deepsetUrlList):
     for i in globalUrlList:
@@ -50,7 +50,7 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
         print(apiStatus)
         api_check = apiCheck(data,i)
         print(api_check)
-        print("\n\n")
+        print("--------------------------------")
     for i in deepsetUrlList:
         resp = requests.get(i[1])
         data = resp.json()
@@ -58,7 +58,7 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
         print(apiStatus)
         api_check = apiCheck(data,i)
         print(api_check)
-        print("\n\n")
+        print("--------------------------------")
     for i in indianApiUrlList:
         resp = requests.get(i[1])
         data = resp.json()
@@ -66,7 +66,7 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
         print(apiStatus)
         api_check = apiCheck(data,i)
         print(api_check)
-        print("\n\n")
+        print("--------------------------------")
 
 if __name__ == '__main__':
     main(indianApiUrlList,globalUrlList,deepsetUrlList)
