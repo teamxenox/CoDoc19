@@ -53,7 +53,7 @@ class ScholarProxy(
     private fun prepareAnswerBody(answer: Answer): String {
         val emoji = when (answer.confidence.toInt()) {
             in 0..30 -> "❤️" // red = average
-            in 31..70 -> "🧡️" // orange = ok
+            in 31..90 -> "🧡️" // orange = ok
             else -> "💚" // green = best
         }
 
