@@ -58,11 +58,12 @@ class ScholarProxy(
         }
 
         return """
-            Q: ${answer.matchedQuestion}
+Q: ${answer.matchedQuestion}
 A: ${answer.answer}
             
-            💪 Answer Confidence : ${answer.confidence}% $emoji
-            🌍 Source : <a href="${answer.sourceLink}">${answer.source}</a>""".trimIndent()
+💪 Answer Confidence : ${answer.confidence}% $emoji
+🌍 Source : <a href="${answer.sourceLink}">${answer.source}</a>
+            """.trimIndent()
     }
 
     /**
