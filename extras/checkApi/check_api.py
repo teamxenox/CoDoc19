@@ -1,4 +1,4 @@
-# from jsonschema import validate
+from jsonschema import validate
 from genson import SchemaBuilder
 import json
 import requests
@@ -15,13 +15,14 @@ globalUrlList = [globalApiUrl,globalApiCountriesUrl,globalApiUsaUrl]
 deepsetUrlList =[deepsetApiFaqUrl,deepsetApiFeedbackUrl]
 
 # Function for checking individual api..
-def apiCheck(latestSchema,UrlType):
-    with open('{}.txt'.format(UrlType[2]),'r') as f:
-        currentSchema = f.read()
-        if currentSchema == latestSchema:
-            return "JSON Structure/Schema is upto date for {} U+2714".format(UrlType[0])
-        else:
-            return "JSON Structure/Schema has been changed for {} U+2757".format(UrlType[0])
+def apiCheck(data,UrlType):
+    with open('{}.json'.format(UrlType[2]),'r') as f:
+        currentSchema = json.loads(f.read())
+        try:
+            validate(instance=data,schema=currentSchema)
+            return "JSON Structure/Schema is upto date for {}".format(UrlType[0])
+        except:
+            return "JSON Structure/Schema has been changed for {}".format(UrlType[0])
 
 def statusCheck(response,urlType):
     if response.status_code == 200:
@@ -45,34 +46,34 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
     for i in globalUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        builder = SchemaBuilder()
-        builder.add_object(data)
-        latestSchema = json.dumps(builder.to_json())
+        # builder = SchemaBuilder()
+        # builder.add_object(data)
+        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
-        api_check = apiCheck(latestSchema,i)
+        api_check = apiCheck(data,i)
         print(api_check)
         print("\n\n")
     for i in deepsetUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        builder = SchemaBuilder()
-        builder.add_object(data)
-        latestSchema = json.dumps(builder.to_json())
+        # builder = SchemaBuilder()
+        # builder.add_object(data)
+        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
-        api_check = apiCheck(latestSchema,i)
+        api_check = apiCheck(data,i)
         print(api_check)
         print("\n\n")
     for i in indianApiUrlList:
         resp = requests.get(i[1])
         data = resp.json()
-        builder = SchemaBuilder()
-        builder.add_object(data)
-        latestSchema = json.dumps(builder.to_json())
+        # builder = SchemaBuilder()
+        # builder.add_object(data)
+        # latestSchema = json.dumps(builder.to_json())
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
-        api_check = apiCheck(latestSchema,i)
+        api_check = apiCheck(data,i)
         print(api_check)
         print("\n\n")
 
