@@ -4,29 +4,40 @@ import com.google.gson.annotations.SerializedName
 
 
 data class SendMessageRequest(
-        @SerializedName("chat_id")
-        val chatId: Long, // to
-        @SerializedName("text")
-        val text: String, // This is some message
-        @SerializedName("disable_web_page_preview")
-        val isDisableWebPagePreview: Boolean? = true,
-        @SerializedName("parse_mode")
-        val parseMode: String? = "HTML",
-        @SerializedName("reply_to_message_id")
-        val replyMsgId: Long? = null,
-        @SerializedName("reply_markup")
-        val replyMarkup: ReplyMarkup? = null
+    @SerializedName("chat_id")
+    val chatId: Long, // to
+    @SerializedName("text")
+    val text: String, // This is some message
+    @SerializedName("disable_web_page_preview")
+    val isDisableWebPagePreview: Boolean? = true,
+    @SerializedName("parse_mode")
+    val parseMode: String? = "HTML",
+    @SerializedName("reply_to_message_id")
+    val replyMsgId: Long? = null,
+    @SerializedName("reply_markup")
+    val replyMarkup: ReplyMarkup? = null
 ) {
     data class ReplyMarkup(
-            @SerializedName("inline_keyboard")
-            val inlineKeyboard: List<List<InlineButton>>
+        @SerializedName("inline_keyboard")
+        val inlineKeyboard: List<List<InlineButton>>? = null,
+        @SerializedName("force_reply")
+        val isForceReply: Boolean? = null,
+        @SerializedName("keyboard")
+        val keyboard: List<List<KeyboardButton>>? = null,
+        @SerializedName("one_time_keyboard")
+        val isOneTime : Boolean? = null
+    )
+
+    data class KeyboardButton(
+        @SerializedName("text")
+        val text: String
     )
 
     data class InlineButton(
-            @SerializedName("text")
-            val text: String, // ✅ Relevant
-            @SerializedName("callback_data")
-            val callbackData: String // r123
+        @SerializedName("text")
+        val text: String, // ✅ Relevant
+        @SerializedName("callback_data")
+        val callbackData: String // r123
     ) {
         class ByteOverflowException(message: String?) : Throwable(message)
 
@@ -34,7 +45,7 @@ data class SendMessageRequest(
             val byteSize = callbackData.toByteArray().size
             if (byteSize > 64) {
                 throw ByteOverflowException(
-                        "Callback data exceeded `$callbackData`"
+                    "Callback data exceeded `$callbackData`"
                 )
             }
         }
