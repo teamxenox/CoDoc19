@@ -1,1 +1,1 @@
-{"$schema": "http://json-schema.org/schema#", "type": "object", "properties": {"detail": {"type": "string"}}, "required": ["detail"]}
+{"$schema": "http://json-schema.org/schema#", "type": "object", "properties": {"results": {"type": "array", "items": {"type": "object", "properties": {"question": {"type": "string"}, "answers": {"type": "array"}, "model_id": {"type": "integer"}}, "required": ["answers", "model_id", "question"]}}}, "required": ["results"]}

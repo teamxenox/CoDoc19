@@ -8,11 +8,10 @@ indianApiUrl = ['Indian API','https://api.covid19india.org/data.json','IndianApi
 globalApiUrl = ['Global API','https://corona.lmao.ninja/all','globalApiCurrentSchema']
 globalApiCountriesUrl = ['Global API / Countries','https://corona.lmao.ninja/countries','globalApiCountriesCurrentSchema']
 globalApiUsaUrl = ['Global API / USA','https://corona.lmao.ninja/countries/USA','globalApiUSACurrentSchema']
-deepsetApiFaqUrl = ['DeepSet API / FAQ','https://covid-backend.deepset.ai/models/1/faq-qa','deepSetApiFaqCurrentSchema']
-deepsetApiFeedbackUrl = ['DeepSetApi / Feedback','https://covid-backend.deepset.ai/models/1/feedback','deepSetApiFeedbackCurrentSchema']
+deepsetApiFaqUrl = ['DeepSet API / Questions','https://covid-backend.deepset.ai/question/ask','deepSetApiFaqCurrentSchema']
 indianApiUrlList = [indianApiUrl]
 globalUrlList = [globalApiUrl,globalApiCountriesUrl,globalApiUsaUrl]
-deepsetUrlList =[deepsetApiFaqUrl,deepsetApiFeedbackUrl]
+deepsetUrlList =[deepsetApiFaqUrl]
 
 # Function for checking individual api..
 def apiCheck(data,UrlType):
@@ -26,7 +25,7 @@ def apiCheck(data,UrlType):
 
 def statusCheck(response,urlType):
     if response.status_code == 200:
-        return "✅ {} API".format(urlType[0])
+        return "✅ {}".format(urlType[0])
     if response.status_code == 301:
         return "❌ The url for api has changed for {}".format(urlType[0])
     if response.status_code == 400:
@@ -43,6 +42,11 @@ def statusCheck(response,urlType):
         return "❌ {} response was returned".format(response.status_code)
 
 def main(indianApiUrlList,globalUrlList,deepsetUrlList):
+    questionFormat = data = '{"questions":["string"],"filters":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"top_k_reader":0,"top_k_retriever":0}'
+    headers = {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+    }
     for i in globalUrlList:
         resp = requests.get(i[1])
         data = resp.json()
@@ -52,7 +56,7 @@ def main(indianApiUrlList,globalUrlList,deepsetUrlList):
         print(api_check)
         print("--------------------------------")
     for i in deepsetUrlList:
-        resp = requests.get(i[1])
+        resp = requests.post(i[1],headers=headers,data=questionFormat)
         data = resp.json()
         apiStatus = statusCheck(resp,i)
         print(apiStatus)
