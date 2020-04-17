@@ -31,7 +31,7 @@ object CovidStatsAPI {
 
     private val globalApi by lazy {
         return@lazy Retrofit.Builder()
-                .baseUrl("https://corona.lmao.ninja/")
+                .baseUrl("https://corona.lmao.ninja/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(GlobalApi::class.java)
