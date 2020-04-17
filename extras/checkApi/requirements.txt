@@ -1,0 +1,13 @@
+attrs==19.3.0
+certifi==2020.4.5
+chardet==3.0.4
+genson==1.1.0
+idna==2.9
+importlib-metadata==1.6.0
+jsonschema==3.2.0
+pkg-resources==0.0.0
+pyrsistent==0.16.0
+requests==2.23.0
+six==1.14.0
+urllib3==1.25.8
+zipp==3.1.0
