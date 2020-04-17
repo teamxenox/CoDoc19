@@ -5,9 +5,9 @@ import requests
 
 # Globals
 indianApiUrl = ['Indian API','https://api.covid19india.org/data.json','IndianApiCurrentSchema']
-globalApiUrl = ['Global API','https://corona.lmao.ninja/all','globalApiCurrentSchema']
-globalApiCountriesUrl = ['Global API / Countries','https://corona.lmao.ninja/countries','globalApiCountriesCurrentSchema']
-globalApiUsaUrl = ['Global API / USA','https://corona.lmao.ninja/countries/USA','globalApiUSACurrentSchema']
+globalApiUrl = ['Global API','https://corona.lmao.ninja/v2/all','globalApiCurrentSchema']
+globalApiCountriesUrl = ['Global API / Countries','https://corona.lmao.ninja/v2/countries','globalApiCountriesCurrentSchema']
+globalApiUsaUrl = ['Global API / USA','https://corona.lmao.ninja/v2/countries/USA','globalApiUSACurrentSchema']
 deepsetApiFaqUrl = ['DeepSet API / Questions','https://covid-backend.deepset.ai/question/ask','deepSetApiFaqCurrentSchema']
 indianApiUrlList = [indianApiUrl]
 globalUrlList = [globalApiUrl,globalApiCountriesUrl,globalApiUsaUrl]
