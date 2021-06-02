@@ -9,5 +9,5 @@ pkg-resources==0.0.0
 pyrsistent==0.16.0
 requests==2.23.0
 six==1.14.0
-urllib3==1.25.8
+urllib3==1.26.5
 zipp==3.1.0
