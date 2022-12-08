@@ -1,5 +1,5 @@
 attrs==19.3.0
-certifi==2020.4.5
+certifi==2022.12.7
 chardet==3.0.4
 genson==1.1.0
 idna==2.9
